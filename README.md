@@ -15,10 +15,14 @@ Given a sketch of the video consisting of multiple scenes, it divides each scene
 Given a complete description of video (divided into multiple animation and audio), it outputs a python code using manim and manim_voiceover library.
 
 ### Sample Videos
-![Help me Understand Linear Regression](assets/LinearReg.mp4)
+**Help me Understand Linear Regression**  
+<video src="assets/LinearReg.mp4" controls width="600"></video>
 
-![What is the difference b/w sql and no sql databases](assets/sqlvsnosql.mp4)
+**What is the difference b/w SQL and NoSQL databases**  
+<video src="assets/sqlvsnosql.mp4" controls width="600"></video>
 
-![Explain all the threes laws of motion](assets/laws_of_motion.mp4)
+**Explain all the three laws of motion**  
+<video src="assets/laws_of_motion.mp4" controls width="600"></video>
 
-![What is gaussian distribution](assets/gaussian.mp4)
+**What is Gaussian distribution**  
+<video src="assets/gaussian.mp4" controls width="600"></video>
