@@ -14,7 +14,7 @@ Given a sketch of the video consisting of multiple scenes, it divides each scene
 ### Animation Code Generator
 Given a complete description of video (divided into multiple animation and audio), it outputs a python code using manim and manim_voiceover library.
 
-### Sample Videos
+## Sample Videos
 **Help me Understand Linear Regression**  
 
 
