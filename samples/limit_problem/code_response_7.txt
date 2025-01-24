@@ -1,0 +1,25 @@
+```
+class AnimationVideo(VoiceoverScene):
+    def play_scene_7(self):
+        # Implementation: Set speech service to GTTSService
+        self.set_speech_service(GTTSService())
+
+        # Implementation: Create final limit text
+        final_limit = MathTex("\\lim_{x \\to 0} \\frac{\\sin(x)}{x} = 1", color=WHITE).scale(1.5)
+
+        # Implementation: Animate writing final limit with voiceover
+        with self.voiceover(text="Therefore, we've shown that the limit of sin(x)/x as x approaches 0 is 1.") as tracker:
+            self.play(Write(final_limit))
+            self.wait(tracker.duration)
+
+        # Implementation: Create box around the limit
+        box = SurroundingRectangle(final_limit, color=WHITE, buff=0.2)
+
+        # Implementation: Animate creating box with voiceover
+        with self.voiceover(text="This is a fundamental result in calculus, and it's used in many other limit calculations and proofs. Understanding this limit is crucial for mastering calculus concepts.") as tracker:
+            self.play(Create(box))
+            self.wait(tracker.duration)
+
+        # Cleaning: Remove all objects
+        self.clear()
+```

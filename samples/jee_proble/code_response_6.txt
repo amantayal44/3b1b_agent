@@ -1,0 +1,114 @@
+```
+class AnimationVideo(VoiceoverScene):
+    def play_scene_6(self):
+        # Implementation: Setting the voiceover service to GTTSService
+        self.set_speech_service(GTTSService())
+        # Implementation: Displaying F · dr = (8t^4 i + 12t^3 j) · (i + 8t j) dt
+        F_dot_dr = MathTex("F \\cdot dr = (8t^4 \\, i + 12t^3 \\, j) \\cdot (i + 8t \\, j) \\, dt", font_size=40).to_edge(UP)
+
+        # Implementation: Adding voiceover for the first part of scene 6
+        with self.voiceover(text="Now we can calculate the dot product of F and d r.") as tracker:
+            # Implementation: Animating the dot product equation
+            self.play(Write(F_dot_dr))
+            self.wait(tracker.duration)
+
+        # Implementation: Calculating the dot product step-by-step
+        dot_product_calc = MathTex("(8t^4 \\cdot 1) + (12t^3 \\cdot 8t) \\, dt", font_size=40).next_to(F_dot_dr, DOWN, buff=1)
+        # Implementation: Highlighting each term in yellow during multiplication
+        dot_product_calc.set_color_by_tex("8t^4", YELLOW)
+        dot_product_calc.set_color_by_tex("1", YELLOW)
+        dot_product_calc.set_color_by_tex("12t^3", YELLOW)
+        dot_product_calc.set_color_by_tex("8t", YELLOW)
+        # Implementation: Simplifying to 104t^4 dt
+        dot_product_simplified = MathTex("= (8t^4 + 96t^4) \\, dt = 104t^4 \\, dt", font_size=40).next_to(dot_product_calc, DOWN, buff=0.5)
+
+        # Implementation: Adding voiceover for the second part of scene 6
+        with self.voiceover(text="F dot d r equals 8 t to the fourth i plus 12 t cubed j dot i plus 8 t j d t. This simplifies to 8 t to the fourth plus 96 t to the fourth d t, which is 104 t to the fourth d t.") as tracker:
+            # Implementation: Animating the dot product calculation and simplification
+            self.play(Write(dot_product_calc))
+            self.wait(8)  # Waiting for the part of the audio where simplification starts
+            self.play(Write(dot_product_simplified))
+            self.wait(tracker.duration - 8)
+
+        # Cleaning: Clearing all objects for the next scene
+        self.clear()
+
+    def play_scene_7(self):
+        # Implementation: Setting the voiceover service to GTTSService
+        self.set_speech_service(GTTSService())
+        # Implementation: Displaying "Limits: t = 0 to t = 1"
+        limits = MathTex("\\text{Limits: } t = 0 \\text{ to } t = 1", font_size=40).to_edge(UP)
+
+        # Implementation: Adding voiceover for the first part of scene 7
+        with self.voiceover(text="Since our particle moves from zero zero to one four, our limits for t are from zero to one.") as tracker:
+            # Implementation: Animating the limits
+            self.play(Write(limits))
+            self.wait(tracker.duration)
+
+        # Implementation: Displaying the integral W = ∫(from 0 to 1) 104t^4 dt
+        integral = MathTex("W = \\int_{0}^{1} 104t^4 \\, dt", font_size=40).next_to(limits, DOWN, buff=1)
+
+        # Implementation: Adding voiceover for the second part of scene 7
+        with self.voiceover(text="Now we can evaluate the integral: W equals the integral from zero to one of 104 t to the fourth d t.") as tracker:
+            # Implementation: Animating the integral
+            self.play(Write(integral))
+            self.wait(tracker.duration)
+
+        # Implementation: Integrating 104t^4 to get 104[t^5/5] (from 0 to 1)
+        integration = MathTex("W = 104 \\left[ \\frac{t^5}{5} \\right]_{0}^{1}", font_size=40).next_to(integral, DOWN, buff=1)
+        # Implementation: Highlighting the limits of integration in yellow
+        integration.set_color_by_tex("0", YELLOW)
+        integration.set_color_by_tex("1", YELLOW)
+        # Implementation: Calculating W = 104 * (1/5) = 20.8
+        calculation = MathTex("W = 104 \\cdot \\frac{1}{5} = 20.8", font_size=40).next_to(integration, DOWN, buff=0.5)
+
+        # Implementation: Adding voiceover for the third part of scene 7
+        with self.voiceover(text="This gives us 104 times t to the fifth over five, evaluated from zero to one. Plugging in the limits, we get 104 times one-fifth, which equals 20.8.") as tracker:
+            # Implementation: Animating the integration and calculation
+            self.play(Write(integration))
+            self.wait(5)  # Waiting for the part of the audio where calculation starts
+            self.play(Write(calculation))
+            self.wait(tracker.duration - 5)
+
+        # Cleaning: Clearing all objects for the next scene
+        self.clear()
+
+    def play_scene_8(self):
+        # Implementation: Setting the voiceover service to GTTSService
+        self.set_speech_service(GTTSService())
+        # Implementation: Displaying text "Conclusion"
+        conclusion_text = Text("Conclusion", font_size=48).to_edge(UP)
+
+        # Implementation: Creating the coordinate plane
+        axes = Axes(
+            x_range=[0, 1.5, 0.5],
+            y_range=[0, 5, 1],
+            x_length=6,
+            y_length=4,
+            axis_config={"color": WHITE},
+            x_axis_config={"numbers_to_include": [0, 1]},
+            y_axis_config={"numbers_to_include": [0, 4]},
+            tips=False,
+        ).set_color(BLUE_E)
+        # Implementation: Drawing the curve y = 4x^2
+        curve = axes.plot(lambda x: 4 * x**2, x_range=[0, 1], color=YELLOW)
+
+        # Implementation: Adding voiceover for the first part of scene 8
+        with self.voiceover(text="So, to recap, we found that the work done by the force F equals 2 x squared y i plus 3 x y j, in displacing a particle from zero zero to one four along the curve y equals 4 x squared,") as tracker:
+            # Implementation: Animating the conclusion text and coordinate plane with the curve
+            self.play(Write(conclusion_text))
+            self.play(Create(axes), Create(curve))
+            self.wait(tracker.duration)
+
+        # Implementation: Displaying text "Work Done = 20.8 units"
+        work_done_text = Text("Work Done = 20.8 units", font_size=48, weight=BOLD)
+
+        # Implementation: Adding voiceover for the second part of scene 8
+        with self.voiceover(text="is 20.8 units. This result highlights how the work done depends on both the force and the path taken.") as tracker:
+            # Implementation: Animating the final result
+            self.play(Write(work_done_text))
+            self.wait(tracker.duration)
+
+        # Cleaning: Clearing all objects for the next scene
+        self.clear()
+```

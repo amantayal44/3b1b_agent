@@ -1,0 +1,234 @@
+```python
+class AnimationVideo(VoiceoverScene):
+    def play_scene_1(self):
+        self.set_speech_service(GTTSService())
+        # scene_style: Dark background. White text, arrows, and RNN block. Use a simple, clean font like Arial or Helvetica. Text size should be large enough to read comfortably (e.g., 48pt for titles, 24pt for body text). Maintain consistent spacing between elements.
+        self.camera.background_color = BLACK
+
+        # Part 1
+        # animation_details: Show the text "Transformers in ML" at the top-center of the screen in a large, bold, white font, using a sans-serif font like Arial, size 48pt. After a brief pause, start moving the text smoothly towards the left side of the screen, taking about 2 seconds for the transition. Once the text has moved to the left, display a simple rectangular block representing an RNN in the center of the screen. Add a labeled arrow marked "Input" entering the RNN block from the left. Add another labeled arrow exiting the block to the right marked as "Output". Animate a small circle moving along the input arrow, through the RNN block, and out along the output arrow, taking about 2 seconds to complete the path, depicting sequential processing.
+        # audio_text: Let's explore the fascinating world of Transformers in machine learning.
+        with self.voiceover(text="Let's explore the fascinating world of Transformers in machine learning.") as tracker:
+            # Implementation: Create title text
+            title_text = Text("Transformers in ML", font="Arial", font_size=48, weight=BOLD).to_edge(UP)
+
+            # Implementation: Display title text
+            self.play(Write(title_text))
+            self.wait(0.5)
+
+            # Implementation: Move title text to the left
+            self.play(title_text.animate.to_edge(LEFT), run_time=2)
+
+            # Implementation: Create RNN block
+            # Thinking: Center of the screen is ORIGIN, so we don't need to shift the RNN block
+            rnn_block = Rectangle(width=2, height=1.5, color=WHITE)
+
+            # Implementation: Create input arrow
+            # Thinking: Left of the screen is LEFT * 7, so we start the arrow from there and end it at the left edge of the RNN block
+            input_arrow = Arrow(LEFT * 7, rnn_block.get_left(), buff=0, color=WHITE).set_stroke(width=5)
+            input_label = Text("Input", font="Arial", font_size=24).next_to(input_arrow, UP)
+
+            # Implementation: Create output arrow
+            # Thinking: Right of the screen is RIGHT * 7, so we start the arrow from the right edge of the RNN block and end it there
+            output_arrow = Arrow(rnn_block.get_right(), RIGHT * 7, buff=0, color=WHITE).set_stroke(width=5)
+            output_label = Text("Output", font="Arial", font_size=24).next_to(output_arrow, UP)
+
+            # Implementation: Create a circle for animation
+            circle = Circle(radius=0.1, color=WHITE, fill_opacity=1)
+            circle.move_to(input_arrow.get_start())
+
+            # Implementation: Display RNN block, arrows, and labels
+            self.play(
+                Create(rnn_block),
+                Create(input_arrow),
+                Write(input_label),
+                Create(output_arrow),
+                Write(output_label),
+            )
+
+            # Implementation: Animate circle through the RNN block
+            self.play(
+                MoveAlongPath(circle, input_arrow),
+                MoveAlongPath(circle, rnn_block),
+                MoveAlongPath(circle, output_arrow),
+                run_time=2,
+            )
+            self.wait(0.5)
+
+        # Cleaning: Keep all objects for the next part
+
+        # Part 2
+        # animation_details: Keep the RNN block from the previous part in the center. Add a label "Recurrent Neural Network" below the RNN block using white, Arial font, size 24pt. Ensure the label is horizontally centered with the RNN block and there's enough space between them so they don't overlap.
+        # audio_text: Before Transformers, models like Recurrent Neural Networks or RNNs processed data sequentially, one element at a time.
+        with self.voiceover(text="Before Transformers, models like Recurrent Neural Networks or RNNs processed data sequentially, one element at a time.") as tracker:
+            # Implementation: Create RNN label
+            # Thinking: RNN block is at ORIGIN, so we place the label below it with a buffer of 0.5
+            rnn_label = Text("Recurrent Neural Network", font="Arial", font_size=24).next_to(rnn_block, DOWN, buff=0.5)
+
+            # Implementation: Display RNN label
+            self.play(Write(rnn_label))
+            self.wait(tracker.duration - estimated_audio_duration_s + 1)
+
+        # Cleaning: Clear all objects
+        self.clear()
+
+    def play_scene_2(self):
+        self.set_speech_service(GTTSService())
+        # scene_style: Maintain the same dark background, white text and arrows. Use a color gradient from dark red to light pink for the vanishing gradient visualization. Keep the font and text sizes consistent with the previous scene.
+        self.camera.background_color = BLACK
+
+        # Part 1
+        # animation_details: Display the sentence "This is a long sentence" at the top-left of the screen, with each word spaced apart by about 20 pixels, using white Arial font, size 24pt. Move the entire sentence towards the RNN block, which is positioned in the center of the screen. Animate each word entering the RNN block sequentially, one after the other, with a 0.5-second delay between each word. As each word is processed, show a corresponding output on the right side of the RNN block, represented by small grey rectangles. For each new word processed, reduce the size of the output rectangles from previously processed words by 10% and decrease their opacity by 20%, making them less prominent.
+        # audio_text: This sequential nature made RNNs slow, especially for long sequences.
+        with self.voiceover(text="This sequential nature made RNNs slow, especially for long sequences.") as tracker:
+            # Implementation: Create sentence
+            # Thinking: Top-left of the screen is UP * 3.5 + LEFT * 6, so we start the sentence there
+            sentence = Text("This is a long sentence", font="Arial", font_size=24, t2c={"This": WHITE, "is": WHITE, "a": WHITE, "long": WHITE, "sentence": WHITE}).arrange(RIGHT, buff=0.25).to_edge(UP).to_edge(LEFT)
+
+            # Implementation: Create RNN block
+            # Thinking: Center of the screen is ORIGIN, so we don't need to shift the RNN block
+            rnn_block = Rectangle(width=2, height=1.5, color=WHITE)
+
+            # Implementation: Display sentence and RNN block
+            self.play(Write(sentence), Create(rnn_block))
+
+            # Implementation: Animate each word entering the RNN block
+            output_rects = []
+            for i, word in enumerate(sentence):
+                # Implementation: Move word to RNN block
+                self.play(
+                    word.animate.move_to(rnn_block.get_center()),
+                    run_time=0.5,
+                )
+
+                # Implementation: Create output rectangle
+                output_rect = Rectangle(width=0.5, height=0.3, color=GRAY, fill_opacity=1).move_to(rnn_block.get_right()).shift(RIGHT * (i + 1) * 0.6)
+                self.play(Create(output_rect))
+
+                # Implementation: Add output rectangle to list
+                output_rects.append(output_rect)
+
+                # Implementation: Reduce size and opacity of previous output rectangles
+                for j, rect in enumerate(output_rects[:-1]):
+                    self.play(
+                        rect.animate.scale(0.9).set_opacity(rect.opacity - 0.2),
+                        run_time=0.1,
+                    )
+
+                # Implementation: Remove word from screen
+                self.remove(word)
+
+            self.wait(0.5)
+
+        # Cleaning: Keep sentence and RNN block for the next part
+
+        # Part 2
+        # animation_details: Move the sentence and RNN block diagram towards the right side of the screen over a duration of 1 second, creating space on the left. Display the text "Vanishing Gradient Problem" at the top-center in large, bold, white Arial font, size 48pt. Below this text, draw a horizontal chain of five connected rectangular blocks, each 50 pixels wide and 30 pixels high, representing the steps in backpropagation. The blocks should be spaced 20 pixels apart. Apply a color gradient to these blocks, starting with dark red (#8B0000) for the first block on the right and transitioning to light pink (#FFB6C1) for the last block on the left, illustrating the diminishing strength of the gradient signal during backpropagation. Ensure the transition is smooth, using linear interpolation between colors.
+        # audio_text: They also suffered from issues like vanishing or exploding gradients, making it hard to learn long-range dependencies in the data.
+        with self.voiceover(text="They also suffered from issues like vanishing or exploding gradients, making it hard to learn long-range dependencies in the data.") as tracker:
+            # Implementation: Move sentence and RNN block to the right
+            self.play(
+                sentence.animate.to_edge(RIGHT),
+                rnn_block.animate.to_edge(RIGHT),
+                run_time=1,
+            )
+
+            # Implementation: Create title text
+            # Thinking: Top-center of the screen is UP * 3.5, so we place the title there
+            title_text = Text("Vanishing Gradient Problem", font="Arial", font_size=48, weight=BOLD).to_edge(UP)
+
+            # Implementation: Display title text
+            self.play(Write(title_text))
+
+            # Implementation: Create chain of blocks
+            # Thinking: We want the chain to be centered horizontally, so we start from the center and place the blocks to the left and right
+            blocks = []
+            colors = color_gradient([RED, PINK], 5)
+            for i in range(5):
+                block = Rectangle(width=1, height=0.6, color=colors[i], fill_opacity=1)
+                if i == 0:
+                    block.move_to(LEFT * 2)
+                else:
+                    block.next_to(blocks[i - 1], RIGHT, buff=0.4)
+                blocks.append(block)
+
+            # Implementation: Display blocks
+            self.play(*[Create(block) for block in blocks])
+            self.wait(tracker.duration - estimated_audio_duration_s + 1)
+
+        # Cleaning: Clear all objects
+        self.clear()
+
+    def play_scene_3(self):
+        self.set_speech_service(GTTSService())
+        # scene_style: Continue with the dark background. Use white text for general text and bright, distinct lines for attention connections. Maintain the same font style and size for consistency.
+        self.camera.background_color = BLACK
+
+        # Part 1
+        # animation_details: Clear the screen of all previous elements. Display the text "Attention" prominently at the top-center of the screen in a large, bold, white Arial font, size 48pt. Below this, add a brief explanation: "Attention allows a model to focus on relevant parts of the input sequence." in white Arial font, size 24pt. The explanation text should be horizontally centered and placed about 30 pixels below the "Attention" text.
+        # audio_text: The game-changer was the concept of 'Attention'.
+        with self.voiceover(text="The game-changer was the concept of 'Attention'.") as tracker:
+            # Implementation: Create title text
+            # Thinking: Top-center of the screen is UP * 3.5, so we place the title there
+            title_text = Text("Attention", font="Arial", font_size=48, weight=BOLD).to_edge(UP)
+
+            # Implementation: Create explanation text
+            # Thinking: We want the explanation to be centered horizontally and placed 30 pixels (0.3 in Manim units) below the title text
+            explanation_text = Text("Attention allows a model to focus on relevant parts of the input sequence.", font="Arial", font_size=24).next_to(title_text, DOWN, buff=0.3)
+
+            # Implementation: Display title and explanation text
+            self.play(Write(title_text), Write(explanation_text))
+            self.wait(tracker.duration - estimated_audio_duration_s + 1)
+
+        # Cleaning: Clear all objects
+
+        # Part 2
+        # animation_details: Move the "Attention" text to the top-left corner of the screen, taking 1 second for the transition. Reintroduce the sentence "This is a long sentence" near the top of the screen, slightly below and to the right of the "Attention" text, with each word spaced 20 pixels apart. Draw a new rectangular block labeled "Attention" below the sentence, centered horizontally. Connect all words of the sentence to this block simultaneously with lines, indicating parallel processing. For each word in the sentence, draw lines connecting it to other words, representing attention weights. Use brighter lines (#FFFFE0) for stronger connections and dimmer lines (white with 50% opacity) for weaker connections. For instance, when focusing on the word "sentence", use a bright line to connect it to "long", indicating a strong relationship. The lines should be animated to appear in sync with the audio explanation.
+        # audio_text: Instead of processing word by word, attention allows the model to look at all words at once and determine their relationships, avoiding the bottlenecks of RNNs.
+        with self.voiceover(text="Instead of processing word by word, attention allows the model to look at all words at once and determine their relationships, avoiding the bottlenecks of RNNs.") as tracker:
+            # Implementation: Move title text to the top-left corner
+            self.play(
+                title_text.animate.to_edge(LEFT).to_edge(UP),
+                run_time=1,
+            )
+            self.remove(explanation_text)
+
+            # Implementation: Create sentence
+            # Thinking: We want the sentence to be near the top of the screen, slightly below and to the right of the "Attention" text
+            sentence = Text("This is a long sentence", font="Arial", font_size=24).arrange(RIGHT, buff=0.25).next_to(title_text, DOWN).shift(RIGHT * 2)
+
+            # Implementation: Create attention block
+            # Thinking: We want the attention block to be below the sentence, centered horizontally
+            attention_block = Rectangle(width=3, height=1.5, color=WHITE).next_to(sentence, DOWN, buff=1)
+            attention_label = Text("Attention", font="Arial", font_size=24).move_to(attention_block)
+
+            # Implementation: Display sentence and attention block
+            self.play(Write(sentence), Create(attention_block), Write(attention_label))
+
+            # Implementation: Connect all words to the attention block
+            lines_to_block = []
+            for word in sentence:
+                line = Line(word.get_bottom(), attention_block.get_top(), color=WHITE)
+                lines_to_block.append(line)
+            self.play(*[Create(line) for line in lines_to_block])
+
+            # Implementation: Connect words to each other
+            lines_between_words = []
+            for i, word1 in enumerate(sentence):
+                for j, word2 in enumerate(sentence):
+                    if i != j:
+                        # Implementation: Use brighter lines for stronger connections (e.g., "sentence" and "long")
+                        if (word1.text == "sentence" and word2.text == "long") or \
+                           (word1.text == "long" and word2.text == "sentence"):
+                            line = Line(word1.get_center(), word2.get_center(), color="#FFFFE0")
+                        else:
+                            line = Line(word1.get_center(), word2.get_center(), color=WHITE, opacity=0.5)
+                        lines_between_words.append(line)
+
+            # Implementation: Animate lines between words
+            self.play(*[Create(line) for line in lines_between_words])
+            self.wait(tracker.duration - estimated_audio_duration_s + 1)
+
+        # Cleaning: Clear all objects
+        self.clear()
+```

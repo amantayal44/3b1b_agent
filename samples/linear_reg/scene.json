@@ -1,0 +1,209 @@
+{
+  "scenes": [
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the title \"Linear Regression\" in dark blue, centered at the top of the screen. After a brief pause, fade out the title while simultaneously introducing the x and y axes for the scatter plot. The x-axis should be labeled \"House Size (sq ft)\" and the y-axis labeled \"House Price ($)\", both in white. Draw light gray grid lines in the background.",
+          "audio_text": "Let's start with a simple problem.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Introduce the scatter plot with the x-axis labeled \"House Size (sq ft)\" and the y-axis labeled \"House Price ($)\". The axes should be light gray and the labels white. The plot should be centered, not aligned to any extreme side, to ensure it is fully visible within the frame. Prepare to plot data points in the next part.",
+          "audio_text": "Imagine you want to predict the price of a house based on its size. You collect some data, and it looks like this.",
+          "estimated_audio_duration_s": 9
+        },
+        {
+          "animation_details": "With the scatter plot already displayed, plot several data points representing different houses and their corresponding prices. Each data point should be a blue dot. Ensure the points are distributed across the graph in such a way that they do not overlap and are not too close to the edges of the frame.",
+          "audio_text": "Each dot here represents a house, with its size on the horizontal axis and price on the vertical axis. We need a way to model this relationship.",
+          "estimated_audio_duration_s": 11
+        }
+      ],
+      "scene_style": "Background in black. Title \"Linear Regression\" in dark blue at the top center. Axes in light gray, labels in white. Data points as blue dots. Grid in light gray."
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the equation y = mx + b in white at the top center of the screen. Below the equation, set up a graph with x and y axes in light gray, positioned at the center of the frame. Ensure there is sufficient space around the graph to prevent any part of it from being cut off.",
+          "audio_text": "To model this, we can use a simple line. You might remember the equation of a line from school: y = mx + b.",
+          "estimated_audio_duration_s": 10
+        },
+        {
+          "animation_details": "On the graph displayed in the previous part, animate a blue line. Dynamically change the value of 'm' (slope) to show how it affects the steepness of the line. Display the current value of 'm' at the top right corner of the screen, updating it in real time as the slope changes.",
+          "audio_text": "Here, 'm' is the slope, which determines how steep the line is",
+          "estimated_audio_duration_s": 5
+        },
+        {
+          "animation_details": "Continue animating the blue line on the graph by dynamically changing the value of 'b' (y-intercept). Show how different values of 'b' affect where the line crosses the y-axis. Display the current value of 'b' alongside the 'm' value at the top right corner, updating both in real time.",
+          "audio_text": "and 'b' is the y-intercept, which is where the line crosses the y-axis.",
+          "estimated_audio_duration_s": 5
+        }
+      ],
+      "scene_style": "Background in black. Equation in white at the top. Graph with x and y axes in light gray. Line in blue. 'm' and 'b' values displayed and updated dynamically in white."
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the scatter plot from Scene 1, with \"House Size (sq ft)\" on the x-axis and \"House Price ($)\" on the y-axis. The axes should be light gray, labels in white, and data points as blue dots. Ensure the plot is centered on the screen to avoid any part being cut off.",
+          "audio_text": "Our goal is to find the line that best fits this data.",
+          "estimated_audio_duration_s": 5
+        },
+        {
+          "animation_details": "On the scatter plot, draw several different lines, each in a different color. These lines should pass through various data points and have varying slopes and y-intercepts, illustrating different possible models for the data.",
+          "audio_text": "You can see that some lines do a better job than others.",
+          "estimated_audio_duration_s": 5
+        },
+        {
+          "animation_details": "Among the multiple lines drawn on the scatter plot, highlight one line in blue that appears to fit the data well. Make this line stand out more prominently than the others.",
+          "audio_text": "But how do we define 'best fit'?",
+          "estimated_audio_duration_s": 3
+        },
+        {
+          "animation_details": "With the well-fitting line highlighted in blue, draw thin red vertical lines from each data point to this line. These lines represent the errors or residuals between the actual data points and the predicted values on the line. Ensure the data points and the blue line remain clearly visible.",
+          "audio_text": "We can measure the distance between each point and the line. These distances are called errors or residuals.",
+          "estimated_audio_duration_s": 7
+        }
+      ],
+      "scene_style": "Background in black. Scatter plot as in Scene 1. Lines in different colors. Highlight the \"best fit\" line in blue. Vertical error lines in red."
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the scatter plot with the \"best fit\" line, as established in the previous scene. The plot should be centered, with \"House Size (sq ft)\" on the x-axis and \"House Price ($)\" on the y-axis, both in light gray. Data points should be blue dots, and the best fit line should be blue.",
+          "audio_text": "Each of these red lines represents an error.",
+          "estimated_audio_duration_s": 3
+        },
+        {
+          "animation_details": "Highlight the data points that are above the blue line. Simultaneously, highlight their corresponding vertical error lines in a slightly brighter shade of red to indicate positive errors.",
+          "audio_text": "If a point is above the line, the error is positive.",
+          "estimated_audio_duration_s": 4
+        },
+        {
+          "animation_details": "Highlight the data points that are below the blue line. Simultaneously, highlight their corresponding vertical error lines in a slightly darker shade of red to indicate negative errors.",
+          "audio_text": "If it's below, the error is negative. Intuitively, we want to minimize these errors to get the best fit.",
+          "estimated_audio_duration_s": 8
+        }
+      ],
+      "scene_style": "Background in black. Scatter plot and line as before. Error lines in red. Highlight positive and negative errors with different shades of red."
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Continue displaying the error lines as shown in the previous scene. Keep the scatter plot with the \"best fit\" line and the red vertical error lines visible.",
+          "audio_text": "To do this systematically, we use a method called Ordinary Least Squares.",
+          "estimated_audio_duration_s": 5
+        },
+        {
+          "animation_details": "Introduce the formula for error, e = y - \u0302, written in white at the top of the screen. Keep scatter plot in background.",
+          "audio_text": "We square each error, which makes them all positive and emphasizes larger errors.",
+          "estimated_audio_duration_s": 5
+        },
+        {
+          "animation_details": "Visually represent the squaring of each error by showing small red squares along each of the vertical error lines. The size of each square should be proportional to the square of the error it represents.",
+          "audio_text": "Then we add them up.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Write the formula for the Sum of Squared Errors (SSE), SSE = \u03a3(y\u1d62 - y\u0302\u1d62)\u00b2, in white at the top of the screen, replacing the individual error formula. Highlight this equation to emphasize its importance.",
+          "audio_text": "This is called the Sum of Squared Errors, or SSE.",
+          "estimated_audio_duration_s": 4
+        },
+        {
+          "animation_details": "Keep the SSE formula visible at the top. Briefly remove the scatter plot and other elements to focus on the formula, then bring them back as you explain the goal.",
+          "audio_text": "Our goal is to find the values of 'm' and 'b' that minimize this sum.",
+          "estimated_audio_duration_s": 6
+        }
+      ],
+      "scene_style": "Background in black. Error lines as before. Equations in white. Highlight the squaring of errors visually with red squares."
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the SSE formula, SSE = \u03a3(y\u1d62 - y\u0302\u1d62)\u00b2, in white at the top center of the screen.",
+          "audio_text": "To find these values, we use a bit of calculus.",
+          "estimated_audio_duration_s": 4
+        },
+        {
+          "animation_details": "Show the process of taking the partial derivative of SSE with respect to b\u2080. Write the equation for \u2202SSE/\u2202b\u2080 in white, highlighting it in a distinct color, such as yellow.",
+          "audio_text": "We take the partial derivatives of SSE with respect to b\u2080",
+          "estimated_audio_duration_s": 4
+        },
+        {
+          "animation_details": "Show the process of taking the partial derivative of SSE with respect to b\u2081. Write the equation for \u2202SSE/\u2202b\u2081 in white, highlighted in a different color, such as green.",
+          "audio_text": "and b\u2081",
+          "estimated_audio_duration_s": 1
+        },
+        {
+          "animation_details": "Set both partial derivative equations to zero: \u2202SSE/\u2202b\u2080 = 0 and \u2202SSE/\u2202b\u2081 = 0. Display these equations prominently.",
+          "audio_text": "and set them to zero.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Display the two equations that result from setting the partial derivatives to zero. These equations should be aligned and clearly visible.",
+          "audio_text": "This gives us two equations.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Show the steps to solve for b\u2080 from the equations. Highlight the algebraic manipulations in a distinct color, such as light blue.",
+          "audio_text": "Solving these,",
+          "estimated_audio_duration_s": 1
+        },
+        {
+          "animation_details": "Show the steps to solve for b\u2081 from the equations. Highlight the algebraic manipulations in a distinct color, such as orange.",
+          "audio_text": "we get the formulas for b\u2081 and b\u2080.",
+          "estimated_audio_duration_s": 3
+        },
+        {
+          "animation_details": "Display the final formulas for b\u2081 and b\u2080: b\u2081 = (n\u03a3x\u1d62y\u1d62 - \u03a3x\u1d62\u03a3y\u1d62) / (n\u03a3x\u1d62\u00b2 - (\u03a3x\u1d62)\u00b2) and b\u2080 = \u0233 - b\u2081 * x\u0304. Enlarge these formulas and place them at the center of the screen for emphasis.",
+          "audio_text": "Here they are. Don't worry too much about the calculus; what's important is that these formulas give us the slope and y-intercept of the best fit line.",
+          "estimated_audio_duration_s": 11
+        }
+      ],
+      "scene_style": "Background in black. Equations in white, step-by-step derivation. Highlight each step with a different color."
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the equation for multiple linear regression, y\u0302 = b\u2080 + b\u2081x\u2081 + b\u2082x\u2082, in white at the top center of the screen.",
+          "audio_text": "What if we have more than one factor affecting the house price, like size and number of bedrooms?",
+          "estimated_audio_duration_s": 7
+        },
+        {
+          "animation_details": "Introduce a 3D scatter plot with axes labeled x\u2081, x\u2082, and y, all in light gray. Plot data points in blue. The plot should be positioned at the center of the screen to ensure all elements are clearly visible.",
+          "audio_text": "This is called multiple linear regression. The equation now looks like this, with multiple 'x' values and their corresponding coefficients.",
+          "estimated_audio_duration_s": 8
+        },
+        {
+          "animation_details": "Display a semi-transparent blue plane that represents the best fit for the data points in the 3D scatter plot. Ensure the plane is oriented in such a way that it clearly demonstrates the concept of a best-fit plane in multiple dimensions.",
+          "audio_text": "Instead of a line, we now have a plane that best fits the data in multiple dimensions.",
+          "estimated_audio_duration_s": 7
+        }
+      ],
+      "scene_style": "Background in black. Equation in white. 3D plot with axes in light gray, data points in blue, plane in semi-transparent blue."
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the R-squared formula in white at the top center of the screen. Keep it simple, such as R-squared = Explained Variance / Total Variance.",
+          "audio_text": "Finally, how do we know if our model is any good?",
+          "estimated_audio_duration_s": 4
+        },
+        {
+          "animation_details": "Explain R-squared as the proportion of variance in the dependent variable that is predictable from the independent variables. Use simple graphics, like dividing a pie chart into explained and unexplained variance, to illustrate the concept.",
+          "audio_text": "One common metric is R-squared. It tells us how much of the variation in house prices our model can explain.",
+          "estimated_audio_duration_s": 8
+        },
+        {
+          "animation_details": "Display a horizontal bar in green, labeled with 0 at one end and 1 at the other, to represent the range of R-squared values.",
+          "audio_text": "R-squared ranges from 0 to 1.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Highlight different segments on the green bar with yellow, explaining their meaning. For instance, highlight a value close to 1 and explain it as a good model fit, then highlight a value close to 0 and explain it as a poor model fit.",
+          "audio_text": "A value close to 1 means our model does a great job, while a value close to 0 means it doesn't explain much at all.",
+          "estimated_audio_duration_s": 10
+        }
+      ],
+      "scene_style": "Background in black. Formula in white. Bar in green, highlighted values in yellow."
+    }
+  ]
+}

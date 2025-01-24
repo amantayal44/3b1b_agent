@@ -1,0 +1,184 @@
+```
+class AnimationVideo(VoiceoverScene):
+    def play_scene_4(self):
+        # Implementation: Set speech service to GTTSService
+        self.set_speech_service(GTTSService())
+
+        # Implementation: Get inequality from the previous scene
+        inequality = self.mobjects[-1]
+
+        # Implementation: Rearrange inequality to focus on sin(x)/x
+        new_inequality_1 = MathTex("2", "\\cdot", "\\frac{1}{2}", "\\cos(x)\\sin(x)", "<", "2", "\\cdot", "\\frac{1}{2}x", "<", "2", "\\cdot", "\\frac{1}{2}\\tan(x)", color=WHITE).scale(0.7).move_to(inequality.get_center())
+        new_inequality_2 = MathTex("\\cos(x)\\sin(x)", "<", "x", "<", "\\tan(x)", color=WHITE).scale(0.7).move_to(inequality.get_center())
+        new_inequality_3 = MathTex("\\cos(x)", "<", "\\frac{x}{\\sin(x)}", "<", "\\frac{\\tan(x)}{\\sin(x)}", color=WHITE).scale(0.7).move_to(inequality.get_center())
+        new_inequality_4 = MathTex("\\cos(x)", "<", "\\frac{x}{\\sin(x)}", "<", "\\frac{\\sin(x)}{\\cos(x)}", "\\cdot", "\\frac{1}{\\sin(x)}", color=WHITE).scale(0.7).move_to(inequality.get_center())
+        new_inequality_5 = MathTex("\\cos(x)", "<", "\\frac{x}{\\sin(x)}", "<", "\\frac{1}{\\cos(x)}", color=WHITE).scale(0.7).move_to(inequality.get_center())
+        new_inequality_6 = MathTex("\\frac{1}{\\cos(x)}", ">", "\\frac{\\sin(x)}{x}", ">", "\\cos(x)", color=WHITE).scale(0.7).move_to(inequality.get_center())
+        new_inequality_7 = MathTex("\\cos(x)", "<", "\\frac{\\sin(x)}{x}", "<", "\\frac{1}{\\cos(x)}", color=WHITE).scale(0.7).move_to(inequality.get_center())
+
+        # Implementation: Set colors for inequality parts
+        new_inequality_1[3].set_color(RED)
+        new_inequality_1[7].set_color(GREEN)
+        new_inequality_1[11].set_color(BLUE)
+        new_inequality_2[0].set_color(RED)
+        new_inequality_2[2].set_color(GREEN)
+        new_inequality_2[4].set_color(BLUE)
+
+        # Implementation: Highlight "2" in yellow
+        new_inequality_1[0].set_color(YELLOW)
+        new_inequality_1[5].set_color(YELLOW)
+        new_inequality_1[9].set_color(YELLOW)
+
+        # Implementation: Animate multiplying by 2 with voiceover
+        with self.voiceover(text="Our goal is to isolate sin(x)/x. First, we multiply everything by 2.") as tracker:
+            self.play(
+                Transform(inequality, new_inequality_1)
+            )
+            self.wait(tracker.duration)
+
+        # Implementation: Animate simplifying by cancelling 2 with voiceover
+        with self.voiceover(text="") as tracker:
+            self.play(
+                Transform(inequality, new_inequality_2)
+            )
+            self.wait(tracker.duration)
+
+        # Implementation: Highlight "/sin(x)" in yellow
+        temp_inequality = MathTex("\\frac{\\cos(x)\\sin(x)}{\\sin(x)}", "<", "\\frac{x}{\\sin(x)}", "<", "\\frac{\\tan(x)}{\\sin(x)}", color=WHITE).scale(0.7).move_to(inequality.get_center())
+        temp_inequality[0][7:14].set_color(YELLOW)
+        temp_inequality[2][1:8].set_color(YELLOW)
+        temp_inequality[4][7:14].set_color(YELLOW)
+
+        # Implementation: Animate dividing by sin(x) with voiceover
+        with self.voiceover(text="Then, we divide by sin(x).") as tracker:
+            self.play(Transform(inequality, temp_inequality))
+            self.wait(tracker.duration)
+            
+        # Implementation: Animate simplifying by cancelling sin(x) with voiceover
+        with self.voiceover(text="") as tracker:
+            self.play(
+                Transform(inequality, new_inequality_3)
+            )
+            self.wait(tracker.duration)
+
+        # Implementation: Highlight "sin(x)/cos(x)" in yellow
+        new_inequality_4[4].set_color(YELLOW)
+
+        # Implementation: Animate replacing tan(x) with sin(x)/cos(x) with voiceover
+        with self.voiceover(text="Next, we replace tan(x) with sin(x)/cos(x).") as tracker:
+            self.play(Transform(inequality, new_inequality_4))
+            self.wait(tracker.duration)
+
+        # Implementation: Animate simplifying by cancelling sin(x) with voiceover
+        with self.voiceover(text="") as tracker:
+            self.play(
+                Transform(inequality, new_inequality_5)
+            )
+            self.wait(tracker.duration)
+
+        # Implementation: Highlight inversion and flipped inequality signs in yellow
+        new_inequality_6[0].set_color(YELLOW)
+        new_inequality_6[1].set_color(YELLOW)
+        new_inequality_6[2].set_color(YELLOW)
+        new_inequality_6[3].set_color(YELLOW)
+        new_inequality_6[4].set_color(YELLOW)
+
+        # Implementation: Animate taking reciprocal and flipping inequality signs with voiceover
+        with self.voiceover(text="Now, we take the reciprocal of each part, remembering to flip the inequality signs.") as tracker:
+            self.play(Transform(inequality, new_inequality_6))
+            self.wait(tracker.duration)
+
+        # Implementation: Animate rearranging inequality with voiceover
+        with self.voiceover(text="Finally, we rearrange to get cos(x) < sin(x)/x < 1/cos(x).") as tracker:
+            self.play(Transform(inequality, new_inequality_7))
+            self.wait(tracker.duration)
+
+        # Cleaning: Keep only the final inequality
+        #self.clear()
+        #self.add(inequality)
+
+    def play_scene_5(self):
+        # Implementation: Set speech service to GTTSService
+        self.set_speech_service(GTTSService())
+
+        # Implementation: Get inequality from the previous scene
+        inequality = self.mobjects[-1]
+
+        # Implementation: Create limit of cos(x) text
+        limit_cos = MathTex("\\lim_{x \\to 0} \\cos(x) = 1", color=WHITE).scale(0.7).next_to(inequality, DOWN, buff=0.5)
+
+        # Implementation: Animate writing limit of cos(x) with voiceover
+        with self.voiceover(text="We know that the limit of cos(x) as x approaches 0 is 1.") as tracker:
+            self.play(Write(limit_cos))
+            self.wait(tracker.duration)
+
+        # Implementation: Create limit of 1/cos(x) text
+        limit_inv_cos = MathTex("\\lim_{x \\to 0} \\frac{1}{\\cos(x)} = 1", color=WHITE).scale(0.7).next_to(limit_cos, DOWN, buff=0.5)
+
+        # Implementation: Animate writing limit of 1/cos(x) with voiceover
+        with self.voiceover(text="and the limit of 1/cos(x) as x approaches 0 is also 1.") as tracker:
+            self.play(Write(limit_inv_cos))
+            self.wait(tracker.duration)
+
+        # Implementation: Create squeeze theorem inequality text
+        squeeze_inequality = MathTex(
+            "\\lim_{x \\to 0} \\cos(x) \\leq \\lim_{x \\to 0} \\frac{\\sin(x)}{x} \\leq \\lim_{x \\to 0} \\frac{1}{\\cos(x)}",
+            color=WHITE
+        ).scale(0.7).next_to(limit_inv_cos, DOWN, buff=0.5)
+
+        # Implementation: Highlight limits of cos(x) and 1/cos(x) in green
+        squeeze_inequality[0][0:13].set_color(GREEN)
+        squeeze_inequality[0][39:].set_color(GREEN)
+
+        # Implementation: Animate writing squeeze theorem inequality with voiceover
+        with self.voiceover(text="The Squeeze Theorem tells us that if a function is squeezed between two other functions that both approach the same limit, then the squeezed function must also approach that limit.") as tracker:
+            self.play(
+                #Write(squeeze_inequality)
+                Transform(inequality, squeeze_inequality)
+            )
+            self.wait(tracker.duration)
+
+        # Implementation: Create final conclusion text
+        final_conclusion = MathTex("1 \\leq \\lim_{x \\to 0} \\frac{\\sin(x)}{x} \\leq 1", color=WHITE).scale(0.7).next_to(squeeze_inequality, DOWN, buff=0.5)
+        boxed_conclusion = MathTex("\\therefore, \\lim_{x \\to 0} \\frac{\\sin(x)}{x} = 1", color=WHITE).scale(0.7).next_to(final_conclusion, DOWN, buff=0.5)
+        box = SurroundingRectangle(boxed_conclusion, color=WHITE, buff=0.2)
+
+        # Implementation: Animate writing final conclusion with voiceover
+        with self.voiceover(text="So, since sin(x)/x is squeezed between cos(x) and 1/cos(x), and both of those approach 1, the limit of sin(x)/x as x approaches 0 must also be 1.") as tracker:
+            self.play(Write(final_conclusion))
+            self.wait(0.5)
+            self.play(
+                Write(boxed_conclusion),
+                Create(box)
+            )
+            self.wait(tracker.duration)
+
+        # Cleaning: Remove all objects except the boxed conclusion
+        self.remove(inequality, limit_cos, limit_inv_cos, squeeze_inequality, final_conclusion)
+
+    def play_scene_6(self):
+        # Implementation: Set speech service to GTTSService
+        self.set_speech_service(GTTSService())
+
+        # Implementation: Create equation for sin(-x)/-x
+        sin_neg_x_eq = MathTex("\\frac{\\sin(-x)}{-x} = \\frac{-\\sin(x)}{-x} = \\frac{\\sin(x)}{x}", color=WHITE).scale(0.7).shift(UP)
+
+        # Implementation: Animate writing equation with voiceover
+        with self.voiceover(text="So far, we've only considered positive values of x. But what about negative angles? We can use the property that sin(-x) = -sin(x). This means sin(-x)/-x is the same as sin(x)/x.") as tracker:
+            self.play(Write(sin_neg_x_eq))
+            self.wait(tracker.duration)
+
+        # Implementation: Create equation for limit as x approaches 0 from the negative side
+        limit_neg_x = MathTex("\\lim_{x \\to 0^-} \\frac{\\sin(x)}{x} = \\lim_{y \\to 0^+} \\frac{\\sin(-y)}{-y} = \\lim_{y \\to 0^+} \\frac{\\sin(y)}{y} = 1", color=WHITE).scale(0.7).next_to(sin_neg_x_eq, DOWN, buff=0.5)
+
+        # Implementation: Highlight the substitution "y = -x" in yellow
+        limit_neg_x[0][24:30].set_color(YELLOW)
+
+        # Implementation: Animate writing limit equation with voiceover
+        with self.voiceover(text="If we let y = -x, then as x approaches 0 from the negative side, y approaches 0 from the positive side. So, the limit from the negative side is the same as the limit from the positive side, which is 1.") as tracker:
+            self.play(Write(limit_neg_x))
+            self.wait(tracker.duration)
+
+        # Cleaning: Remove all objects
+        self.clear()
+```

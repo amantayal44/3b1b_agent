@@ -1,0 +1,49 @@
+```json
+{
+  "reasoning": "The problem is about finding the probability of drawing a card from a bag with cards numbered 1 to 30, under different conditions. We will break down the problem into simpler parts and use visual aids to explain the concept of probability and how to calculate it. \n\n**Scene 1: Introduction**\nIntroduce the problem briefly by showing a bag with 30 cards numbered from 1 to 30. The objective is to find the probability of drawing a card under different conditions, which will be listed.\n\n**Scene 2: Understanding Probability**\nExplain the basic concept of probability, using a simple formula: Probability of an event = (Number of favorable outcomes) / (Total number of possible outcomes). Emphasize that the total number of possible outcomes in this case is 30, as there are 30 cards.\n\n**Scene 3: Probability of Not Divisible by 3**\nFirst, list the numbers from 1 to 30 that are divisible by 3. Then, calculate the numbers that are not divisible by 3 by subtracting the count of divisible numbers from the total. Finally, apply the probability formula to find the probability of drawing a card not divisible by 3.\n\n**Scene 4: Probability of a Prime Number Greater Than 7**\nFirst, explain what a prime number is. Then, list all prime numbers between 1 and 30. Next, identify the prime numbers greater than 7. Finally, use the probability formula to find the probability of drawing a prime number greater than 7.\n\n**Scene 5: Probability of Not a Perfect Square Number**\nFirst, explain what a perfect square number is. Then, list the perfect square numbers between 1 and 30. Next, calculate the numbers that are not perfect squares by subtracting the count of perfect squares from the total. Finally, use the probability formula to find the probability of drawing a card that is not a perfect square.\n\n**Scene 6: Summary of Results**\nSummarize the results obtained in the previous scenes, listing the probabilities for each condition. This will reinforce the understanding of the calculations done.\n\n**Scene 7: Key Concepts Used**\nReview the key concepts used in the video, such as probability, favorable outcomes, total possible outcomes, divisibility, prime numbers, and perfect squares. This will help in consolidating the learning from the video.",
+  "scenes": [
+    {
+      "scene_plot": "Introduce the problem by showing a bag and cards numbered 1 to 30 being put into it. State the objective of finding the probability of drawing a card under three different conditions.",
+      "animation_details": "Show a bag. Show cards with numbers 1 to 30 written on them, one by one being placed into the bag. Then, display text: \"Problem: Cards numbered 1 to 30 are put in a bag. A card is drawn at random. Find the probability that the number on the drawn card is: (i) not divisible by 3. (ii) a prime number greater than 7. (iii) not a perfect square number.\"",
+      "animation_style": "Use a dark blue background. The bag is brown, and the cards are white with black numbers. The text is white, centered, and uses a large, clear font.",
+      "audio_text": "Imagine you have a bag, and you're putting 30 cards into it, each with a unique number from 1 to 30. Now, if you were to draw a card at random, what's the probability that the number on that card meets certain conditions? Specifically, we'll look at the probability of it not being divisible by 3, being a prime number greater than 7, and not being a perfect square number."
+    },
+    {
+      "scene_plot": "Explain the basic concept of probability using a formula. Highlight that there are 30 possible outcomes.",
+      "animation_details": "Display text: \"Probability of an event = (Number of favorable outcomes) / (Total number of possible outcomes)\". Highlight the denominator and display: \"Total number of possible outcomes = 30\".",
+      "animation_style": "Dark blue background. The formula is written in white, centered, and in a large font. When highlighting the denominator, change its color to yellow.",
+      "audio_text": "Before we dive into the conditions, let's quickly recap what probability is. Simply put, the probability of an event is the number of favorable outcomes divided by the total number of possible outcomes. In our case, since there are 30 cards, there are 30 possible outcomes."
+    },
+    {
+      "scene_plot": "Calculate the probability of drawing a card with a number not divisible by 3. List the numbers divisible by 3, then subtract from the total to find those not divisible by 3, and finally calculate the probability.",
+      "animation_details": "Display numbers divisible by 3: \"3, 6, 9, 12, 15, 18, 21, 24, 27, 30\". Count them (10). Write \"30 - 10 = 20\" (numbers not divisible by 3). Show calculation: \"Probability (not divisible by 3) = 20 / 30 = 2/3\".",
+      "animation_style": "Dark blue background. Numbers divisible by 3 are in red, calculations are in white. The final probability is highlighted in green.",
+      "audio_text": "First, let's find the probability of drawing a card with a number not divisible by 3. There are 10 numbers between 1 and 30 that are divisible by 3. That leaves us with 20 numbers that are not. So, the probability of drawing a card not divisible by 3 is 20 out of 30, which simplifies to 2/3."
+    },
+    {
+      "scene_plot": "Explain and find the probability of drawing a prime number greater than 7. Define prime numbers, list them, identify those greater than 7, and calculate the probability.",
+      "animation_details": "Display text: \"Prime number: a whole number greater than 1 that has only two divisors: 1 and itself\". List prime numbers between 1 and 30: \"2, 3, 5, 7, 11, 13, 17, 19, 23, 29\". Highlight primes > 7: \"11, 13, 17, 19, 23, 29\". Show calculation: \"Probability (prime > 7) = 6 / 30 = 1/5\".",
+      "animation_style": "Dark blue background. The definition is in white. Prime numbers are in yellow, those greater than 7 are highlighted in green. The final probability is in green.",
+      "audio_text": "Next, what's the probability of drawing a prime number greater than 7? A prime number is a number greater than 1 that has only two divisors: 1 and itself. Between 1 and 30, there are six prime numbers greater than 7. Thus, the probability is 6 out of 30, which simplifies to 1/5."
+    },
+    {
+      "scene_plot": "Explain and calculate the probability of drawing a card with a number that is not a perfect square. Define perfect squares, list them between 1 and 30, calculate those that are not, and find the probability.",
+      "animation_details": "Display text: \"Perfect square: a number that is the result of squaring a whole number\". List perfect squares between 1 and 30: \"1, 4, 9, 16, 25\". Count them (5). Write \"30 - 5 = 25\" (numbers not perfect squares). Show calculation: \"Probability (not a perfect square) = 25 / 30 = 5/6\".",
+      "animation_style": "Dark blue background. The definition is in white. Perfect squares are in orange, calculations in white. The final probability is highlighted in green.",
+      "audio_text": "Finally, let's consider the probability of drawing a card that is not a perfect square number. A perfect square is a number that results from squaring a whole number. There are five perfect squares between 1 and 30. Therefore, 25 numbers are not perfect squares. The probability of drawing such a card is 25 out of 30, simplifying to 5/6."
+    },
+    {
+      "scene_plot": "Summarize the results for all three conditions.",
+      "animation_details": "Display: \"Summary:\n(i) Probability of not divisible by 3: 2/3\n(ii) Probability of a prime number greater than 7: 1/5\n(iii) Probability of not a perfect square: 5/6\".",
+      "animation_style": "Dark blue background. Text is white, centered. Each probability is listed clearly with a corresponding number and is highlighted in yellow.",
+      "audio_text": "To recap, the probability of not drawing a number divisible by 3 is 2/3, the probability of drawing a prime number greater than 7 is 1/5, and the probability of not drawing a perfect square number is 5/6."
+    },
+    {
+      "scene_plot": "Review the key concepts used in the video.",
+      "animation_details": "Display text: \"Key Concepts: Probability, Favorable Outcomes, Total Possible Outcomes, Divisibility, Prime Numbers, Perfect Squares\".",
+      "animation_style": "Dark blue background. Text is white, centered, and each concept is listed clearly.",
+      "audio_text": "Throughout this video, we've touched upon several key concepts: Probability, favorable outcomes, total possible outcomes, divisibility, prime numbers, and perfect squares. Understanding these concepts is crucial for solving problems like this one."
+    }
+  ]
+}
+```

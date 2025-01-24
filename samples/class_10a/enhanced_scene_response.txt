@@ -1,0 +1,132 @@
+```json
+{
+  "scenes": [
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "1. Show a brown bag slightly below the center of the screen to leave space for cards to appear above it.\n2. Show 30 white cards with number from 1 to 30 written in black, one at a time at the top-center, above the bag.\n3. Move each card towards the bag and show it entering the bag. Show each card for 0.1 second. Add delay of 0.1 second after each card enters the bag before showing next card.",
+          "animation_details": "Display a brown bag slightly below the center of the screen. Show a white card with the number \"1\" written in black at the top-center, above the bag. Move the card towards the bag and show it entering the bag. After a delay of 0.1 seconds, repeat this process for the card numbered \"2\". Continue this process sequentially for cards numbered 3 to 30, each time displaying the card at the top-center for 0.1 second, then moving it towards and into the bag. Add a 0.1 second delay after each card enters the bag before showing the next card.",
+          "audio_text": "Imagine you have a bag, and you're putting 30 cards into it, each with a unique number from 1 to 30.",
+          "estimated_audio_duration_s": 8,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_planning": "1. Keep bag on the screen and fade out all cards. \n2. Display the problem statement below the bag. Divide problem statement into multiple lines to fit it in screen. State objective of finding probability of drawing card under 3 conditions.\n3. Keep the problem statement on screen until the audio ends.",
+          "animation_details": "Keep the brown bag on the screen. Fade out all cards. Display the text below the bag: \"Problem: Cards numbered 1 to 30 are put in a bag. A card is drawn at random. Find the probability that the number on the drawn card is: \\n(i) not divisible by 3. \\n(ii) a prime number greater than 7. \\n(iii) not a perfect square number.\" in white. Ensure the text is broken into multiple lines to fit within the screen boundaries.",
+          "audio_text": "Now, if you were to draw a card at random, what's the probability that the number on that card meets certain conditions? Specifically, we'll look at the probability of it not being divisible by 3, being a prime number greater than 7, and not being a perfect square number.",
+          "estimated_audio_duration_s": 20,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Dark blue background. The bag is brown, and the cards are white with black numbers. The text is white, centered, and uses a large, clear font.",
+      "id": 1
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "1. Display the formula for probability at center.\n2. Divide the formula into two lines to fit it properly on the screen. Show probability of an event is number of favorable outcome divided by total number of possible outcomes.",
+          "animation_details": "Display the text: \"Probability of an event = \\n (Number of favorable outcomes) / (Total number of possible outcomes)\" in white, centered on the screen. Ensure the formula is divided into two lines for optimal display.",
+          "audio_text": "Before we dive into the conditions, let's quickly recap what probability is. Simply put, the probability of an event is the number of favorable outcomes divided by the total number of possible outcomes.",
+          "estimated_audio_duration_s": 13,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_planning": "1. Highlight the denominator of the formula.\n2. Move formula to top-left of screen to make space for total number of outcomes.\n3. Show the total number of possible outcomes as 30 at the center.",
+          "animation_details": "Highlight the \"(Total number of possible outcomes)\" part of the formula in yellow. Move the formula to the top-left of the screen. Display the text: \"Total number of possible outcomes = 30\" in white, centered on the screen.",
+          "audio_text": "In our case, since there are 30 cards, there are 30 possible outcomes.",
+          "estimated_audio_duration_s": 5,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Dark blue background. The formula is written in white, centered, and in a large font. When highlighting the denominator, change its color to yellow.",
+      "id": 2
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "1. Show the heading \"Numbers divisible by 3\" at top-left.\n2. List the numbers divisible by 3 between 1 and 30, from left to right. Show each number one by one separated by comma. Use appropriate font size and spacing such that all numbers fit in single line.",
+          "animation_details": "Display the text \"Numbers divisible by 3:\" at the top-left. Then display \"3, 6, 9, 12, 15, 18, 21, 24, 27, 30\" in red from left to right, with each number appearing one by one, separated by commas. Ensure all numbers fit in a single line by using an appropriate font size and spacing.",
+          "audio_text": "First, let's find the probability of drawing a card with a number not divisible by 3. There are 10 numbers between 1 and 30 that are divisible by 3.",
+          "estimated_audio_duration_s": 12,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_planning": "1. Show the subtraction to find numbers not divisible by 3, below the list of numbers, slightly towards the left.\n2. Show the calculation for probability on the right side of the subtraction.\n3. Highlight the final probability.",
+          "animation_details": "Write \"30 - 10 = 20\" (numbers not divisible by 3) in white below the list of numbers, slightly towards the left. Then show: \"Probability (not divisible by 3) = 20 / 30 = 2/3\" on the right side of the subtraction. Highlight \"2/3\" in green.",
+          "audio_text": "That leaves us with 20 numbers that are not. So, the probability of drawing a card not divisible by 3 is 20 out of 30, which simplifies to 2/3.",
+          "estimated_audio_duration_s": 12,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Dark blue background. Numbers divisible by 3 are in red, calculations are in white. The final probability is highlighted in green.",
+      "id": 3
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "1. Show the definition of prime numbers at the top. Divide definition in two lines.\n2. List all prime numbers between 1 and 30 below the definition. Write prime numbers in single line with appropriate font size and spacing.",
+          "animation_details": "Display text: \"Prime number: a whole number greater than 1 that has only two divisors: 1 and itself\" in white at the top, divided into two lines. Below the definition, list prime numbers: \"2, 3, 5, 7, 11, 13, 17, 19, 23, 29\" in yellow in a single line with appropriate font size and spacing.",
+          "audio_text": "Next, what's the probability of drawing a prime number greater than 7? A prime number is a number greater than 1 that has only two divisors: 1 and itself.",
+          "estimated_audio_duration_s": 12,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_planning": "1. Keep definition at top. Remove all prime numbers.\n2. List only prime numbers greater than 7 in a single line below the definition.\n3. Show the calculation for probability on right side of list.\n4. Highlight the final probability.",
+          "animation_details": "Keep the definition at the top. Remove all prime numbers. List only prime numbers greater than 7: \"11, 13, 17, 19, 23, 29\" in green, in a single line below the definition. Show calculation on the right side of the list: \"Probability (prime > 7) = 6 / 30 = 1/5\". Highlight \"1/5\" in green.",
+          "audio_text": "Between 1 and 30, there are six prime numbers greater than 7. Thus, the probability is 6 out of 30, which simplifies to 1/5.",
+          "estimated_audio_duration_s": 10,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Dark blue background. The definition is in white. Prime numbers are in yellow, those greater than 7 are highlighted in green. The final probability is in green.",
+      "id": 4
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "1. Show the definition of perfect squares at top. Divide definition in two lines.\n2. List the perfect squares between 1 and 30 below the definition at center. Write all perfect square numbers in single line with appropriate font size and spacing.",
+          "animation_details": "Display text: \"Perfect square: a number that is the result of squaring a whole number\" in white at the top, divided into two lines. Below the definition, list perfect squares: \"1, 4, 9, 16, 25\" in orange at the center, in a single line with appropriate font size and spacing.",
+          "audio_text": "Finally, let's consider the probability of drawing a card that is not a perfect square number. A perfect square is a number that results from squaring a whole number.",
+          "estimated_audio_duration_s": 12,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_planning": "1. Show the calculation for numbers that are not perfect squares, below the list of perfect squares, slightly towards left.\n2. Show the calculation for probability on right side of non-perfect square calculation.\n3. Highlight the final probability.",
+          "animation_details": "Write \"30 - 5 = 25\" (numbers not perfect squares) in white below the list of perfect squares, slightly towards the left. Show calculation on the right side: \"Probability (not a perfect square) = 25 / 30 = 5/6\". Highlight \"5/6\" in green.",
+          "audio_text": "There are five perfect squares between 1 and 30. Therefore, 25 numbers are not perfect squares. The probability of drawing such a card is 25 out of 30, simplifying to 5/6.",
+          "estimated_audio_duration_s": 12,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Dark blue background. The definition is in white. Perfect squares are in orange, calculations in white. The final probability is highlighted in green.",
+      "id": 5
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "1. Display heading \"Summary\" at top-center.\n2. List all three probabilities calculated in the previous scenes below the heading, one below other.\n3. Highlight each probability.",
+          "animation_details": "Display: \"Summary:\" at the top-center. List probabilities below the heading, one below the other:\n\"(i) Probability of not divisible by 3: 2/3\"\n\"(ii) Probability of a prime number greater than 7: 1/5\"\n\"(iii) Probability of not a perfect square: 5/6\". Highlight each probability \"2/3\", \"1/5\", and \"5/6\" in yellow.",
+          "audio_text": "To recap, the probability of not drawing a number divisible by 3 is 2/3, the probability of drawing a prime number greater than 7 is 1/5, and the probability of not drawing a perfect square number is 5/6.",
+          "estimated_audio_duration_s": 15,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Dark blue background. Text is white, centered. Each probability is listed clearly with a corresponding number and is highlighted in yellow.",
+      "id": 6
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "1. Display heading \"Key Concepts:\" at top-center.\n2. List all key concepts below the heading, one below other.",
+          "animation_details": "Display text: \"Key Concepts:\" at the top-center. List concepts below the heading, one below the other: \"Probability\", \"Favorable Outcomes\", \"Total Possible Outcomes\", \"Divisibility\", \"Prime Numbers\", \"Perfect Squares\" in white.",
+          "audio_text": "Throughout this video, we've touched upon several key concepts: Probability, favorable outcomes, total possible outcomes, divisibility, prime numbers, and perfect squares. Understanding these concepts is crucial for solving problems like this one.",
+          "estimated_audio_duration_s": 13,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Dark blue background. Text is white, centered, and each concept is listed clearly.",
+      "id": 7
+    }
+  ]
+}
+```

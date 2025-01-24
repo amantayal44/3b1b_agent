@@ -1,0 +1,52 @@
+{
+  "scenes": [
+    {
+      "scene_plot": "Introduce the problem of predicting house prices based on their size. Show a scatter plot with house size on the x-axis and price on the y-axis. Highlight the need for a model that captures this relationship.",
+      "animation_details": "Display a title \"Linear Regression\". Show a scatter plot with \"House Size (sq ft)\" on the x-axis and \"House Price ($)\" on the y-axis. Plot several points representing different houses and their corresponding prices.",
+      "animation_style": "Title \"Linear Regression\" in dark blue at the top center. Axes in light gray, labels in white. Data points as blue dots. Grid in light gray.",
+      "audio_text": "Let's start with a simple problem. Imagine you want to predict the price of a house based on its size. You collect some data, and it looks like this. Each dot here represents a house, with its size on the horizontal axis and price on the vertical axis. We need a way to model this relationship."
+    },
+    {
+      "scene_plot": "Explain the equation of a line: y = mx + b. Show how changing 'm' (slope) and 'b' (y-intercept) affects the line's position and steepness.",
+      "animation_details": "Show the equation y = mx + b. Animate a line on a graph, changing 'm' and 'b' dynamically. Show how 'm' affects the steepness and 'b' affects the y-intercept.",
+      "animation_style": "Equation in white at the top. Graph with x and y axes in light gray. Line in blue. 'm' and 'b' values displayed and updated dynamically.",
+      "audio_text": "To model this, we can use a simple line. You might remember the equation of a line from school: y = mx + b. Here, 'm' is the slope, which determines how steep the line is, and 'b' is the y-intercept, which is where the line crosses the y-axis."
+    },
+    {
+      "scene_plot": "Introduce the concept of a \"best fit\" line. Show different lines passing through the scatter plot and explain that some lines fit the data better than others. Introduce the idea of measuring the distance between actual data points and predicted values.",
+      "animation_details": "Show the scatter plot from Scene 1. Draw several different lines through the data. Highlight one line that appears to fit well. Show vertical lines from data points to this line, representing the errors.",
+      "animation_style": "Scatter plot as in Scene 1. Lines in different colors. Highlight the \"best fit\" line in blue. Vertical error lines in red.",
+      "audio_text": "Our goal is to find the line that best fits this data. You can see that some lines do a better job than others. But how do we define 'best fit'? We can measure the distance between each point and the line. These distances are called errors or residuals."
+    },
+    {
+      "scene_plot": "Visualize errors as vertical lines from each data point to the regression line. Explain positive and negative errors and the goal of minimizing overall error.",
+      "animation_details": "Show the scatter plot with the \"best fit\" line. Highlight the vertical lines representing errors. Show how some errors are above the line (positive) and some are below (negative).",
+      "animation_style": "Scatter plot and line as before. Error lines in red. Highlight positive and negative errors with different shades of red.",
+      "audio_text": "Each of these red lines represents an error. If a point is above the line, the error is positive. If it's below, the error is negative. Intuitively, we want to minimize these errors to get the best fit."
+    },
+    {
+      "scene_plot": "Explain the Ordinary Least Squares (OLS) method. Introduce the concept of the sum of squared errors (SSE). Show the formula for SSE and explain the goal of minimizing it.",
+      "animation_details": "Show the errors. Write the formula for error: e = y - y\u0302. Square each error. Write the formula for SSE: SSE = \u03a3(y\u1d62 - y\u0302\u1d62)\u00b2. Explain that we want to minimize this sum.",
+      "animation_style": "Error lines as before. Equations in white. Highlight the squaring of errors.",
+      "audio_text": "To do this systematically, we use a method called Ordinary Least Squares. We square each error, which makes them all positive and emphasizes larger errors. Then we add them up. This is called the Sum of Squared Errors, or SSE. Our goal is to find the values of 'm' and 'b' that minimize this sum."
+    },
+    {
+      "scene_plot": "Derive the formulas for the slope (b\u2081) and y-intercept (b\u2080) using calculus. Show each step of the derivation, starting with partial derivatives of SSE and solving the simultaneous equations.",
+      "animation_details": "Show the SSE formula. Take partial derivatives with respect to b\u2080 and b\u2081. Set them to zero. Show the two equations. Solve for b\u2080 and b\u2081. Show the final formulas: b\u2081 = (n\u03a3x\u1d62y\u1d62 - \u03a3x\u1d62\u03a3y\u1d62) / (n\u03a3x\u1d62\u00b2 - (\u03a3x\u1d62)\u00b2) and b\u2080 = \u0233 - b\u2081 * x\u0304.",
+      "animation_style": "Equations in white, step-by-step derivation. Highlight each step with a different color.",
+      "audio_text": "To find these values, we use a bit of calculus. We take the partial derivatives of SSE with respect to b\u2080 and b\u2081 and set them to zero. This gives us two equations. Solving these, we get the formulas for b\u2081 and b\u2080. Here they are. Don't worry too much about the calculus; what's important is that these formulas give us the slope and y-intercept of the best fit line."
+    },
+    {
+      "scene_plot": "Extend the concept to multiple linear regression with more than one independent variable. Show a 3D scatter plot (for two independent variables) and a plane representing the regression model.",
+      "animation_details": "Show the equation: y\u0302 = b\u2080 + b\u2081x\u2081 + b\u2082x\u2082. Show a 3D scatter plot with axes x\u2081, x\u2082, and y. Display a plane that best fits the data points in 3D space.",
+      "animation_style": "Equation in white. 3D plot with axes in light gray, data points in blue, plane in semi-transparent blue.",
+      "audio_text": "What if we have more than one factor affecting the house price, like size and number of bedrooms? This is called multiple linear regression. The equation now looks like this, with multiple 'x' values and their corresponding coefficients. Instead of a line, we now have a plane that best fits the data in multiple dimensions."
+    },
+    {
+      "scene_plot": "Introduce metrics for evaluating model performance, focusing on R-squared. Visually explain what R-squared represents and its range from 0 to 1.",
+      "animation_details": "Show the R-squared formula. Explain it as the proportion of variance explained by the model. Show a bar from 0 to 1. Highlight different values and explain their meaning.",
+      "animation_style": "Formula in white. Bar in green, highlighted values in yellow.",
+      "audio_text": "Finally, how do we know if our model is any good? One common metric is R-squared. It tells us how much of the variation in house prices our model can explain. R-squared ranges from 0 to 1. A value close to 1 means our model does a great job, while a value close to 0 means it doesn't explain much at all."
+    }
+  ]
+}

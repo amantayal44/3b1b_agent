@@ -1,0 +1,202 @@
+{
+  "scenes": [
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Show the text \"Transformers in ML\" at the top-center of the screen in a large, bold, white font, using a sans-serif font like Arial, size 48pt. After a brief pause, start moving the text smoothly towards the left side of the screen, taking about 2 seconds for the transition. Once the text has moved to the left, display a simple rectangular block representing an RNN in the center of the screen. Add a labeled arrow marked \"Input\" entering the RNN block from the left. Add another labeled arrow exiting the block to the right marked as \"Output\". Animate a small circle moving along the input arrow, through the RNN block, and out along the output arrow, taking about 2 seconds to complete the path, depicting sequential processing.",
+          "audio_text": "Let's explore the fascinating world of Transformers in machine learning.",
+          "estimated_audio_duration_s": 4,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Keep the RNN block from the previous part in the center. Add a label \"Recurrent Neural Network\" below the RNN block using white, Arial font, size 24pt. Ensure the label is horizontally centered with the RNN block and there's enough space between them so they don't overlap.",
+          "audio_text": "Before Transformers, models like Recurrent Neural Networks or RNNs processed data sequentially, one element at a time.",
+          "estimated_audio_duration_s": 7,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Dark background. White text, arrows, and RNN block. Use a simple, clean font like Arial or Helvetica. Text size should be large enough to read comfortably (e.g., 48pt for titles, 24pt for body text). Maintain consistent spacing between elements.",
+      "id": 1
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the sentence \"This is a long sentence\" at the top-left of the screen, with each word spaced apart by about 20 pixels, using white Arial font, size 24pt. Move the entire sentence towards the RNN block, which is positioned in the center of the screen. Animate each word entering the RNN block sequentially, one after the other, with a 0.5-second delay between each word. As each word is processed, show a corresponding output on the right side of the RNN block, represented by small grey rectangles. For each new word processed, reduce the size of the output rectangles from previously processed words by 10% and decrease their opacity by 20%, making them less prominent.",
+          "audio_text": "This sequential nature made RNNs slow, especially for long sequences.",
+          "estimated_audio_duration_s": 4,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Move the sentence and RNN block diagram towards the right side of the screen over a duration of 1 second, creating space on the left. Display the text \"Vanishing Gradient Problem\" at the top-center in large, bold, white Arial font, size 48pt. Below this text, draw a horizontal chain of five connected rectangular blocks, each 50 pixels wide and 30 pixels high, representing the steps in backpropagation. The blocks should be spaced 20 pixels apart. Apply a color gradient to these blocks, starting with dark red (#8B0000) for the first block on the right and transitioning to light pink (#FFB6C1) for the last block on the left, illustrating the diminishing strength of the gradient signal during backpropagation. Ensure the transition is smooth, using linear interpolation between colors.",
+          "audio_text": "They also suffered from issues like vanishing or exploding gradients, making it hard to learn long-range dependencies in the data.",
+          "estimated_audio_duration_s": 8,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Maintain the same dark background, white text and arrows. Use a color gradient from dark red to light pink for the vanishing gradient visualization. Keep the font and text sizes consistent with the previous scene.",
+      "id": 2
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Clear the screen of all previous elements. Display the text \"Attention\" prominently at the top-center of the screen in a large, bold, white Arial font, size 48pt. Below this, add a brief explanation: \"Attention allows a model to focus on relevant parts of the input sequence.\" in white Arial font, size 24pt. The explanation text should be horizontally centered and placed about 30 pixels below the \"Attention\" text.",
+          "audio_text": "The game-changer was the concept of 'Attention'.",
+          "estimated_audio_duration_s": 3,
+          "animation_cleaning": "clear all objects"
+        },
+        {
+          "animation_details": "Move the \"Attention\" text to the top-left corner of the screen, taking 1 second for the transition. Reintroduce the sentence \"This is a long sentence\" near the top of the screen, slightly below and to the right of the \"Attention\" text, with each word spaced 20 pixels apart. Draw a new rectangular block labeled \"Attention\" below the sentence, centered horizontally. Connect all words of the sentence to this block simultaneously with lines, indicating parallel processing. For each word in the sentence, draw lines connecting it to other words, representing attention weights. Use brighter lines (#FFFFE0) for stronger connections and dimmer lines (white with 50% opacity) for weaker connections. For instance, when focusing on the word \"sentence\", use a bright line to connect it to \"long\", indicating a strong relationship. The lines should be animated to appear in sync with the audio explanation.",
+          "audio_text": "Instead of processing word by word, attention allows the model to look at all words at once and determine their relationships, avoiding the bottlenecks of RNNs.",
+          "estimated_audio_duration_s": 10,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Continue with the dark background. Use white text for general text and bright, distinct lines for attention connections. Maintain the same font style and size for consistency.",
+      "id": 3
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Draw two large rectangular blocks side-by-side in the center of the screen, each about 200 pixels wide and 100 pixels high, spaced 40 pixels apart. Label the left block \"Encoder\" and the right block \"Decoder\" in white Arial font, size 36pt, centered within each block. Add a brief text description below each block in white Arial font, size 24pt: \"Encoder: Processes the input sequence.\" and \"Decoder: Generates the output sequence.\" These descriptions should be horizontally centered with their respective blocks and placed about 20 pixels below.",
+          "audio_text": "A Transformer has two main parts: an Encoder and a Decoder.",
+          "estimated_audio_duration_s": 4,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Emphasize the \"Encoder\" block by increasing its size by 10% and changing its border color to a brighter white. Divide the \"Encoder\" block into two distinct horizontal layers. Label the top layer \"Multi-Head Attention\" and the bottom layer \"Feed-Forward Network\" in white Arial font, size 24pt, centered within each layer. Use different background colors to distinguish the layers: light grey (#D3D3D3) for \"Multi-Head Attention\" and slightly darker grey (#A9A9A9) for \"Feed-Forward Network\". Add a brief text description below each layer, outside the block: \"Multi-Head Attention: Computes attention scores between words.\" and \"Feed-Forward Network: Processes each word's representation.\" in white Arial font, size 20pt. These descriptions should be horizontally centered with their respective layers.",
+          "audio_text": "The Encoder processes the input sequence. Each Encoder layer has two sub-layers: Multi-Head Self-Attention and a Feed-Forward Network.",
+          "estimated_audio_duration_s": 7,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Dark background. Use distinct colors for the \"Encoder\" and \"Decoder\" blocks. Within the \"Encoder\", use different colors for the \"Multi-Head Attention\" and \"Feed-Forward Network\" layers. Use white text for labels and descriptions. Maintain a consistent font style and size.",
+      "id": 4
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the sentence \"I love learning\" at the top-left of the screen, using white Arial font, size 24pt, with words spaced 20 pixels apart. Below each word, draw a vertical array of numbers enclosed in brackets to represent its word embedding. For example: \n[0.2, 0.8, -0.1] for \"I\", \n[0.5, -0.3, 0.7] for \"love\", \n[-0.2, 0.6, 0.4] for \"learning\". Each number should be in white Arial font, size 18pt. Label this group of vectors as \"Word Embeddings\" on the right, using white Arial font, size 24pt, positioned vertically centered with the embeddings.",
+          "audio_text": "In Multi-Head Attention, words are first converted into embeddings.",
+          "estimated_audio_duration_s": 4,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "For each word embedding, draw three arrows pointing to three new sets of vectors. Each arrow should be 50 pixels long. Label these new vectors as \"Query (Q)\", \"Key (K)\", and \"Value (V)\" using white Arial font, size 20pt, positioned above each vector. Use different colors for these vectors and their labels: red (#FF0000) for Q, blue (#0000FF) for K, and green (#00FF00) for V. Represent the linear transformations as matrix multiplications. Show a matrix labeled Wq (in red) multiplying the word embedding to get Q, Wk (in blue) to get K, and Wv (in green) to get V. Each matrix should be represented by a 2x3 grid of numbers in their respective colors, using Arial font, size 18pt. These labels should be clearly placed beside each transformation arrow.",
+          "audio_text": "Then, for each word, we create Query, Key, and Value vectors using different learned weight matrices.",
+          "estimated_audio_duration_s": 6,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Illustrate the Scaled Dot-Product Attention process step-by-step. First, show the matrix multiplication of Q (red) and the transpose of K (blue) for a given word, resulting in a 3x3 matrix of attention scores. Use red and blue Arial font, size 18pt for the numbers in the matrices. Next, show this matrix being divided by the square root of the dimension of K (e.g., \u221a3), with the result displayed below. Then, apply the softmax function to this result, normalizing the scores, and display the final 3x3 matrix with normalized values. Finally, show the multiplication of these normalized scores with the V (green) vectors to get the weighted Value vectors. Use clear labels and arrows, each 50 pixels long, to indicate each operation and the flow of calculations. All text should be in white Arial font, size 20pt.",
+          "audio_text": "We calculate the attention scores using scaled dot product of Q and K, normalize them using softmax, and then weight the Value vectors by these scores.",
+          "estimated_audio_duration_s": 10,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Illustrate the concept of multiple attention heads by showing three parallel sets of Q, K, and V vectors being generated from the initial word embeddings. Each set should follow the Scaled Dot-Product Attention process outlined in the previous step, including all intermediate matrices. Use distinct colors for each set (e.g., red/blue/green for the first set, orange/purple/lime for the second, yellow/cyan/magenta for the third). Label each set as \"Attention Head 1\", \"Attention Head 2\", and \"Attention Head 3\" in white Arial font, size 20pt. After obtaining the weighted Value vectors from each head, show these outputs being concatenated into a single vector, represented by a vertical array of numbers. Finally, show this concatenated vector passing through a linear layer (matrix multiplication, represented by a 3x3 grid of numbers) to produce the final output of the Multi-Head Attention. Label this final output as \"Multi-Head Attention Output\" in white Arial font, size 20pt.",
+          "audio_text": "Each of these is called an attention head, and having multiple of them allows the model to learn different relationships in the data. The outputs of all attention heads are concatenated and multiplied by another weight matrix.",
+          "estimated_audio_duration_s": 12,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Maintain the dark background. Use distinct colors for Q, K, and V vectors (e.g., red, blue, green). Use white text for labels and explanations. Use a clear and consistent font. For matrix multiplications, use a standard notation with clear brackets and labels.",
+      "id": 5
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Draw a rectangular block to represent the output of the Multi-Head Attention layer, labeled as \"Multi-Head Attention Output\" in white Arial font, size 24pt. The block should be about 150 pixels wide and 80 pixels high. Draw an arrow, 100 pixels long, from this block to another rectangular block labeled \"Feed-Forward Network\", also in white Arial font, size 24pt. The \"Feed-Forward Network\" block should be the same size as the \"Multi-Head Attention Output\" block.",
+          "audio_text": "After attention, a Feed-Forward Network processes each word's output.",
+          "estimated_audio_duration_s": 4,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Divide the \"Feed-Forward Network\" block into three sections horizontally. Label the first section \"Linear Layer 1\", the second section \"ReLU Activation\", and the third section \"Linear Layer 2\", using white Arial font, size 20pt, centered within each section. Use arrows, each 50 pixels long, to show the flow of information through these layers, from \"Linear Layer 1\" to \"ReLU Activation\", and then to \"Linear Layer 2\".",
+          "audio_text": "We also add the input of each layer to its output, which is called a residual connection, and then apply layer normalization to stabilize training.",
+          "estimated_audio_duration_s": 10,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Draw an arrow originating from the input of the \"Feed-Forward Network\" block and merging with the output of \"Linear Layer 2\". The arrow should be 75 pixels long and should curve to meet the output arrow of \"Linear Layer 2\". Place a plus sign (+) where these two arrows meet to indicate the addition operation in the residual connection. Draw a new block labeled \"Layer Normalization\" after this addition point, with an arrow, 50 pixels long, flowing from the plus sign to this block, indicating that the combined output is then normalized. Use white Arial font, size 20pt for the \"Layer Normalization\" label.",
+          "audio_text": "",
+          "estimated_audio_duration_s": 2,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Maintain the dark background. Use white text for labels and a consistent font. Use arrows to clearly indicate the flow of information. Use distinct blocks for different operations (e.g., addition, layer normalization).",
+      "id": 6
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the Transformer diagram with both \"Encoder\" and \"Decoder\" blocks, each about 150 pixels wide and 80 pixels high, positioned side-by-side in the center of the screen with 40 pixels spacing. Highlight the \"Decoder\" block by increasing its size by 10% and changing its border color to a brighter white. Inside the \"Decoder\", show three layers horizontally: \"Masked Multi-Head Attention\", \"Multi-Head Attention\" (this one takes input from both the previous layer and the Encoder's output), and \"Feed-Forward Network\". Use distinct background colors for each layer: light grey (#D3D3D3) for \"Masked Multi-Head Attention\", medium grey (#A9A9A9) for \"Multi-Head Attention\", and dark grey (#696969) for \"Feed-Forward Network\". Label each layer in white Arial font, size 20pt, centered within each layer.",
+          "audio_text": "The Decoder is similar to the Encoder but has an extra Masked Multi-Head Attention layer.",
+          "estimated_audio_duration_s": 6,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Zoom into the \"Masked Multi-Head Attention\" layer, expanding it to fill most of the screen. Show the attention score matrix calculation similar to the Encoder's explanation, using a 3x3 matrix with red and blue numbers for Q and K, respectively. Illustrate a mask being applied to this matrix, where for each word, the scores corresponding to future words are set to negative infinity. Visually represent this by covering those cells (top-right triangle of the matrix) with a semi-transparent black overlay (#000000 with 70% opacity) and writing \"-inf\" in white Arial font, size 18pt, in these cells. Then, show the softmax being applied to this masked matrix, resulting in a matrix with normalized values in the bottom-left triangle and zeros in the top-right triangle.",
+          "audio_text": "Here, we prevent the model from looking at future words by setting their attention scores to negative infinity before applying softmax.",
+          "estimated_audio_duration_s": 8,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Continue with the dark background and white text. Use a distinct color or pattern for the mask in the \"Masked Multi-Head Attention\" layer. Maintain consistency in font and block representation.",
+      "id": 7
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display a sequence of three word embeddings (vertical arrays of numbers) for a simple sentence like \"I love learning\", similar to previous explanations. Each embedding should be a column vector with three numbers, using white Arial font, size 18pt. Emphasize that these embeddings do not contain any information about the position of the words in the original sentence by adding a label \"No Positional Information\" in white Arial font, size 24pt, above the embeddings.",
+          "audio_text": "Unlike RNNs, Transformers don't inherently understand word order.",
+          "estimated_audio_duration_s": 3,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Introduce the concept of positional encodings. Show two separate wave patterns representing sine and cosine functions with varying frequencies. Each wave should be displayed in a distinct color (e.g., blue for sine, green for cosine) with a white border, and each should be about 200 pixels wide and 50 pixels high. The waves should be animated to oscillate smoothly. Display these waveforms side-by-side, labeled \"Sine\" and \"Cosine\" respectively, in white Arial font, size 20pt. Explain that these waveforms represent the positional encodings that will be added to the word embeddings.",
+          "audio_text": "To fix this, we add Positional Encodings to the embeddings.",
+          "estimated_audio_duration_s": 4,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "For each of the three word embeddings shown previously, display the corresponding positional encoding vector (also a vertical array of three numbers, derived from the sine/cosine waves) below it. Use a smaller font size (e.g., Arial 16pt) for the positional encoding numbers. Illustrate the element-wise addition of the word embedding and the positional encoding vectors by showing a plus sign (+) between them and displaying the resulting vector (sum of the two vectors) to the right. The resulting vector should be labeled as \"Combined Embedding\" in white Arial font, size 20pt. Show this process for all three word embeddings, aligning them horizontally for clear comparison.",
+          "audio_text": "These encodings, generated using sine and cosine functions, provide information about each word's position in the sequence.",
+          "estimated_audio_duration_s": 7,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Maintain the dark background and white text. Use visual waveforms for sine and cosine functions. Clearly show the addition operation between word embeddings and positional encodings. Use a consistent font and style for representing vectors.",
+      "id": 8
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Show the text \"Transformers: Key Takeaways\" in a large, bold, white Arial font, size 48pt, at the top-center of the screen. This serves as the title for the summary.",
+          "audio_text": "In conclusion, Transformers revolutionized machine learning with their attention mechanism, enabling parallel processing and effectively capturing long-range dependencies.",
+          "estimated_audio_duration_s": 7,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Below the \"Key Takeaways\" title, display two bullet points, each in white Arial font, size 24pt: \n- \"Parallelization: Allows faster training by processing all words simultaneously.\"\n- \"Long-Range Dependencies: Effectively captures relationships between distant words.\" \nThe bullet points should be horizontally centered and spaced about 20 pixels apart vertically.",
+          "audio_text": "They power numerous applications today.",
+          "estimated_audio_duration_s": 2,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Display four icons representing various applications powered by Transformers, arranged in a 2x2 grid below the bullet points. Each icon should be about 50x50 pixels. The icons are: \n- Machine Translation: A globe icon with arrows indicating translation between languages.\n- Text Summarization: A document icon with a smaller, condensed version next to it.\n- Question Answering: A question mark icon with a lightbulb or answer icon beside it.\n- Text Generation: A text icon with a creative spark or star symbol. \nUse simple, recognizable designs for the icons, with white outlines and no fill color. Label each icon below it with its name (e.g., \"Machine Translation\") in white Arial font, size 20pt.",
+          "audio_text": "However, they do require significant computational resources and have limitations in their context window.",
+          "estimated_audio_duration_s": 6,
+          "animation_cleaning": "no object should be cleared"
+        },
+        {
+          "animation_details": "Display the text \"Limitations\" in bold, white Arial font, size 36pt, below the application icons, horizontally centered. List the limitations as two bullet points below the \"Limitations\" title, each in white Arial font, size 24pt: \n- \"Computational Resources: Requires significant memory and processing power.\"\n- \"Context Window: Limited by the maximum sequence length it can process.\" \nThe bullet points should be horizontally centered and spaced about 20 pixels apart vertically.",
+          "audio_text": "",
+          "estimated_audio_duration_s": 2,
+          "animation_cleaning": "clear all objects"
+        }
+      ],
+      "scene_style": "Maintain the dark background and white text. Use a clear and readable font. Use simple and recognizable icons for applications. Use bullet points for listing advantages and limitations. Keep the style consistent with previous scenes.",
+      "id": 9
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+```python
+class AnimationVideo(VoiceoverScene):
+    def play_scene_6(self):
+        # Implementation: Display the text "Real-life scenario" at the top
+        scenario_text = Text("Real-life scenario", font_size=48, weight=BOLD)
+        # Thinking: Position the text at the top center of the screen
+        scenario_text.to_edge(UP)
+
+        # Implementation: Show a simple graphic of a bag and cards
+        bag = Rectangle(width=3, height=4, color=WHITE, fill_opacity=0.5)
+        # Thinking: Position the bag in the center of the screen
+        bag.move_to(ORIGIN)
+        cards = [Text(str(i), font_size=24) for i in range(1, 31)]
+        # Thinking: Scale down cards to fit in frame
+        for card in cards:
+            card.scale(0.5)
+        # Implementation: Position cards initially inside the bag
+        for i, card in enumerate(cards):
+            card.move_to(bag.get_center())
+
+        # Implementation: Add voiceover for the first part
+        with self.voiceover(text="Let's put this into a real-life scenario. Imagine you are playing a game where you draw a card from this bag. If you win whenever the number you draw is not divisible by 3, then on average, you will win 2 out of 3 times.") as tracker:
+            self.play(Write(scenario_text))
+            self.wait(0.5)
+            self.play(Create(bag))
+            for card in cards:
+                self.add(card)
+            self.wait(0.5)
+            # Implementation: Display the text explaining the win rate for the first scenario
+            win_rate_1 = Text("Imagine you are playing a game where you draw a card from this bag.\n"
+                              "If you win whenever the number you draw is not divisible by 3,\n"
+                              "then on average, you will win 2 out of 3 times.", font_size=24)
+            # Thinking: Position the text below the bag
+            win_rate_1.next_to(bag, DOWN, buff=0.5)
+            self.play(Write(win_rate_1))
+            self.wait(tracker.duration - self.time_elapsed)
+
+        # Implementation: Add voiceover for the second part
+        with self.voiceover(text="If you only win when a prime number greater than 7 is drawn, you will win 1 out of 5 times.") as tracker:
+            # Implementation: Display the text explaining the win rate for the second scenario
+            win_rate_2 = Text("If you only win when a prime number greater than 7 is drawn,\nyou will win 1 out of 5 times.", font_size=24)
+            # Thinking: Replace the first win rate text with the second one
+            self.play(ReplacementTransform(win_rate_1, win_rate_2))
+            self.wait(tracker.duration)
+
+        # Implementation: Add voiceover for the third part
+        with self.voiceover(text="And if you win when the card drawn is not a perfect square, you will win 5 out of 6 times. This shows how probability can be applied to everyday situations.") as tracker:
+            # Implementation: Display the text explaining the win rate for the third scenario
+            win_rate_3 = Text("And if you win when the card drawn is not a perfect square,\nyou will win 5 out of 6 times.\n"
+                              "This shows how probability can be applied to everyday situations.", font_size=24)
+            # Thinking: Replace the second win rate text with the third one
+            self.play(ReplacementTransform(win_rate_2, win_rate_3))
+            self.wait(tracker.duration)
+
+        # Cleaning: Clear all objects
+        self.clear()
+```

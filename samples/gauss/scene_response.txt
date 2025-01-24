@@ -1,0 +1,163 @@
+```json
+{
+  "scenes": [
+    {
+      "planning": "Split the introduction into two parts. First, display a blank screen and transition to a bell curve. Second, add labels for mean, x-axis, and y-axis while explaining what they represent.",
+      "scene_parts": [
+        {
+          "animation_planning": "Start with blank screen, then show a Gaussian curve appearing from left in center of frame. Curve should be large enough to be clearly visible but not touch edges of frame.",
+          "animation_details": "Initially, the screen is blank. Then, a standard Gaussian curve animates in, appearing from left and taking center position of frame. The curve is light blue. The curve should be approximately 6 units wide and 4 units tall, centered at the origin.",
+          "audio_text": "Let's explore the Gaussian distribution, also known as the normal distribution."
+        },
+        {
+          "animation_planning": "Add labels for mean (\u03bc) at center top of curve, x-axis as random variable below curve, and y-axis as probability density on left side. Show dashed line for mean. Keep safe distance between text and curve.",
+          "animation_details": "Label the mean with a white dashed vertical line at the peak of the curve, extending down to the x-axis. Add the symbol '\u03bc' in white above the curve at the top of this line. Label the x-axis as 'Random Variable' in white, positioned below the x-axis. Label the y-axis as 'Probability Density' in white, positioned to the left of the y-axis. The x-axis label should be about 2 units below origin, and y-axis label should be about 2 units left of the origin.",
+          "audio_text": "It's a cornerstone of statistics and probability, and you'll find it almost everywhere in the real world."
+        }
+      ],
+      "scene_style": "Dark background. Gaussian curve in light blue. Labels and axes in white. Mean represented by a dashed vertical line."
+    },
+    {
+      "planning": "Divide the explanation of symmetry into two parts. First, highlight the left side of the curve. Second, highlight the right side of the curve. Animate the highlighting and then revert to the original color. Keep the mean, median, and mode point marked at the center.",
+      "scene_parts": [
+        {
+          "animation_planning": "Highlight left side of curve from mean to tail. Change its color to light green to show symmetry. Change it back to original blue.",
+          "animation_details": "Highlight the left side of the Gaussian curve by changing its color to light green. The left side starts from the mean (\u03bc) and extends to the left tail. After a brief moment, revert the color back to the original light blue.",
+          "audio_text": "One key feature of the Gaussian distribution is its symmetry."
+        },
+        {
+          "animation_planning": "Highlight right side of the curve from mean to tail. Change its color to light red to demonstrate symmetry. Change it back to original blue.",
+          "animation_details": "Highlight the right side of the Gaussian curve by changing its color to light red. The right side starts from the mean (\u03bc) and extends to the right tail. After a brief moment, revert the color back to the original light blue.",
+          "audio_text": "The curve is perfectly symmetrical around its mean. In fact, the mean, median, and mode are all equal and lie right at the center."
+        }
+      ],
+      "scene_style": "Dark background. Gaussian curve in light blue. Highlight left side in light green and right side in light red momentarily. Labels and axes in white."
+    },
+    {
+      "planning": "Introduce standard deviation in three parts. First, show the standard curve. Second, add a taller, narrower curve. Third, add a wider, flatter curve. Label each curve appropriately. Scale down the curves to fit them together.",
+      "scene_parts": [
+        {
+          "animation_planning": "Show standard Gaussian curve at center of frame.",
+          "animation_details": "Display the standard Gaussian curve in light blue, centered on the screen. The curve should be same as previous scene.",
+          "audio_text": "The spread of the data is determined by the standard deviation."
+        },
+        {
+          "animation_planning": "Show a taller and narrower curve in yellow along with standard curve. Make it clear that yellow curve has smaller standard deviation. Scale down the curves a bit to fit them together nicely.",
+          "animation_details": "Introduce a second Gaussian curve in yellow, positioned at the same center as the original curve. This new curve is taller and narrower, representing a smaller standard deviation. Label this curve as 'Smaller \u03c3' in white. Make both curve about 4 units wide and 3 units tall.",
+          "audio_text": "A smaller standard deviation results in a tall, narrow curve."
+        },
+        {
+          "animation_planning": "Show wider and flatter curve in purple along with other two curves. Clearly indicate that purple curve has larger standard deviation. Scale down all three curves further if needed.",
+          "animation_details": "Introduce a third Gaussian curve in purple, also centered at the same point. This curve is wider and flatter, representing a larger standard deviation. Label this curve as 'Larger \u03c3' in white. Make all three curves about 3 units wide and 2 units tall.",
+          "audio_text": "while a larger one gives us a wide, flat curve."
+        }
+      ],
+      "scene_style": "Dark background. Standard curve in light blue, smaller standard deviation curve in yellow, and larger standard deviation curve in purple. Labels in white."
+    },
+    {
+      "planning": "Introduce the Gaussian PDF formula in three parts. First, display the formula. Second, highlight the scaling factor. Third, highlight the exponential part.",
+      "scene_parts": [
+        {
+          "animation_planning": "Show Gaussian PDF formula: f(x | \u03bc, \u03c3) = (1 / (\u03c3 * sqrt(2\u03c0))) * exp(-(x - \u03bc)^2 / (2\u03c3^2)) at center of frame. Scale it down to fit frame properly.",
+          "animation_details": "Display the Gaussian PDF formula at the center of the screen: 'f(x | \u03bc, \u03c3) = (1 / (\u03c3 * sqrt(2\u03c0))) * exp(-(x - \u03bc)^2 / (2\u03c3^2))'. The formula is in white. The formula should be scaled down to about 8 units wide and 1 unit tall.",
+          "audio_text": "Mathematically, the Gaussian distribution is described by its probability density function, or PDF."
+        },
+        {
+          "animation_planning": "Highlight (1 / (\u03c3 * sqrt(2\u03c0))) in green.",
+          "animation_details": "Highlight the scaling factor part of the formula, '(1 / (\u03c3 * sqrt(2\u03c0)))', in green.",
+          "audio_text": "This formula has two main parts: a scaling factor"
+        },
+        {
+          "animation_planning": "Highlight exp(-(x - \u03bc)^2 / (2\u03c3^2)) in orange.",
+          "animation_details": "Highlight the exponential part of the formula, 'exp(-(x - \u03bc)^2 / (2\u03c3^2))', in orange.",
+          "audio_text": "and an exponential part that gives the curve its shape."
+        }
+      ],
+      "scene_style": "Dark background. Formula in white. Scaling factor highlighted in green, exponential part in orange."
+    },
+    {
+      "planning": "Explain the empirical rule in four parts. First, show the Gaussian curve. Second, shade and mark one standard deviation. Third, shade and mark two standard deviations. Fourth, shade and mark three standard deviations.",
+      "scene_parts": [
+        {
+          "animation_planning": "Show standard Gaussian curve at center.",
+          "animation_details": "Display a standard Gaussian curve in light blue, centered on the screen.",
+          "audio_text": "The empirical rule tells us that about"
+        },
+        {
+          "animation_planning": "Shade area under curve within one standard deviation in light blue. Display '68%' at center of shaded region.",
+          "animation_details": "Mark and shade the area within one standard deviation from the mean on the Gaussian curve. Shade this area in a lighter blue. Display the percentage '68%' in white at the center of the shaded region. The shaded area should be approximately 2 units wide.",
+          "audio_text": "68% of the data falls within one standard deviation of the mean,"
+        },
+        {
+          "animation_planning": "Shade area within two standard deviations in light green. Display '95%' at center of newly shaded region.",
+          "animation_details": "Extend the shaded area to include two standard deviations from the mean. Shade this new area in light green. Display the percentage '95%' in white at the center of this newly shaded region. The newly shaded area should be approximately 4 units wide.",
+          "audio_text": "95% within two standard deviations,"
+        },
+        {
+          "animation_planning": "Shade area within three standard deviations in light red. Display '99.7%' at center of newly shaded region.",
+          "animation_details": "Further extend the shaded area to include three standard deviations from the mean. Shade this new area in light red. Display the percentage '99.7%' in white at the center of this newly shaded region. The newly shaded area should be approximately 6 units wide.",
+          "audio_text": "and 99.7% within three."
+        }
+      ],
+      "scene_style": "Dark background. Gaussian curve in light blue. One standard deviation shaded in light blue, two in light green, and three in light red. Percentages displayed in white."
+    },
+    {
+      "planning": "Explain the Central Limit Theorem in five parts. First, show a single die and its distribution. Second, show the sum of two dice and its distribution. Third, show the sum of three dice and its distribution. Fourth, show the sum of many dice and its near-normal distribution. Fifth, explain the concept.",
+      "scene_parts": [
+        {
+          "animation_planning": "Start with single die face on left and its uniform distribution bar graph next to it.",
+          "animation_details": "On the left side of the screen, display a simple representation of a single die showing the face with one dot. Next to it, show a uniform distribution bar graph in blue. Label the x-axis of the graph as 'Outcome' and the y-axis as 'Probability'. Each bar should be of equal height.",
+          "audio_text": "The Central Limit Theorem explains why the Gaussian distribution is so common."
+        },
+        {
+          "animation_planning": "Add another die face next to first die. Show distribution of sum of two dice. This should be bar graph with bars increasing in height till middle and then decreasing. Shift the single die and its distribution to far left to make space.",
+          "animation_details": "Shift the single die representation and its uniform distribution graph to the far left. Introduce another die next to the first one, showing two dice with visible dots. To its right, display the bar graph representing the distribution of the sum of two dice. The bars should increase in height towards the middle and then decrease, forming a triangular shape.",
+          "audio_text": "It states that the sum of many independent random variables,"
+        },
+        {
+          "animation_planning": "Add third die face next to two dice. Show distribution of sum of three dice, which is again a bar graph that start to look more like bell curve. Keep shifting previous die and graphs to left as needed.",
+          "animation_details": "Shift the two-dice representation and its distribution graph to the left. Add a third die to the group. To its right, show the bar graph for the sum of three dice. This graph should start to resemble a bell curve more closely than the previous one.",
+          "audio_text": "like rolling multiple dice,"
+        },
+        {
+          "animation_planning": "Show multiple die faces in a row at bottom. Display distribution of their sum, which is a bar graph very close to bell curve. This graph should be at center of frame.",
+          "animation_details": "Display a row of multiple dice (e.g., five or six) at the bottom of the screen, each die showing a different face. Above these dice, at the center, show the bar graph representing the distribution of the sum of these multiple dice. This bar graph should closely resemble a Gaussian curve.",
+          "audio_text": "tends towards a normal distribution as the number of variables increases."
+        },
+        {
+          "animation_planning": "Remove the die and distribution graphs. Keep only the final bar graph of sum of many die in center, which should look like Gaussian curve.",
+          "animation_details": "Remove all previous dice representations and their distribution graphs from the screen. Keep only the final bar graph representing the sum of many dice at the center of the screen. This graph should be a clear representation of a bell curve, closely resembling a Gaussian distribution.",
+          "audio_text": ""
+        }
+      ],
+      "scene_style": "Dark background. Blue bars for bar graphs representing dice sums. Smooth transitions between each graph."
+    },
+    {
+      "planning": "Showcase real-world examples in four parts. First, show the Gaussian curve. Second, add 'Heights of People' with a stick figure icon. Third, add 'IQ Scores' with a brain icon. Fourth, add 'Measurement Errors' with an error icon.",
+      "scene_parts": [
+        {
+          "animation_planning": "Display standard Gaussian curve at center.",
+          "animation_details": "Display a standard Gaussian curve in light blue, centered on the screen.",
+          "audio_text": "The Gaussian distribution appears in many real-world scenarios,"
+        },
+        {
+          "animation_planning": "Show text 'Heights of People' on top left of curve with stick figure icon next to it. Use transition from previous part.",
+          "animation_details": "Add the text label 'Heights of People' in white to the top left of the Gaussian curve. Next to this text, display a simple white stick figure icon. Transition smoothly from the previous part to this one.",
+          "audio_text": "such as the distribution of people's heights,"
+        },
+        {
+          "animation_planning": "Add text 'IQ Scores' at top of the curve with brain icon next to it. Use transition.",
+          "animation_details": "Add the text label 'IQ Scores' in white above the Gaussian curve. Place a simple white brain icon next to this text. Use a smooth transition to introduce this example.",
+          "audio_text": "IQ scores,"
+        },
+        {
+          "animation_planning": "Add text 'Measurement Errors' to top right of curve. Show error icon next to it. Use transition.",
+          "animation_details": "Add the text label 'Measurement Errors' in white to the top right of the Gaussian curve. Display a simple white error icon (e.g., an exclamation mark in a circle) next to this text. Transition smoothly from the previous part.",
+          "audio_text": "and even errors in measurements. It's truly a fundamental concept with wide-reaching applications."
+        }
+      ],
+      "scene_style": "Dark background. Gaussian curve in blue. Text labels in white with corresponding simple white icons. Smooth transitions between each example."
+    }
+  ]
+}
+```

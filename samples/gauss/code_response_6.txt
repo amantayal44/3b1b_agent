@@ -1,0 +1,316 @@
+```python
+class AnimationVideo(VoiceoverScene):
+    def play_scene_6(self):
+        # Implementation: Set the scene style
+        self.set_speech_service(GTTSService(lang="en", tld="com"))
+        self.camera.background_color = "#000000"  # Dark background
+
+        # Implementation: Define a function to create a die graphic
+        def create_die(dots, scale=0.5):
+            # Implementation: Create a die with given number of dots
+            square = Square(side_length=1 * scale, color=WHITE, fill_opacity=0.5)
+            dot_positions = {
+                1: [(0, 0)],
+                2: [(-0.25, 0.25), (0.25, -0.25)],
+                3: [(-0.25, 0.25), (0, 0), (0.25, -0.25)],
+                4: [(-0.25, 0.25), (0.25, 0.25), (-0.25, -0.25), (0.25, -0.25)],
+                5: [
+                    (-0.25, 0.25),
+                    (0.25, 0.25),
+                    (-0.25, -0.25),
+                    (0.25, -0.25),
+                    (0, 0),
+                ],
+                6: [
+                    (-0.25, 0.25),
+                    (0.25, 0.25),
+                    (-0.25, -0.25),
+                    (0.25, -0.25),
+                    (-0.25, 0),
+                    (0.25, 0),
+                ],
+            }
+            # Implementation: Create dots for die
+            dots_list = [
+                Dot(point=np.array(pos) * scale, color=WHITE, radius=0.08 * scale)
+                for pos in dot_positions[dots]
+            ]
+            return VGroup(square, *dots_list)
+
+        # Implementation: Define a function to create a bar graph
+        def create_bar_graph(values, x_labels, scale=0.5, bar_width=0.5):
+            # Implementation: Create a bar graph with given values and x-labels
+            max_value = max(values)
+            graph = VGroup()
+            x_pos = 0
+            for i, value in enumerate(values):
+                # Implementation: Calculate bar height
+                bar_height = value / max_value * 3 * scale
+                bar = Rectangle(
+                    width=bar_width * scale,
+                    height=bar_height,
+                    color=BLUE,
+                    fill_opacity=0.8,
+                )
+                # Implementation: Position the bar
+                bar.move_to(np.array([x_pos, bar_height / 2, 0]), aligned_edge=DOWN)
+                label = Text(x_labels[i], color=WHITE).scale(0.5 * scale)
+                # Implementation: Position the x-label
+                label.next_to(bar, DOWN, buff=0.2 * scale)
+                graph.add(VGroup(bar, label))
+                x_pos += bar_width * scale
+            return graph
+
+        # Implementation: Create the initial die and its uniform distribution
+        die_1 = create_die(1)
+        # Implementation: Calculate position for single die
+        die_1.move_to(np.array([-5, 0, 0]))
+        uniform_dist = create_bar_graph(
+            [1, 1, 1, 1, 1, 1], ["1", "2", "3", "4", "5", "6"]
+        )
+        # Implementation: Calculate position for uniform distribution graph
+        uniform_dist.next_to(die_1, RIGHT, buff=1)
+
+        # Implementation: Animate the first die and its distribution
+        with self.voiceover(
+            text="The Central Limit Theorem explains why the Gaussian distribution is so common."
+        ) as tracker:
+            self.play(
+                Create(die_1), Create(uniform_dist), run_time=tracker.duration
+            )
+
+        # Implementation: Create the second die and its distribution
+        die_2 = create_die(2)
+        # Implementation: Calculate position for two dice
+        die_2.move_to(die_1.get_center() + np.array([1.5, 0, 0]))
+        two_dice_dist = create_bar_graph(
+            [1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1],
+            ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+        )
+        # Implementation: Calculate position for two dice distribution graph
+        two_dice_dist.next_to(die_2, RIGHT, buff=1)
+
+        # Implementation: Animate the second die and its distribution
+        with self.voiceover(
+            text="It states that the sum of many independent random variables,"
+        ) as tracker:
+            self.play(
+                die_1.animate.shift(LEFT * 2),
+                uniform_dist.animate.shift(LEFT * 2),
+                Create(die_2),
+                Create(two_dice_dist),
+                run_time=tracker.duration,
+            )
+
+        # Implementation: Create the third die and its distribution
+        die_3 = create_die(3)
+        # Implementation: Calculate position for three dice
+        die_3.move_to(die_2.get_center() + np.array([1.5, 0, 0]))
+        three_dice_dist = create_bar_graph(
+            [
+                1,
+                3,
+                6,
+                10,
+                15,
+                21,
+                25,
+                27,
+                27,
+                25,
+                21,
+                15,
+                10,
+                6,
+                3,
+                1,
+            ],
+            [str(i) for i in range(3, 19)],
+        )
+        # Implementation: Calculate position for three dice distribution graph
+        three_dice_dist.next_to(die_3, RIGHT, buff=1)
+
+        # Implementation: Animate the third die and its distribution
+        with self.voiceover(
+            text="like rolling multiple dice,"
+        ) as tracker:
+            self.play(
+                die_1.animate.shift(LEFT * 2),
+                uniform_dist.animate.shift(LEFT * 2),
+                die_2.animate.shift(LEFT * 2),
+                two_dice_dist.animate.shift(LEFT * 2),
+                Create(die_3),
+                Create(three_dice_dist),
+                run_time=tracker.duration,
+            )
+
+        # Implementation: Create multiple dice and their distribution
+        multiple_dice = VGroup(*[create_die(i) for i in range(1, 6)])
+        # Implementation: Arrange multiple dice in a row
+        multiple_dice.arrange(RIGHT, buff=0.5)
+        # Implementation: Calculate position for multiple dice
+        multiple_dice.move_to(np.array([0, -2, 0]))
+        many_dice_dist = create_bar_graph(
+            [
+                1,
+                5,
+                15,
+                35,
+                70,
+                126,
+                205,
+                305,
+                415,
+                525,
+                615,
+                671,
+                671,
+                615,
+                525,
+                415,
+                305,
+                205,
+                126,
+                70,
+                35,
+                15,
+                5,
+                1,
+            ],
+            [str(i) for i in range(5, 29)],
+            scale=0.8,
+        )
+        # Implementation: Calculate position for many dice distribution graph
+        many_dice_dist.move_to(np.array([0, 1, 0]))
+
+        # Implementation: Animate multiple dice and their distribution
+        with self.voiceover(
+            text="tends towards a normal distribution as the number of variables increases."
+        ) as tracker:
+            self.play(
+                FadeOut(die_1),
+                FadeOut(uniform_dist),
+                FadeOut(die_2),
+                FadeOut(two_dice_dist),
+                FadeOut(die_3),
+                FadeOut(three_dice_dist),
+                Create(multiple_dice),
+                Create(many_dice_dist),
+                run_time=tracker.duration,
+            )
+
+        # Implementation: Remove the dice and keep only the final distribution
+        with self.voiceover(text="") as tracker:
+            self.play(
+                FadeOut(multiple_dice),
+                run_time=tracker.duration,
+            )
+
+        # Cleaning: Store final distribution graph for next scene
+        self.final_dist_graph = many_dice_dist
+
+    def play_scene_7(self):
+        # Implementation: Set the scene style
+        self.set_speech_service(GTTSService(lang="en", tld="com"))
+        self.camera.background_color = "#000000"  # Dark background
+
+        # Implementation: Retrieve the final distribution graph from the previous scene
+        many_dice_dist = self.final_dist_graph
+
+        # Implementation: Define a function to create a simple icon
+        def create_icon(icon_type, scale=0.5):
+            # Implementation: Create a simple icon based on the given type
+            if icon_type == "person":
+                # Implementation: Create a stick figure icon
+                head = Circle(radius=0.2 * scale, color=WHITE, fill_opacity=0.5)
+                body = Line(
+                    start=head.get_bottom(),
+                    end=head.get_bottom() + np.array([0, -0.8, 0]) * scale,
+                    color=WHITE,
+                )
+                left_arm = Line(
+                    start=body.get_top() + np.array([0, -0.2, 0]) * scale,
+                    end=body.get_top() + np.array([-0.3, -0.5, 0]) * scale,
+                    color=WHITE,
+                )
+                right_arm = Line(
+                    start=body.get_top() + np.array([0, -0.2, 0]) * scale,
+                    end=body.get_top() + np.array([0.3, -0.5, 0]) * scale,
+                    color=WHITE,
+                )
+                left_leg = Line(
+                    start=body.get_end(),
+                    end=body.get_end() + np.array([-0.2, -0.5, 0]) * scale,
+                    color=WHITE,
+                )
+                right_leg = Line(
+                    start=body.get_end(),
+                    end=body.get_end() + np.array([0.2, -0.5, 0]) * scale,
+                    color=WHITE,
+                )
+                return VGroup(head, body, left_arm, right_arm, left_leg, right_leg)
+            elif icon_type == "brain":
+                # Implementation: Create a simple brain icon
+                brain = SVGMobject("brain.svg", color=WHITE, fill_opacity=0.5).scale(
+                    scale
+                )
+                return brain
+            elif icon_type == "error":
+                # Implementation: Create an error icon
+                circle = Circle(radius=0.5 * scale, color=WHITE)
+                exclamation = Text("!", color=WHITE).scale(scale)
+                return VGroup(circle, exclamation)
+            else:
+                return None
+
+        # Implementation: Create the text labels and icons
+        heights_label = Text("Heights of People", color=WHITE).scale(0.5)
+        # Implementation: Calculate position for heights label
+        heights_label.move_to(np.array([-4, 3, 0]))
+        heights_icon = create_icon("person")
+        # Implementation: Calculate position for heights icon
+        heights_icon.next_to(heights_label, LEFT, buff=0.5)
+
+        iq_label = Text("IQ Scores", color=WHITE).scale(0.5)
+        # Implementation: Calculate position for IQ label
+        iq_label.move_to(np.array([0, 3, 0]))
+        iq_icon = create_icon("brain")
+        # Implementation: Calculate position for IQ icon
+        iq_icon.next_to(iq_label, LEFT, buff=0.5)
+
+        errors_label = Text("Measurement Errors", color=WHITE).scale(0.5)
+        # Implementation: Calculate position for errors label
+        errors_label.move_to(np.array([4, 3, 0]))
+        errors_icon = create_icon("error")
+        # Implementation: Calculate position for errors icon
+        errors_icon.next_to(errors_label, LEFT, buff=0.5)
+
+        # Implementation: Animate the Gaussian curve appearance
+        with self.voiceover(
+            text="The Gaussian distribution appears in many real-world scenarios,"
+        ) as tracker:
+            self.play(Create(many_dice_dist), run_time=tracker.duration)
+
+        # Implementation: Animate the first example (Heights of People)
+        with self.voiceover(
+            text="such as the distribution of people's heights,"
+        ) as tracker:
+            self.play(
+                Write(heights_label), Create(heights_icon), run_time=tracker.duration
+            )
+
+        # Implementation: Animate the second example (IQ Scores)
+        with self.voiceover(text="IQ scores,") as tracker:
+            self.play(Write(iq_label), Create(iq_icon), run_time=tracker.duration)
+
+        # Implementation: Animate the third example (Measurement Errors)
+        with self.voiceover(
+            text="and even errors in measurements. It's truly a fundamental concept with wide-reaching applications."
+        ) as tracker:
+            self.play(
+                Write(errors_label), Create(errors_icon), run_time=tracker.duration
+            )
+
+        # Cleaning: Clear all objects
+        self.clear()
+```

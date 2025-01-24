@@ -1,0 +1,116 @@
+{
+  "scenes": [
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the text \"LangChain\" in large, bold white font at the center of the screen.",
+          "audio_text": "Imagine you want to build an application using the power of large language models. That's where LangChain comes in.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Around the central \"LangChain\" text, display smaller text boxes with the labels \"LLMs\", \"Prompts\", \"Chains\", \"Indexes\", and \"Agents\" in light blue. Position \"LLMs\" towards top-left, \"Prompts\" towards top-right, \"Chain\" towards bottom-left, \"Indexes\" towards bottom, and \"Agents\" towards bottom-right. Connect each of these components to the central \"LangChain\" text with white arrows, one at a time.",
+          "audio_text": "It's a powerful framework that helps you connect different components like LLMs, prompts, and more, making it easier to create intelligent applications.",
+          "estimated_audio_duration_s": 2
+        }
+      ],
+      "scene_style": "Dark background. White text for \"LangChain\". Light blue text for the component labels. White arrows with smooth animation to connect the components.",
+      "id": 1
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display a large black box with a subtle gradient, labeled \"LLM\", at the center of the screen. Animate the text \"Input Text\" in white, moving from the left side of the screen into the box.",
+          "audio_text": "At the heart of LangChain are Large Language Models, or LLMs. Think of them as powerful engines that can understand and generate text.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Show the example input text \"What is the capital of France?\" in white, moving into the LLM box. Then, animate the corresponding output text \"Paris\" in white, moving out of the box from the right side. Following this, animate the text \"Output Text\" moving out of the box from the right side.",
+          "audio_text": "You give them some input text, and they produce a relevant output.",
+          "estimated_audio_duration_s": 2
+        }
+      ],
+      "scene_style": "Dark background. White text. Black box with a subtle gradient for the LLM. Animate the input and output text moving in and out of the box.",
+      "id": 2
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display the text \"Prompt\" in white on the top-left side of the screen. Draw a blue arrow from \"Prompt\" to the LLM box from the previous scene, which should be in the same position.",
+          "audio_text": "To get the desired output from an LLM, you need to give it instructions. These instructions are called prompts.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Show examples of prompts in white below the \"Prompt\" text: \"Translate to French: Hello\", \"Summarize this article:\", \"Write a poem about nature\". Each prompt should be clearly readable and formatted on separate lines.",
+          "audio_text": "A well-crafted prompt is crucial for getting the results you want.",
+          "estimated_audio_duration_s": 2
+        }
+      ],
+      "scene_style": "Dark background. White text. Blue arrow to connect the prompt to the LLM. Display the prompt examples in a clear and readable format.",
+      "id": 3
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display a sequence of three light blue boxes with rounded corners, connected by arrows, and labeled from left to right: \"Prompt\", \"LLM\", \"Output\". Label this entire sequence as \"LLMChain\" above the boxes. Place this sequence slightly towards top-left.",
+          "audio_text": "Chains allow you to combine multiple steps, including calls to an LLM. A simple example is an LLMChain, where you provide a prompt, the LLM processes it, and you get an output.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Show the prompt \"Write a tagline for a coffee shop\" in white moving into the \"Prompt\" box. Animate this text moving to the \"LLM\" box. Then, show the output \"Your daily dose of happiness\" in white coming out of the \"Output\" box.",
+          "audio_text": "For example, if the prompt is 'Write a tagline for a coffee shop', the LLM might output 'Your daily dose of happiness'.",
+          "estimated_audio_duration_s": 2
+        }
+      ],
+      "scene_style": "Dark background. White text. Light blue boxes with rounded corners. Animate the prompt and output text moving through the chain.",
+      "id": 4
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display a gray cylindrical shape labeled \"Index\" on the right side of the screen. Connect it to the LLM box (from previous scenes) with an arrow.",
+          "audio_text": "Indexes help you store and retrieve information efficiently.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Show the query \"What is the best coffee shop in town?\" in white moving from the LLM box to the \"Index\". Then, animate the relevant information \"List of coffee shops with ratings\" in white coming back from the \"Index\" to the LLM box.",
+          "audio_text": "You can query the index to provide relevant data to the LLM, making your application more powerful.",
+          "estimated_audio_duration_s": 2
+        }
+      ],
+      "scene_style": "Dark background. White text. Gray cylindrical shape for the index. Animate the query and information flow using arrows.",
+      "id": 5
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Display a box labeled \"Agent\" at the center of the screen. Draw arrows from this box to different tool boxes labeled \"Search\", \"Calculator\", and \"Calendar\", positioned around the \"Agent\" box.",
+          "audio_text": "Agents are like decision-makers that can choose the right tool for a given task.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "Show the question \"What's the weather like tomorrow and find best Italian restaurant near me?\" in white going into the \"Agent\" box. Then, highlight the \"Search\" and \"Calendar\" boxes by making their outline thicker and slightly changing their color.",
+          "audio_text": "Based on the user's input, the agent selects the appropriate tools to use, such as searching the web or performing calculations.",
+          "estimated_audio_duration_s": 2
+        }
+      ],
+      "scene_style": "Dark background. White text. Different colored boxes for each tool. Animate the selection process by highlighting the chosen tools.",
+      "id": 6
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_details": "Show a diagram with \"User Input\" at the top. Draw arrows to show the flow of information through \"Prompt\", \"Chain\", \"LLM\", and finally to \"Output\" at the bottom. Show connections to \"Indexes\" and \"Agents\" on the sides, with arrows indicating their interaction with the main flow.",
+          "audio_text": "Let's put it all together. LangChain takes user input, constructs a prompt, and uses a chain to execute a sequence of operations.",
+          "estimated_audio_duration_s": 2
+        },
+        {
+          "animation_details": "As the audio mentions each component, highlight it in the diagram by subtly changing its color or making it briefly larger. Ensure all labels are clear and arrows indicate the flow of information correctly.",
+          "audio_text": "This often involves calling an LLM and may also include interacting with indexes or using agents to decide the next steps. Finally, an output is produced for the user.",
+          "estimated_audio_duration_s": 2
+        }
+      ],
+      "scene_style": "Dark background. White text. Clean and minimalist diagram with clear labels and arrows. Use subtle animations to highlight the flow of information.",
+      "id": 7
+    }
+  ]
+}

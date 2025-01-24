@@ -1,0 +1,139 @@
+```json
+{
+"scenes": [
+{
+"planning": "Scene 1 is divided into two parts. First part introduces the concept of force and work done. Second part displays the problem statement.",
+"scene_parts": [
+{
+"animation_planning": "Start by showing the title at the top. Then, in the center, display the definition of force with an equation. ",
+"animation_details": "Display the title \"Work Done by a Force\" at the top center in a large, bold, white font. Below title, display text \"Force: F = 2x\u00b2y i + 3xy j\" in white, slightly towards the left of center.",
+"audio_text": "In this video, we'll explore how to calculate the work done by a force. Specifically, we'll look at a force given by F equals 2 x squared y i plus 3 x y j."
+},
+{
+"animation_planning": "Show a 2D coordinate plane. Animate a point moving from (0,0) to (1,4) along the curve y = 4x\u00b2. Display text for path beside the curve.",
+"animation_details": "Draw a dark blue 2D coordinate plane with white labels for the axes. Draw the curve y = 4x\u00b2 in bright yellow. Animate a red dot moving from (0,0) to (1,4) along the curve. Display text \"Path: y = 4x\u00b2\" in white next to the curve.",
+"audio_text": "which displaces a particle in the x y plane from the origin, zero zero, to the point one four, along the curve y equals 4 x squared. Let's see how to solve this."
+}
+],
+"scene_style": "The coordinate plane is dark blue. The curve y = 4x\u00b2 is shown in bright yellow. Text is white. The point is a red dot. Coordinate axes are labeled in white. Title text \"Work Done by a Force\" appears at the top in large, bold, white font."
+},
+{
+"planning": "Scene 2 explains the use of line integral to calculate work done for given problem. The formula is introduced.",
+"scene_parts": [
+{
+"animation_planning": "Display the formula for work done using line integral at the center. Highlight the integral symbol and dot product.",
+"animation_details": "Display text \"Work Done (W) = \u222b F \u00b7 dr\" in white, centered. Highlight the integral symbol and dot product in yellow.",
+"audio_text": "Since our force varies along the path, and the path is a curve, we can't use the simple work equals force times distance formula. Instead, we need to use a line integral."
+},
+{
+"animation_planning": "Below the formula, write what F and dr represent.",
+"animation_details": "Below the equation, write \"F: Force Vector\", \"dr: Infinitesimal Displacement Vector\" in white.",
+"audio_text": "The work done is given by the integral of the dot product of the force vector, F, and the infinitesimal displacement vector, d r, along the path."
+}
+],
+"scene_style": "Text is white on a dark blue background. Equations are displayed in the center in a large font. The integral symbol and dot product are highlighted in yellow."
+},
+{
+"planning": "Scene 3 explains parameterization of the path using 't'.",
+"scene_parts": [
+{
+"animation_planning": "Show the text \"Parameterize the Path\" at the top. Then display equations for x and y in terms of t.",
+"animation_details": "Show text \"Parameterize the Path\" in white at the top. Display equations \"x = t\", \"y = 4x\u00b2\" in white below it.",
+"audio_text": "To evaluate this line integral, we need to parameterize our path. That means expressing x and y in terms of a single parameter, which we'll call t."
+},
+{
+"animation_planning": "Show substitution of x with t in equation of y.",
+"animation_details": "Show the substitution: \"y = 4(t)\u00b2 = 4t\u00b2\" step-by-step, with 't' highlighted in yellow.",
+"audio_text": "Since our path is given by y equals 4 x squared, let's set x equal to t. Then, substituting t for x, we get y equals 4 t squared."
+}
+],
+"scene_style": "Text and equations are white on a dark blue background. The substitution process is animated step-by-step, with 't' highlighted in yellow."
+},
+{
+"planning": "Scene 4 shows how to represent position vector r(t) and how to find dr.",
+"scene_parts": [
+{
+"animation_planning": "Display r(t) in terms of x(t) and y(t). Then show dr as derivative of r(t).",
+"animation_details": "Display \"r(t) = x(t) i + y(t) j = t i + 4t\u00b2 j\" in white. Show \"dr = (dx/dt) i + (dy/dt) j dt\" below it.",
+"audio_text": "Now, let's express the position vector r as a function of t. r of t equals t i plus 4 t squared j."
+},
+{
+"animation_planning": "Calculate dx/dt and dy/dt. Conclude with dr in terms of dt.",
+"animation_details": "Derive \"dx/dt = 1\", \"dy/dt = 8t\" step-by-step, highlighting each term in yellow as it's being derived. Conclude with \"dr = (i + 8t j) dt\" in white.",
+"audio_text": "To find d r, we differentiate x and y with respect to t. d x d t is 1, and d y d t is 8 t. Therefore, d r equals i plus 8 t j d t."
+}
+],
+"scene_style": "Text and equations are white. The derivatives are calculated step-by-step, with each term highlighted in yellow as it's being derived."
+},
+{
+"planning": "Scene 5 shows substitution of x and y in force equation with t.",
+"scene_parts": [
+{
+"animation_planning": "Show the force equation. Substitute x and y with t.",
+"animation_details": "Show \"F = 2x\u00b2y i + 3xy j\" in white. Substitute \"x = t\", \"y = 4t\u00b2\". Display \"F = 2(t\u00b2)(4t\u00b2) i + 3(t)(4t\u00b2) j\" with 't' and '4t\u00b2' highlighted in yellow.",
+"audio_text": "Next, we need to express our force F in terms of t. Substituting t for x and 4 t squared for y in our force equation, we get"
+},
+{
+"animation_planning": "Simplify the equation to get F in terms of t.",
+"animation_details": "Simplify to \"F = 8t\u2074 i + 12t\u00b3 j\" in white, animating the simplification process clearly.",
+"audio_text": "F equals 2 times t squared times 4 t squared i plus 3 times t times 4 t squared j. Simplifying, we have F equals 8 t to the fourth i plus 12 t cubed j."
+}
+],
+"scene_style": "Text and equations are white. The substitution is shown step-by-step, with 't' and '4t\u00b2' highlighted in yellow. The simplification process is animated clearly."
+},
+{
+"planning": "Scene 6 calculates the dot product of F and dr.",
+"scene_parts": [
+{
+"animation_planning": "Display F and dr in terms of t.",
+"animation_details": "Display \"F \u00b7 dr = (8t\u2074 i + 12t\u00b3 j) \u00b7 (i + 8t j) dt\" in white.",
+"audio_text": "Now we can calculate the dot product of F and d r."
+},
+{
+"animation_planning": "Show the dot product calculation step by step.",
+"animation_details": "Show the dot product calculation: \"(8t\u2074 * 1) + (12t\u00b3 * 8t) dt\", highlighting each term in yellow as it's being multiplied. Simplify to \"104t\u2074 dt\" in white.",
+"audio_text": "F dot d r equals 8 t to the fourth i plus 12 t cubed j dot i plus 8 t j d t. This simplifies to 8 t to the fourth plus 96 t to the fourth d t, which is 104 t to the fourth d t."
+}
+],
+"scene_style": "Text and equations are white. The dot product is calculated step-by-step, with each term highlighted in yellow as it's being multiplied."
+},
+{
+"planning": "Scene 7 determines the limits of integration and evaluates the line integral.",
+"scene_parts": [
+{
+"animation_planning": "State the limits of integration for t.",
+"animation_details": "Show \"Limits: t = 0 to t = 1\" in white.",
+"audio_text": "Since our particle moves from zero zero to one four, our limits for t are from zero to one."
+},
+{
+"animation_planning": "Display the integral with limits.",
+"animation_details": "Display the integral \"W = \u222b(from 0 to 1) 104t\u2074 dt\" in white.",
+"audio_text": "Now we can evaluate the integral: W equals the integral from zero to one of 104 t to the fourth d t."
+},
+{
+"animation_planning": "Show the integration process and calculate the final value.",
+"animation_details": "Show the integration: \"W = 104 [t\u2075/5] (from 0 to 1)\". Calculate \"W = 104 * (1/5) = 20.8\" step-by-step, with the limits of integration highlighted in yellow.",
+"audio_text": "This gives us 104 times t to the fifth over five, evaluated from zero to one. Plugging in the limits, we get 104 times one-fifth, which equals 20.8."
+}
+],
+"scene_style": "Text and equations are white. The integration is performed step-by-step, with the limits of integration highlighted in yellow. The final calculation is clearly animated."
+},
+{
+"planning": "Scene 8 concludes the video by restating the problem and summarizing the solution.",
+"scene_parts": [
+{
+"animation_planning": "Display text \"Conclusion\". Briefly show the path from (0,0) to (1,4) again.",
+"animation_details": "Display text \"Conclusion\" in white. Briefly show the path from (0,0) to (1,4) in yellow on the dark blue coordinate plane.",
+"audio_text": "So, to recap, we found that the work done by the force F equals 2 x squared y i plus 3 x y j, in displacing a particle from zero zero to one four along the curve y equals 4 x squared,"
+},
+{
+"animation_planning": "Display the final result for work done.",
+"animation_details": "Display text \"Work Done = 20.8 units\" in a large, bold font, highlighted in white.",
+"audio_text": "is 20.8 units. This result highlights how the work done depends on both the force and the path taken."
+}
+],
+"scene_style": "Text is white on a dark blue background. The path is shown in yellow. The final answer is highlighted in a large, bold font."
+}
+]
+}
+```

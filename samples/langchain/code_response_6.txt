@@ -1,0 +1,103 @@
+```
+class AnimationVideo(VoiceoverScene):
+    def play_scene_6(self):
+        # Implementation: Create the "Agent" box.
+        agent_box = Rectangle(width=2, height=1, color=WHITE, fill_opacity=0.5)
+        agent_label = Text("Agent", font_size=36, color=WHITE).move_to(agent_box)
+
+        # Implementation: Create the tool boxes.
+        search_box = Rectangle(width=1.5, height=1, color=YELLOW, fill_opacity=0.5).next_to(agent_box, UP, buff=1)
+        search_label = Text("Search", font_size=24, color=WHITE).move_to(search_box)
+        calculator_box = Rectangle(width=1.5, height=1, color=GREEN, fill_opacity=0.5).next_to(agent_box, LEFT, buff=1)
+        calculator_label = Text("Calculator", font_size=24, color=WHITE).move_to(calculator_box)
+        calendar_box = Rectangle(width=1.5, height=1, color=ORANGE, fill_opacity=0.5).next_to(agent_box, RIGHT, buff=1)
+        calendar_label = Text("Calendar", font_size=24, color=WHITE).move_to(calendar_box)
+
+        # Implementation: Create the arrows from the "Agent" box to the tool boxes.
+        search_arrow = Arrow(agent_box.get_top(), search_box.get_bottom(), buff=0.1, color=WHITE)
+        calculator_arrow = Arrow(agent_box.get_left(), calculator_box.get_right(), buff=0.1, color=WHITE)
+        calendar_arrow = Arrow(agent_box.get_right(), calendar_box.get_left(), buff=0.1, color=WHITE)
+
+        # Implementation: Animate the first part of the scene.
+        with self.voiceover(text="Agents are like decision-makers that can choose the right tool for a given task.") as tracker:
+            # Thinking: Display the "Agent" box, tool boxes, and arrows.
+            self.play(
+                Create(agent_box),
+                Write(agent_label),
+                Create(search_box),
+                Write(search_label),
+                Create(calculator_box),
+                Write(calculator_label),
+                Create(calendar_box),
+                Write(calendar_label),
+                Create(search_arrow),
+                Create(calculator_arrow),
+                Create(calendar_arrow)
+            )
+
+        # Implementation: Create the example question.
+        example_question = Text("What's the weather like tomorrow and find best Italian restaurant near me?", font_size=24, color=WHITE).next_to(agent_box, UP, buff=1)
+
+        # Implementation: Animate the second part of the scene.
+        with self.voiceover(text="Based on the user's input, the agent selects the appropriate tools to use, such as searching the web or performing calculations.") as tracker:
+            # Thinking: Show the question and highlight the chosen tools.
+            self.play(Write(example_question))
+            self.play(example_question.animate.move_to(agent_box))
+            self.play(
+                search_box.animate.set_color(YELLOW_A).set_stroke(width=6),
+                calendar_box.animate.set_color(ORANGE_A).set_stroke(width=6)
+            )
+
+        # Cleaning: Remove all objects from the scene.
+        self.clear()
+
+    def play_scene_7(self):
+        # Implementation: Create the components of the diagram.
+        user_input = Text("User Input", font_size=36, color=WHITE).to_edge(UP)
+        prompt = Text("Prompt", font_size=36, color=WHITE).next_to(user_input, DOWN, buff=1)
+        chain = Text("Chain", font_size=36, color=WHITE).next_to(prompt, DOWN, buff=1)
+        llm = Text("LLM", font_size=36, color=WHITE).next_to(chain, DOWN, buff=1)
+        output = Text("Output", font_size=36, color=WHITE).next_to(llm, DOWN, buff=1)
+        indexes = Text("Indexes", font_size=36, color=WHITE).next_to(llm, LEFT, buff=2)
+        agents = Text("Agents", font_size=36, color=WHITE).next_to(llm, RIGHT, buff=2)
+
+        # Implementation: Create the arrows for the main flow.
+        arrow_up = Arrow(user_input.get_bottom(), prompt.get_top(), buff=0.1, color=WHITE)
+        arrow_pc = Arrow(prompt.get_bottom(), chain.get_top(), buff=0.1, color=WHITE)
+        arrow_cl = Arrow(chain.get_bottom(), llm.get_top(), buff=0.1, color=WHITE)
+        arrow_lo = Arrow(llm.get_bottom(), output.get_top(), buff=0.1, color=WHITE)
+
+        # Implementation: Create the arrows for the side interactions.
+        arrow_li = Arrow(llm.get_left(), indexes.get_right(), buff=0.1, color=WHITE)
+        arrow_il = Arrow(indexes.get_left(), chain.get_right(), buff=0.1, color=WHITE)
+        arrow_la = Arrow(llm.get_right(), agents.get_left(), buff=0.1, color=WHITE)
+        arrow_al = Arrow(agents.get_right(), chain.get_left(), buff=0.1, color=WHITE)
+
+        # Implementation: Group objects for easier animation.
+        main_flow = VGroup(user_input, prompt, chain, llm, output)
+        side_interactions = VGroup(indexes, agents)
+        arrows = VGroup(arrow_up, arrow_pc, arrow_cl, arrow_lo, arrow_li, arrow_il, arrow_la, arrow_al)
+
+        # Implementation: Animate the first part of the scene.
+        with self.voiceover(text="Let's put it all together. LangChain takes user input, constructs a prompt, and uses a chain to execute a sequence of operations.") as tracker:
+            # Thinking: Display the diagram components and arrows.
+            self.play(
+                Write(main_flow),
+                Write(side_interactions),
+                Create(arrows)
+            )
+
+        # Implementation: Animate the second part of the scene.
+        with self.voiceover(text="This often involves calling an LLM and may also include interacting with indexes or using agents to decide the next steps. Finally, an output is produced for the user.") as tracker:
+            # Thinking: Highlight each component as it's mentioned.
+            self.play(Indicate(user_input))
+            self.play(Indicate(prompt))
+            self.play(Indicate(chain))
+            self.play(Indicate(llm))
+            self.play(Indicate(indexes))
+            self.play(Indicate(agents))
+            self.play(Indicate(output))
+
+        # Cleaning: Remove all objects from the scene.
+        self.clear()
+```

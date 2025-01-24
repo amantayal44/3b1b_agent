@@ -1,0 +1,52 @@
+{
+  "scenes": [
+    {
+      "scene_plot": "Introduce the problem and show why direct substitution doesn't work. The scene starts by displaying the limit we need to find, lim (x\u21920) sin(x) / x. Then, it demonstrates that substituting x = 0 directly into the expression results in 0/0, which is an indeterminate form. This sets the stage for needing a different approach to solve the problem.",
+      "animation_details": "Show text \"lim (x\u21920) sin(x) / x\" in the center. Then, show an animated substitution of x = 0 into the expression, resulting in \"sin(0) / 0 = 0 / 0\". Highlight \"0 / 0\" and show text \"Indeterminate Form\".",
+      "animation_style": "Dark background. Text in white. Use red color to highlight \"0 / 0\" and \"Indeterminate Form\". Use a smooth transition from the limit expression to the substitution and highlighting the indeterminate form.",
+      "audio_text": "Today, we're going to tackle the classic limit problem: finding the limit of sin(x) over x as x approaches 0. If we try to directly substitute 0 for x, we get sin(0) over 0, which simplifies to 0 over 0. This is what's known as an indeterminate form, which means we need another way to solve this. That's where the Taylor series comes in."
+    },
+    {
+      "scene_plot": "Introduce the concept of Taylor series and its general form. We explain that the Taylor series allows us to express a function as an infinite sum of terms, essentially turning it into a polynomial. The general formula for the Taylor series centered at 'a' is shown.",
+      "animation_details": "Show text \"Taylor Series\" at the top. Display the general formula of the Taylor series: \"f(x) = f(a) + f'(a)(x-a)/1! + f''(a)(x-a)\u00b2/2! + f'''(a)(x-a)\u00b3/3! + ...\".",
+      "animation_style": "Dark background. Text in white. Keep the Taylor series formula centered and use a slightly larger font for clarity. No transitions within this scene, just a static display of the formula.",
+      "audio_text": "The Taylor series is a way to represent a function as an infinite sum of terms calculated from the values of the function's derivatives at a single point. Here's the general formula for the Taylor series of a function around a point 'a'."
+    },
+    {
+      "scene_plot": "Explain the Maclaurin series, which is a special case of the Taylor series centered at a = 0. We then derive the Maclaurin series for sin(x) by calculating its derivatives and evaluating them at x = 0.",
+      "animation_details": "Show text \"Maclaurin Series (a = 0)\". Then, show the derivatives of sin(x): f(x) = sin(x), f'(x) = cos(x), f''(x) = -sin(x), f'''(x) = -cos(x), and so on. Show the evaluation at x=0: f(0) = 0, f'(0) = 1, f''(0) = 0, f'''(0) = -1, repeating.",
+      "animation_style": "Dark background. Text in white. Use a vertical layout to list the derivatives and their evaluations. Use a blue color to highlight the values at x=0. Show each derivative step-by-step with a smooth transition.",
+      "audio_text": "For our problem, we'll use the Maclaurin series, which is just a Taylor series centered at 0. Let's find the derivatives of sin(x). The first derivative is cos(x), the second is -sin(x), the third is -cos(x), and the fourth is back to sin(x). When we evaluate these at x equals 0, we get a repeating pattern: 0, 1, 0, -1."
+    },
+    {
+      "scene_plot": "Construct the Maclaurin series for sin(x) by plugging the derived values into the general formula. This scene shows how the series for sin(x) is built term by term.",
+      "animation_details": "Construct the series step-by-step: \"sin(x) = 0 + (1)x/1! + (0)x\u00b2/2! + (-1)x\u00b3/3! + (0)x\u2074/4! + ...\". Simplify to \"sin(x) = x - x\u00b3/3! + x\u2075/5! - x\u2077/7! + ...\".",
+      "animation_style": "Dark background. Text in white. Use a green color to highlight the terms being added. Animate the construction of the series, showing each term appearing sequentially and then simplifying to the final form.",
+      "audio_text": "Now we plug these values into the Maclaurin series formula. We get sin(x) equals x minus x cubed over 3 factorial plus x to the fifth over 5 factorial minus x to the seventh over 7 factorial, and so on. This is the Maclaurin series expansion for sin(x)."
+    },
+    {
+      "scene_plot": "Substitute the derived Maclaurin series for sin(x) into the original limit expression. This scene demonstrates how the series replaces sin(x) in the limit.",
+      "animation_details": "Show the original limit \"lim (x\u21920) sin(x) / x\". Replace \"sin(x)\" with \"x - x\u00b3/3! + x\u2075/5! - x\u2077/7! + ...\". Show the new expression as \"lim (x\u21920) (x - x\u00b3/3! + x\u2075/5! - x\u2077/7! + ...) / x\".",
+      "animation_style": "Dark background. Text in white. Use a smooth transition to replace sin(x) with its series expansion. Keep the limit notation visible throughout the transition.",
+      "audio_text": "Now, let's substitute the Taylor series expansion of sin(x) into our limit expression. We replace sin(x) with its series: x minus x cubed over 3 factorial plus x to the fifth over 5 factorial, and so on, all over x."
+    },
+    {
+      "scene_plot": "Simplify the limit expression by dividing each term of the series by x. This scene shows how the expression looks after the division.",
+      "animation_details": "Divide each term by x: \"lim (x\u21920) (1 - x\u00b2/3! + x\u2074/5! - x\u2076/7! + ...)\".",
+      "animation_style": "Dark background. Text in white. Animate the division of each term by x, showing the simplification step-by-step. Use a yellow color to highlight the terms being divided.",
+      "audio_text": "We can divide each term in the series by x. This simplifies our limit to 1 minus x squared over 3 factorial plus x to the fourth over 5 factorial minus x to the sixth over 7 factorial, and so on."
+    },
+    {
+      "scene_plot": "Evaluate the limit as x approaches 0. Explain that all terms containing x will go to 0, leaving only the constant term 1. This scene concludes the limit evaluation.",
+      "animation_details": "Show the limit expression \"lim (x\u21920) (1 - x\u00b2/3! + x\u2074/5! - x\u2076/7! + ...)\". Animate x approaching 0, and show each term with x becoming 0. Highlight the remaining term \"1\".",
+      "animation_style": "Dark background. Text in white. Use a smooth animation to show x approaching 0 and the terms with x vanishing. Highlight the final result \"1\" in a bright color, such as cyan.",
+      "audio_text": "As x approaches 0, all terms with x in them will approach 0 as well. This leaves us with just 1. Therefore, the limit of sin(x) over x as x approaches 0 is 1."
+    },
+    {
+      "scene_plot": "Conclude the video by summarizing the result and briefly mentioning its significance in various fields. This scene provides a recap and highlights the importance of the result.",
+      "animation_details": "Display text \"lim (x\u21920) sin(x) / x = 1\". Briefly mention applications: \"This result is fundamental in calculus, physics (small-angle approximations), and engineering (control systems, signal processing)\".",
+      "animation_style": "Dark background. Text in white. Use a clean, simple layout to present the final result. Briefly show icons or text related to the mentioned applications to visually connect the result to real-world uses.",
+      "audio_text": "So, we've shown that the limit of sin(x) over x as x approaches 0 is 1. This isn't just a neat mathematical trick; it's a fundamental result used in various fields, including calculus, physics, and many branches of engineering. Understanding this limit helps us in many theoretical and practical applications."
+    }
+  ]
+}

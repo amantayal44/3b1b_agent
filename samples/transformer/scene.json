@@ -1,0 +1,130 @@
+{
+  "scenes": [
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Start with text \"RNN Limitations\" at top. Show RNN diagram below it with input \"A B C D\" from left. Animate processing one by one. Show clock icon on right. Display \"Vanishing/Exploding Gradients\" and \"Difficulty with Long-Range Dependencies\" on right side below clock icon.",
+          "animation_details": "Show text \"RNN Limitations\" in white, centered at the top. Below it, display a simple RNN diagram with nodes labeled \"Input\", \"Hidden\", and \"Output\". Show input sequence \"A B C D\" on the left, with red arrows indicating the sequential flow from one token to the next. Animate the processing of each token one at a time. Display a grey clock icon on the right, below text \"RNN Limitations\". Below the clock icon, display text \"Vanishing/Exploding Gradients\" and \"Difficulty with Long-Range Dependencies\" in white.",
+          "audio_text": "Before transformers, we had Recurrent Neural Networks, or RNNs. They process sequences one token at a time, which is quite slow. They also struggle with long-range dependencies and gradients.",
+          "estimated_audio_duration_s": 12
+        },
+        {
+          "animation_planning": "Transition to text \"Introducing Transformers\" at top. Show transformer diagram below it with parallel arrows and \"Attention Mechanism\" label in middle.",
+          "animation_details": "Fade out the RNN diagram and text. Display text \"Introducing Transformers\" in white, centered at the top. Below it, show a basic Transformer diagram with multiple nodes and green parallel arrows indicating parallel processing. Label the center of the diagram with \"Attention Mechanism\" in white.",
+          "audio_text": "Transformers, introduced in the paper \"Attention is All You Need\", solve these issues with parallel processing and a powerful attention mechanism.",
+          "estimated_audio_duration_s": 8
+        }
+      ],
+      "scene_style": "Dark blue background. White and yellow for text. RNN diagram with red arrows for sequential flow. Clock icon in grey. Transformer diagram with green parallel arrows. Smooth transitions between text and diagrams. Show equations in standard blue.",
+      "id": 1
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Display \"Input: The quick brown fox\" at top left. Show each word transforming into a vector below it. Display \"Embeddings\" at middle.",
+          "animation_details": "Display text \"Input: The quick brown fox\" in white at the top left. Below each word, show its transformation into a vector, e.g., \"The\" -> [0.1, 0.2, 0.3], \"quick\" -> [0.4, 0.5, 0.6], etc. Use blue for the vectors. Display text \"Embeddings\" in white at the middle.",
+          "audio_text": "First, we convert words into numerical representations called embeddings.",
+          "estimated_audio_duration_s": 4
+        },
+        {
+          "animation_planning": "Write \"Positional Encoding\" at top. Show equations for PE(pos, 2i) and PE(pos, 2i+1) in middle. Animate adding positional vectors to embeddings at bottom.",
+          "animation_details": "Display text \"Positional Encoding\" in white at the top. Below it, write the equations `PE(pos, 2i) = sin(pos / 10000^(2i/d_model))` and `PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))` in yellow. Show a matrix of embeddings in blue. Animate adding positional vectors to these embeddings, showing the matrix addition at the bottom of the screen.",
+          "audio_text": "Since transformers don't process sequentially, we add positional encoding to give the model information about the order of words. This is done using sine and cosine functions, as shown in these equations.",
+          "estimated_audio_duration_s": 13
+        }
+      ],
+      "scene_style": "Dark blue background. White text for \"Input\", \"Embeddings\", and \"Positional Encoding\". Use blue for word vectors and embeddings. Equations in yellow. Smooth transitions between text, vectors, and equations.",
+      "id": 2
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Display \"Multi-Head Self-Attention\" at top.",
+          "animation_details": "Display text \"Multi-Head Self-Attention\" in white, centered at the top.",
+          "audio_text": "The core of the transformer is the multi-head self-attention.",
+          "estimated_audio_duration_s": 4
+        },
+        {
+          "animation_planning": "Show input embeddings X at left. Show linear transformations for Q, K, V in middle.",
+          "animation_details": "Show input embeddings matrix X in blue on the left. Display linear transformations: `Q = X * W_Q`, `K = X * W_K`, `V = X * W_V` in blue, centered on the screen. Show matrices W_Q, W_K, W_V next to the equations.",
+          "audio_text": "We derive Query, Key, and Value matrices from the input embeddings.",
+          "estimated_audio_duration_s": 4
+        },
+        {
+          "animation_planning": "Show scaled dot-product attention formula in middle.",
+          "animation_details": "Display the formula `Attention(Q, K, V) = softmax((Q * K^T) / sqrt(d_k)) * V` in blue, centered on the screen.",
+          "audio_text": "Each head calculates attention using the scaled dot-product formula.",
+          "estimated_audio_duration_s": 4
+        },
+        {
+          "animation_planning": "Show multiple attention heads with different Q, K, V matrices at top. Show concatenation of outputs at bottom. Show final linear transformation at bottom right.",
+          "animation_details": "Show multiple attention heads at the top, each with different Q, K, V matrices in red, green, and yellow. Show the outputs of each head being concatenated at the bottom. Show a final linear transformation of the concatenated output at the bottom right.",
+          "audio_text": "Multiple heads work in parallel, capturing different relationships, and their outputs are concatenated and linearly transformed.",
+          "estimated_audio_duration_s": 6
+        }
+      ],
+      "scene_style": "Dark blue background. White text for \"Multi-Head Self-Attention\". Blue for matrices and equations. Use different colors for each attention head (red, green, yellow). Smooth transitions between matrix operations.",
+      "id": 3
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Display \"Feed-Forward Network\" at top. Show a two-layer neural network below it.",
+          "animation_details": "Display text \"Feed-Forward Network\" in white, centered at the top. Below it, show a simple two-layer neural network diagram with input, hidden, and output layers. Use blue nodes and green connections. Show data flowing through the network with arrows.",
+          "audio_text": "Each encoder and decoder layer contains a feed-forward network, which is a simple two-layer neural network.",
+          "estimated_audio_duration_s": 6
+        },
+        {
+          "animation_planning": "Display \"Residual Connections\" at top. Show addition formula in middle.",
+          "animation_details": "Display text \"Residual Connections\" in white, centered at the top. Below it, show the addition: `Layer Input + Sublayer(Layer Input)` in blue. Highlight the plus sign in red.",
+          "audio_text": "Residual connections add the input of each sub-layer to its output, aiding gradient flow.",
+          "estimated_audio_duration_s": 6
+        },
+        {
+          "animation_planning": "Display \"Layer Normalization\" at top. Show layer normalization formula in middle.",
+          "animation_details": "Display text \"Layer Normalization\" in white, centered at the top. Below it, show the formula `LayerNorm(x + Sublayer(x))` in yellow.",
+          "audio_text": "Layer normalization is applied to stabilize training.",
+          "estimated_audio_duration_s": 3
+        }
+      ],
+      "scene_style": "Dark blue background. White text for titles. Neural network diagram with blue nodes and green connections. Residual connection shown with a plus sign in red. Layer normalization equation in yellow.",
+      "id": 4
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Show complete transformer diagram in middle. Animate data flow from input to encoder. Show data flow through decoder. Highlight masked multi-head attention and encoder-decoder attention.",
+          "animation_details": "Show the complete transformer diagram with encoder and decoder blocks, centered on the screen. Use blue for the encoder and green for the decoder. Animate data flow from input embeddings through the encoder layers to the intermediate representation. Show data flow through the decoder layers, highlighting masked multi-head attention and encoder-decoder attention with white arrows.",
+          "audio_text": "Here's the complete transformer structure. Data flows through the encoder, gets transformed, and then passes to the decoder.",
+          "estimated_audio_duration_s": 7
+        },
+        {
+          "animation_planning": "Show final linear layer at bottom right. Show softmax function. Display output probabilities.",
+          "animation_details": "Show the final linear layer in yellow at the bottom right. Connect it to the output of the decoder. Show the softmax function in red. Display the output probabilities in light blue, connected to the softmax function.",
+          "audio_text": "The decoder uses multi-head attention and, finally, a linear layer with a softmax function produces output probabilities.",
+          "estimated_audio_duration_s": 7
+        }
+      ],
+      "scene_style": "Dark blue background. Use consistent colors from previous scenes. Encoder in blue, decoder in green. Data flow arrows in white. Final linear layer in yellow, softmax function in red. Output probabilities in light blue.",
+      "id": 5
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Display \"Advantages of Transformers\" at top. List advantages below it. Show icons for NLP, computer vision, and other fields on right.",
+          "animation_details": "Display text \"Advantages of Transformers\" in white, centered at the top. List \"Parallelization\", \"Long-Range Dependencies\", \"Transfer Learning\" below it in green. Show icons for NLP (text), computer vision (image), and other fields (speech, bioinformatics) on the right in light blue.",
+          "audio_text": "Transformers offer significant advantages, including parallel processing, handling long-range dependencies, and enabling transfer learning.",
+          "estimated_audio_duration_s": 6
+        },
+        {
+          "animation_planning": "Transition to \"Applications\" at top. Show application examples below it.",
+          "animation_details": "Display text \"Applications\" in white, centered at the top. Show text \"Machine Translation\", \"Text Summarization\", \"Image Classification\" below it in yellow.",
+          "audio_text": "They have revolutionized various fields, including machine translation, text summarization, and image classification. The transformer model has truly transformed machine learning.",
+          "estimated_audio_duration_s": 8
+        }
+      ],
+      "scene_style": "Dark blue background. White text for \"Advantages of Transformers\" and \"Applications\". Use green for advantage points and yellow for application examples. Icons in light blue. Smooth transitions between text and icons.",
+      "id": 6
+    }
+  ]
+}

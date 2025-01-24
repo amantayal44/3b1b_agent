@@ -1,0 +1,58 @@
+{
+  "scenes": [
+    {
+      "scene_plot": "Introduce the problem and briefly touch upon limitations of RNNs.",
+      "animation_details": "Show text: \"Transformers in ML\". Then show a simple RNN with one input going in and one output coming out sequentially.",
+      "animation_style": "White text on a dark background. Use arrows to indicate the flow of information in the RNN.",
+      "audio_text": "Let's explore the fascinating world of Transformers in machine learning. Before Transformers, models like Recurrent Neural Networks or RNNs processed data sequentially, one element at a time."
+    },
+    {
+      "scene_plot": "Illustrate the limitations of RNNs, particularly sequential processing.",
+      "animation_details": "Show a long sentence being fed into an RNN one word at a time. Then show a simplified animation of vanishing gradients with the gradient signal weakening as it goes back through time.",
+      "animation_style": "Use a color gradient to represent the strength of the gradient signal, fading as it goes back.",
+      "audio_text": "This sequential nature made RNNs slow, especially for long sequences. They also suffered from issues like vanishing or exploding gradients, making it hard to learn long-range dependencies in the data."
+    },
+    {
+      "scene_plot": "Introduce the concept of attention and contrast it with RNNs.",
+      "animation_details": "Show the same sentence, but now with attention, all words are processed at once. Show attention weights highlighting relevant words for a specific word.",
+      "animation_style": "Use bright lines connecting words to represent attention weights. Highlight the words with stronger connections.",
+      "audio_text": "The game-changer was the concept of 'Attention'. Instead of processing word by word, attention allows the model to look at all words at once and determine their relationships, avoiding the bottlenecks of RNNs."
+    },
+    {
+      "scene_plot": "Present the Transformer architecture and explain the Encoder.",
+      "animation_details": "Show a high-level diagram of the Transformer with Encoder and Decoder blocks. Highlight the Encoder block. Show layers within the Encoder, specifically Multi-Head Attention and Feed-Forward Network.",
+      "animation_style": "Use boxes to represent Encoder and Decoder. Use distinct colors for Multi-Head Attention and Feed-Forward Network layers.",
+      "audio_text": "A Transformer has two main parts: an Encoder and a Decoder. The Encoder processes the input sequence. Each Encoder layer has two sub-layers: Multi-Head Self-Attention and a Feed-Forward Network."
+    },
+    {
+      "scene_plot": "Explain Multi-Head Self-Attention in the Encoder.",
+      "animation_details": "Show word embeddings for a simple sentence. Show the creation of Q, K, V vectors using linear transformations. Animate the Scaled Dot-Product Attention calculation with matrix multiplications. Show multiple attention heads.",
+      "animation_style": "Use vectors to represent embeddings and matrices. Use different colors for Q, K, and V. Show the attention calculation step-by-step.",
+      "audio_text": "In Multi-Head Attention, words are first converted into embeddings. Then, for each word, we create Query, Key, and Value vectors using different learned weight matrices. We calculate the attention scores using scaled dot product of Q and K, normalize them using softmax, and then weight the Value vectors by these scores."
+    },
+    {
+      "scene_plot": "Explain the Feed-Forward Network, Residual Connections, and Normalization.",
+      "animation_details": "Show the output of Multi-Head Attention going into the Feed-Forward Network. Show the two linear layers with ReLU activation. Illustrate residual connection and layer normalization.",
+      "animation_style": "Use arrows to show the flow of information. Use a plus sign for residual connection and a box for layer normalization.",
+      "audio_text": "After attention, a Feed-Forward Network processes each word's output. We also add the input of each layer to its output, which is called a residual connection, and then apply layer normalization to stabilize training."
+    },
+    {
+      "scene_plot": "Introduce the Decoder and explain Masked Multi-Head Self-Attention.",
+      "animation_details": "Highlight the Decoder block. Show the Masked Multi-Head Self-Attention layer. Show how masking is applied to attention scores before softmax, setting future word scores to negative infinity.",
+      "animation_style": "Similar to the Encoder, use boxes for layers. Use a mask overlay to show how future word scores are blocked.",
+      "audio_text": "The Decoder is similar to the Encoder but has an extra Masked Multi-Head Attention layer. Here, we prevent the model from looking at future words by setting their attention scores to negative infinity before applying softmax."
+    },
+    {
+      "scene_plot": "Explain Positional Encoding.",
+      "animation_details": "Show a sequence of word embeddings. Show positional encodings being generated using sine and cosine functions. Show the addition of positional encodings to the word embeddings.",
+      "animation_style": "Use wave patterns to represent sine and cosine functions. Show the addition operation clearly.",
+      "audio_text": "Unlike RNNs, Transformers don't inherently understand word order. To fix this, we add Positional Encodings to the embeddings. These encodings, generated using sine and cosine functions, provide information about each word's position in the sequence."
+    },
+    {
+      "scene_plot": "Conclusion and a brief overview of applications and limitations.",
+      "animation_details": "Show text: \"Transformers: Key Takeaways\". List the advantages: Parallelization, Long-Range Dependencies. Briefly show icons representing different applications like translation, text summarization. Show text: \"Limitations\". List: Computational Resources, Context Window.",
+      "animation_style": "Use bullet points and icons for a clear summary. Keep the style consistent with previous scenes.",
+      "audio_text": "In conclusion, Transformers revolutionized machine learning with their attention mechanism, enabling parallel processing and effectively capturing long-range dependencies. They power numerous applications today. However, they do require significant computational resources and have limitations in their context window."
+    }
+  ]
+}

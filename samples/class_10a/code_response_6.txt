@@ -1,0 +1,73 @@
+```
+class AnimationVideo(VoiceoverScene):
+    def play_scene_6(self):
+        # Implementation: Setting dark blue background
+        self.camera.background_color = DARK_BLUE
+
+        # Implementation: Defining text and highlight colors
+        text_color = WHITE
+        highlight_color = YELLOW
+
+        # Implementation: Displaying the summary heading
+        # Thinking: Text should be at the top-center
+        summary_heading = Text("Summary:", color=text_color, font_size=48).to_edge(UP)
+
+        # Implementation: Listing probabilities
+        # Thinking: List should be below the heading, one below the other
+        probability_1 = Text("(i) Probability of not divisible by 3: 2/3", color=text_color, font_size=36).next_to(summary_heading, DOWN, buff=1).align_to(summary_heading, LEFT)
+        probability_2 = Text("(ii) Probability of a prime number greater than 7: 1/5", color=text_color, font_size=36).next_to(probability_1, DOWN, buff=0.5).align_to(probability_1, LEFT)
+        probability_3 = Text("(iii) Probability of not a perfect square: 5/6", color=text_color, font_size=36).next_to(probability_2, DOWN, buff=0.5).align_to(probability_1, LEFT)
+
+        # Implementation: Highlighting each probability
+        highlight_prob_1 = probability_1[-3:]
+        highlight_prob_2 = probability_2[-3:]
+        highlight_prob_3 = probability_3[-3:]
+
+        # Implementation: Animating the summary and probabilities
+        with self.voiceover(text="To recap, the probability of not drawing a number divisible by 3 is 2/3, the probability of drawing a prime number greater than 7 is 1/5, and the probability of not drawing a perfect square number is 5/6.") as tracker:
+            self.play(Write(summary_heading), run_time=tracker.duration / 4)
+            self.play(Write(probability_1), run_time=tracker.duration / 4)
+            self.play(highlight_prob_1.animate.set_color(highlight_color), run_time=0.5)
+            self.play(Write(probability_2), run_time=tracker.duration / 4)
+            self.play(highlight_prob_2.animate.set_color(highlight_color), run_time=0.5)
+            self.play(Write(probability_3), run_time=tracker.duration / 4)
+            self.play(highlight_prob_3.animate.set_color(highlight_color), run_time=0.5)
+
+        # Cleaning: Clearing all objects
+        self.wait(0.5)
+        self.clear()
+
+    def play_scene_7(self):
+        # Implementation: Setting dark blue background
+        self.camera.background_color = DARK_BLUE
+
+        # Implementation: Defining text color
+        text_color = WHITE
+
+        # Implementation: Displaying the key concepts heading
+        # Thinking: Text should be at the top-center
+        key_concepts_heading = Text("Key Concepts:", color=text_color, font_size=48).to_edge(UP)
+
+        # Implementation: Listing key concepts
+        # Thinking: List should be below the heading, one below the other
+        concept_1 = Text("Probability", color=text_color, font_size=36).next_to(key_concepts_heading, DOWN, buff=1).align_to(key_concepts_heading, LEFT)
+        concept_2 = Text("Favorable Outcomes", color=text_color, font_size=36).next_to(concept_1, DOWN, buff=0.5).align_to(concept_1, LEFT)
+        concept_3 = Text("Total Possible Outcomes", color=text_color, font_size=36).next_to(concept_2, DOWN, buff=0.5).align_to(concept_1, LEFT)
+        concept_4 = Text("Divisibility", color=text_color, font_size=36).next_to(concept_3, DOWN, buff=0.5).align_to(concept_1, LEFT)
+        concept_5 = Text("Prime Numbers", color=text_color, font_size=36).next_to(concept_4, DOWN, buff=0.5).align_to(concept_1, LEFT)
+        concept_6 = Text("Perfect Squares", color=text_color, font_size=36).next_to(concept_5, DOWN, buff=0.5).align_to(concept_1, LEFT)
+
+        # Implementation: Animating the key concepts
+        with self.voiceover(text="Throughout this video, we've touched upon several key concepts: Probability, favorable outcomes, total possible outcomes, divisibility, prime numbers, and perfect squares. Understanding these concepts is crucial for solving problems like this one.") as tracker:
+            self.play(Write(key_concepts_heading), run_time=tracker.duration / 7)
+            self.play(Write(concept_1), run_time=tracker.duration / 7)
+            self.play(Write(concept_2), run_time=tracker.duration / 7)
+            self.play(Write(concept_3), run_time=tracker.duration / 7)
+            self.play(Write(concept_4), run_time=tracker.duration / 7)
+            self.play(Write(concept_5), run_time=tracker.duration / 7)
+            self.play(Write(concept_6), run_time=tracker.duration / 7)
+
+        # Cleaning: Clearing all objects
+        self.wait(0.5)
+        self.clear()
+```

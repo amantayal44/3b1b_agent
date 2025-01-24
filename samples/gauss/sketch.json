@@ -1,0 +1,46 @@
+{
+  "scenes": [
+    {
+      "scene_plot": "Introduce the Gaussian distribution. Start with a blank screen and transition to a bell curve graph. Mention that it's also known as the normal distribution and is fundamental in statistics and probability.",
+      "animation_details": "Show a standard Gaussian curve with labeled mean (\u03bc) at the center and x-axis representing the random variable. The y-axis represents probability density.",
+      "animation_style": "Use a dark background. The Gaussian curve is in light blue. Labels and axes are in white. The mean is marked with a dashed vertical line.",
+      "audio_text": "Let's explore the Gaussian distribution, also known as the normal distribution. It's a cornerstone of statistics and probability, and you'll find it almost everywhere in the real world."
+    },
+    {
+      "scene_plot": "Explain the symmetry of the bell curve. Highlight that the mean, median, and mode are equal and located at the center.",
+      "animation_details": "Show the same bell curve from Scene 1. Highlight the left and right sides of the curve to demonstrate symmetry around the mean.",
+      "animation_style": "Highlight the left side of the curve in light green and the right side in light red momentarily, then revert to the original blue. Keep other styles consistent with Scene 1.",
+      "audio_text": "One key feature of the Gaussian distribution is its symmetry. The curve is perfectly symmetrical around its mean. In fact, the mean, median, and mode are all equal and lie right at the center."
+    },
+    {
+      "scene_plot": "Introduce the concept of standard deviation. Show how different standard deviations affect the shape of the curve.",
+      "animation_details": "Start with the standard Gaussian curve. Then, show two more curves: one with a smaller standard deviation (taller and narrower) and one with a larger standard deviation (wider and flatter). Label them accordingly.",
+      "animation_style": "Use yellow for the curve with smaller standard deviation and purple for the curve with larger standard deviation. Keep other styles consistent.",
+      "audio_text": "The spread of the data is determined by the standard deviation. A smaller standard deviation results in a tall, narrow curve, while a larger one gives us a wide, flat curve."
+    },
+    {
+      "scene_plot": "Introduce the Gaussian PDF formula. Break it down into two main parts: the scaling factor and the exponential part.",
+      "animation_details": "Display the Gaussian PDF formula: f(x | \u03bc, \u03c3) = (1 / (\u03c3 * sqrt(2\u03c0))) * exp(-(x - \u03bc)^2 / (2\u03c3^2)). Highlight (1 / (\u03c3 * sqrt(2\u03c0))) in one color and exp(-(x - \u03bc)^2 / (2\u03c3^2)) in another color.",
+      "animation_style": "Use a dark background. The formula is in white. Highlight the scaling factor in green and the exponential part in orange. The equation is placed at the center.",
+      "audio_text": "Mathematically, the Gaussian distribution is described by its probability density function, or PDF. This formula has two main parts: a scaling factor and an exponential part that gives the curve its shape."
+    },
+    {
+      "scene_plot": "Explain the empirical rule (68-95-99.7). Illustrate the percentage of data within one, two, and three standard deviations from the mean.",
+      "animation_details": "Show a Gaussian curve. Mark and shade areas representing one, two, and three standard deviations from the mean. Display the percentages (68%, 95%, 99.7%) for each range.",
+      "animation_style": "Shade the area within one standard deviation in light blue, two standard deviations in light green, and three standard deviations in light red. Keep other styles consistent.",
+      "audio_text": "The empirical rule tells us that about 68% of the data falls within one standard deviation of the mean, 95% within two standard deviations, and 99.7% within three."
+    },
+    {
+      "scene_plot": "Explain the Central Limit Theorem (CLT) using the analogy of rolling dice. Show how the sum of dice rolls tends towards a normal distribution as the number of dice increases.",
+      "animation_details": "Start with a single die and its uniform distribution. Then show the distribution of the sum of two dice, three dice, and so on, until it resembles a bell curve. Show at each step how we are adding more dice.",
+      "animation_style": "Use blue bars for the bar graphs representing dice sums. Show each graph in sequence, transitioning smoothly from one to the next. Keep the background dark.",
+      "audio_text": "The Central Limit Theorem explains why the Gaussian distribution is so common. It states that the sum of many independent random variables, like rolling multiple dice, tends towards a normal distribution as the number of variables increases."
+    },
+    {
+      "scene_plot": "Showcase real-world examples of the Gaussian distribution, such as the heights of people, IQ scores, and measurement errors.",
+      "animation_details": "Display a Gaussian curve. Briefly show text labels like 'Heights of People,' 'IQ Scores,' and 'Measurement Errors' next to the curve, each with a relevant icon (e.g., a stick figure for height, a brain for IQ).",
+      "animation_style": "Use simple icons in white next to the text labels. Keep the Gaussian curve in blue and the background dark. Use transition between each example.",
+      "audio_text": "The Gaussian distribution appears in many real-world scenarios, such as the distribution of people's heights, IQ scores, and even errors in measurements. It's truly a fundamental concept with wide-reaching applications."
+    }
+  ]
+}

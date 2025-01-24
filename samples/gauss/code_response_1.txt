@@ -1,0 +1,637 @@
+```python
+from manim import *
+from manim_voiceover import VoiceoverScene
+from manim_voiceover.services.gtts import GTTSService
+import numpy as np
+import scipy as sp
+class AnimationVideo(VoiceoverScene):
+    def play_scene_1(self):
+        # Implementation: Set the scene style
+        self.set_speech_service(GTTSService(lang="en", tld="com"))
+        self.camera.background_color = "#000000"  # Dark background
+
+        # Implementation: Define the Gaussian curve
+        def gaussian(x, mu=0, sigma=1):
+            # Implementation: Calculate the Gaussian function
+            return np.exp(-((x - mu) ** 2) / (2 * sigma**2))
+
+        # Implementation: Create the Gaussian curve
+        graph = FunctionGraph(
+            gaussian,
+            x_range=[-3, 3, 0.01],
+            color=BLUE_B,
+        )
+        # Implementation: Scale the curve to fit the frame
+        graph.scale(1.3)
+
+        # Implementation: Create the axes
+        axes = Axes(
+            x_range=[-3, 3],
+            y_range=[0, 1],
+            axis_config={"color": WHITE},
+            x_length=6,
+            y_length=4,
+        )
+        # Implementation: Scale the axes to fit the frame
+        axes.scale(1.3)
+
+        # Implementation: Animate the curve appearing from the left
+        with self.voiceover(
+            text="Let's explore the Gaussian distribution, also known as the normal distribution."
+        ) as tracker:
+            # Implementation: Animate the curve appearing from the left
+            self.play(
+                graph.animate.set_x(-3).set_opacity(0),
+                run_time=tracker.duration / 2,
+            )
+            self.play(
+                graph.animate.set_x(0).set_opacity(1),
+                run_time=tracker.duration / 2,
+            )
+
+        # Implementation: Create the mean line and label
+        mean_line = DashedLine(
+            start=axes.c2p(0, gaussian(0)),
+            end=axes.c2p(0, 0),
+            color=WHITE,
+        )
+        # Implementation: Calculate position for mean label
+        mean_label = (
+            MathTex(r"\mu", color=WHITE)
+            .next_to(mean_line, UP, buff=0.5)
+            .shift(0.4 * UP)
+        )
+
+        # Implementation: Create the x-axis and y-axis labels
+        x_label = (
+            Text("Random Variable", color=WHITE)
+            .scale(0.6)
+            .next_to(axes, DOWN, buff=0.8)
+        )
+        # Implementation: Calculate position for y-axis label
+        y_label = (
+            Text("Probability Density", color=WHITE)
+            .scale(0.6)
+            .rotate(90 * DEGREES)
+            .next_to(axes, LEFT, buff=0.8)
+        )
+
+        # Implementation: Animate the labels and mean line
+        with self.voiceover(
+            text="It's a cornerstone of statistics and probability, and you'll find it almost everywhere in the real world."
+        ) as tracker:
+            self.play(
+                Create(mean_line),
+                Write(mean_label),
+                Write(x_label),
+                Write(y_label),
+                run_time=tracker.duration,
+            )
+
+        # Cleaning: Store objects for next scene
+        self.gaussian_curve = graph
+        self.mean_label = mean_label
+        self.axes = axes
+
+    def play_scene_2(self):
+        # Implementation: Set the scene style
+        self.set_speech_service(GTTSService(lang="en", tld="com"))
+        self.camera.background_color = "#000000"  # Dark background
+
+        # Implementation: Retrieve objects from previous scene
+        graph = self.gaussian_curve
+        mean_label = self.mean_label
+        axes = self.axes
+
+        # Implementation: Define the Gaussian function
+        def gaussian(x, mu=0, sigma=1):
+            return np.exp(-((x - mu) ** 2) / (2 * sigma**2))
+
+        # Implementation: Create a copy of the graph for highlighting
+        left_highlight = graph.copy().set_color(GREEN_B)
+        right_highlight = graph.copy().set_color(RED_B)
+
+        # Implementation: Clip the highlights to the left and right of the mean
+        left_highlight.add_updater(
+            lambda m: m.become(
+                FunctionGraph(
+                    lambda x: gaussian(x) if x <= 0 else 0,
+                    x_range=[-3, 3, 0.01],
+                    color=GREEN_B,
+                ).scale(1.3)
+            )
+        )
+
+        right_highlight.add_updater(
+            lambda m: m.become(
+                FunctionGraph(
+                    lambda x: gaussian(x) if x >= 0 else 0,
+                    x_range=[-3, 3, 0.01],
+                    color=RED_B,
+                ).scale(1.3)
+            )
+        )
+
+        # Implementation: Animate highlighting the left side
+        with self.voiceover(
+            text="One key feature of the Gaussian distribution is its symmetry."
+        ) as tracker:
+            self.add(left_highlight)
+            self.wait(tracker.duration)
+            self.remove(left_highlight)
+
+        # Implementation: Animate highlighting the right side
+        with self.voiceover(
+            text="The curve is perfectly symmetrical around its mean. In fact, the mean, median, and mode are all equal and lie right at the center."
+        ) as tracker:
+            self.add(right_highlight)
+            self.wait(tracker.duration)
+            self.remove(right_highlight)
+
+        # Cleaning: Store objects for next scene
+        self.gaussian_curve = graph
+        self.mean_label = mean_label
+        self.axes = axes
+
+    def play_scene_3(self):
+        # Implementation: Set the scene style
+        self.set_speech_service(GTTSService(lang="en", tld="com"))
+        self.camera.background_color = "#000000"  # Dark background
+
+        # Implementation: Retrieve objects from previous scene
+        graph = self.gaussian_curve
+        mean_label = self.mean_label
+        axes = self.axes
+
+        # Implementation: Define the Gaussian function
+        def gaussian(x, mu=0, sigma=1):
+            return np.exp(-((x - mu) ** 2) / (2 * sigma**2))
+
+        # Implementation: Create curves with different standard deviations
+        # Implementation: Calculate smaller standard deviation curve
+        smaller_sigma_curve = FunctionGraph(
+            lambda x: gaussian(x, sigma=0.5),
+            x_range=[-3, 3, 0.01],
+            color=YELLOW_B,
+        )
+        # Implementation: Calculate larger standard deviation curve
+        larger_sigma_curve = FunctionGraph(
+            lambda x: gaussian(x, sigma=2),
+            x_range=[-3, 3, 0.01],
+            color=PURPLE_B,
+        )
+
+        # Implementation: Scale the curves to fit the frame
+        graph.scale(0.7)
+        smaller_sigma_curve.scale(0.7)
+        larger_sigma_curve.scale(0.7)
+
+        # Implementation: Create labels for the curves
+        # Implementation: Calculate position for smaller sigma label
+        smaller_sigma_label = (
+            MathTex(r"\text{Smaller } \sigma", color=WHITE)
+            .scale(0.6)
+            .next_to(smaller_sigma_curve, UP, buff=0.5)
+            .shift(0.8 * LEFT)
+        )
+        # Implementation: Calculate position for larger sigma label
+        larger_sigma_label = (
+            MathTex(r"\text{Larger } \sigma", color=WHITE)
+            .scale(0.6)
+            .next_to(larger_sigma_curve, DOWN, buff=0.5)
+            .shift(0.5 * RIGHT)
+        )
+
+        # Implementation: Animate the standard curve
+        with self.voiceover(
+            text="The spread of the data is determined by the standard deviation."
+        ) as tracker:
+            self.play(Create(graph), run_time=tracker.duration)
+
+        # Implementation: Animate the smaller sigma curve
+        with self.voiceover(
+            text="A smaller standard deviation results in a tall, narrow curve."
+        ) as tracker:
+            self.play(
+                Create(smaller_sigma_curve),
+                Write(smaller_sigma_label),
+                run_time=tracker.duration,
+            )
+
+        # Implementation: Animate the larger sigma curve
+        with self.voiceover(
+            text="while a larger one gives us a wide, flat curve."
+        ) as tracker:
+            self.play(
+                Create(larger_sigma_curve),
+                Write(larger_sigma_label),
+                run_time=tracker.duration,
+            )
+
+        # Cleaning: Clear all objects for next scene
+        self.clear()
+
+    def play_scene_4(self):
+        # Implementation: Set the scene style
+        self.set_speech_service(GTTSService(lang="en", tld="com"))
+        self.camera.background_color = "#000000"  # Dark background
+
+        # Implementation: Define the Gaussian PDF formula
+        # Implementation: Create the formula
+        formula = MathTex(
+            r"f(x | \mu, \sigma) = \frac{1}{\sigma \sqrt{2\pi}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)",
+            color=WHITE,
+        )
+        # Implementation: Scale the formula to fit the frame
+        formula.scale(0.8)
+
+        # Implementation: Highlight parts of the formula
+        # Implementation: Create the scaling factor highlight
+        scaling_factor = formula[0][9:18].copy().set_color(GREEN_B)
+        # Implementation: Create the exponential part highlight
+        exponential_part = formula[0][18:].copy().set_color(ORANGE)
+
+        # Implementation: Animate the formula
+        with self.voiceover(
+            text="Mathematically, the Gaussian distribution is described by its probability density function, or PDF."
+        ) as tracker:
+            self.play(Write(formula), run_time=tracker.duration)
+
+        # Implementation: Animate the scaling factor highlight
+        with self.voiceover(
+            text="This formula has two main parts: a scaling factor"
+        ) as tracker:
+            self.play(TransformFromCopy(formula[0][9:18], scaling_factor))
+            self.wait(tracker.duration - scaling_factor.animate.set_opacity(0).duration)
+            self.play(scaling_factor.animate.set_opacity(0))
+
+        # Implementation: Animate the exponential part highlight
+        with self.voiceover(
+            text="and an exponential part that gives the curve its shape."
+        ) as tracker:
+            self.play(TransformFromCopy(formula[0][18:], exponential_part))
+            self.wait(tracker.duration - exponential_part.animate.set_opacity(0).duration)
+            self.play(exponential_part.animate.set_opacity(0))
+
+        # Cleaning: Clear all objects for next scene
+        self.clear()
+
+    def play_scene_5(self):
+        # Implementation: Set the scene style
+        self.set_speech_service(GTTSService(lang="en", tld="com"))
+        self.camera.background_color = "#000000"  # Dark background
+
+        # Implementation: Define the Gaussian curve
+        def gaussian(x, mu=0, sigma=1):
+            return np.exp(-((x - mu) ** 2) / (2 * sigma**2))
+
+        # Implementation: Create the Gaussian curve
+        graph = FunctionGraph(
+            gaussian,
+            x_range=[-3, 3, 0.01],
+            color=BLUE_B,
+        )
+        # Implementation: Scale the curve to fit the frame
+        graph.scale(1.3)
+
+        # Implementation: Create the axes
+        axes = Axes(
+            x_range=[-3, 3],
+            y_range=[0, 1],
+            axis_config={"color": WHITE},
+            x_length=6,
+            y_length=4,
+        )
+        # Implementation: Scale the axes to fit the frame
+        axes.scale(1.3)
+
+        # Implementation: Create the shaded areas
+        # Implementation: Calculate one standard deviation area
+        one_sigma_area = axes.get_area(
+            graph,
+            x_range=[-1, 1],
+            color=BLUE_B,
+        )
+        # Implementation: Calculate two standard deviations area
+        two_sigma_area = axes.get_area(
+            graph,
+            x_range=[-2, 2],
+            color=GREEN_B,
+        )
+        # Implementation: Calculate three standard deviations area
+        three_sigma_area = axes.get_area(
+            graph,
+            x_range=[-3, 3],
+            color=RED_B,
+        )
+
+        # Implementation: Create the percentage labels
+        # Implementation: Calculate position for 68% label
+        one_sigma_label = (
+            Text("68%", color=WHITE).scale(0.7).move_to(one_sigma_area).shift(0.3 * UP)
+        )
+        # Implementation: Calculate position for 95% label
+        two_sigma_label = (
+            Text("95%", color=WHITE)
+            .scale(0.7)
+            .move_to(two_sigma_area)
+            .shift(0.8 * UP)
+        )
+        # Implementation: Calculate position for 99.7% label
+        three_sigma_label = (
+            Text("99.7%", color=WHITE)
+            .scale(0.7)
+            .move_to(three_sigma_area)
+            .shift(1.3 * UP)
+        )
+
+        # Implementation: Animate the curve
+        with self.voiceover(
+            text="The empirical rule tells us that about"
+        ) as tracker:
+            self.play(Create(axes), Create(graph), run_time=tracker.duration)
+
+        # Implementation: Animate one standard deviation area
+        with self.voiceover(
+            text="68% of the data falls within one standard deviation of the mean,"
+        ) as tracker:
+            self.play(
+                FadeIn(one_sigma_area), Write(one_sigma_label), run_time=tracker.duration
+            )
+
+        # Implementation: Animate two standard deviations area
+        with self.voiceover(
+            text="95% within two standard deviations,"
+        ) as tracker:
+            self.play(
+                FadeIn(two_sigma_area), Write(two_sigma_label), run_time=tracker.duration
+            )
+
+        # Implementation: Animate three standard deviations area
+        with self.voiceover(
+            text="and 99.7% within three."
+        ) as tracker:
+            self.play(
+                FadeIn(three_sigma_area),
+                Write(three_sigma_label),
+                run_time=tracker.duration,
+            )
+
+        # Cleaning: Clear all objects for next scene
+        self.clear()
+
+    def play_scene_6(self):
+        # Implementation: Set the scene style
+        self.set_speech_service(GTTSService(lang="en", tld="com"))
+        self.camera.background_color = "#000000"  # Dark background
+
+        # Implementation: Define a function to create a die
+        def create_die(dots=1, scale=0.5):
+            # Implementation: Create a die with a given number of dots
+            dot = Dot(color=WHITE)
+            square = Square(side_length=1, color=BLUE_B).scale(scale)
+            dots_group = VGroup()
+            # Implementation: Arrange dots based on the number
+            if dots == 1:
+                dots_group.add(dot.copy())
+            elif dots == 2:
+                dots_group.add(dot.copy().shift(0.25 * scale * UP + 0.25 * scale * LEFT))
+                dots_group.add(dot.copy().shift(0.25 * scale * DOWN + 0.25 * scale * RIGHT))
+            elif dots == 3:
+                dots_group.add(dot.copy().shift(0.25 * scale * UP + 0.25 * scale * LEFT))
+                dots_group.add(dot.copy())
+                dots_group.add(dot.copy().shift(0.25 * scale * DOWN + 0.25 * scale * RIGHT))
+            elif dots == 4:
+                dots_group.add(dot.copy().shift(0.25 * scale * UP + 0.25 * scale * LEFT))
+                dots_group.add(dot.copy().shift(0.25 * scale * UP + 0.25 * scale * RIGHT))
+                dots_group.add(dot.copy().shift(0.25 * scale * DOWN + 0.25 * scale * LEFT))
+                dots_group.add(dot.copy().shift(0.25 * scale * DOWN + 0.25 * scale * RIGHT))
+            elif dots == 5:
+                dots_group.add(dot.copy().shift(0.25 * scale * UP + 0.25 * scale * LEFT))
+                dots_group.add(dot.copy().shift(0.25 * scale * UP + 0.25 * scale * RIGHT))
+                dots_group.add(dot.copy())
+                dots_group.add(dot.copy().shift(0.25 * scale * DOWN + 0.25 * scale * LEFT))
+                dots_group.add(dot.copy().shift(0.25 * scale * DOWN + 0.25 * scale * RIGHT))
+            elif dots == 6:
+                dots_group.add(dot.copy().shift(0.25 * scale * UP + 0.25 * scale * LEFT))
+                dots_group.add(dot.copy().shift(0.25 * scale * UP + 0.25 * scale * RIGHT))
+                dots_group.add(dot.copy().shift(0.25 * scale * LEFT))
+                dots_group.add(dot.copy().shift(0.25 * scale * RIGHT))
+                dots_group.add(dot.copy().shift(0.25 * scale * DOWN + 0.25 * scale * LEFT))
+                dots_group.add(dot.copy().shift(0.25 * scale * DOWN + 0.25 * scale * RIGHT))
+            return VGroup(square, dots_group)
+
+        # Implementation: Define a function to create a bar graph
+        def create_bar_graph(data, x_labels, x_label="Outcome", y_label="Probability", bar_width=0.8, max_height=4):
+            # Implementation: Create a bar graph with given data
+            max_value = max(data)
+            scaled_data = [max_height * (val / max_value) for val in data]
+            bars = VGroup()
+            x_labels_group = VGroup()
+
+            for i, height in enumerate(scaled_data):
+                # Implementation: Create each bar
+                bar = Rectangle(width=bar_width, height=height, color=BLUE_B, fill_opacity=0.8)
+                bar.next_to(ORIGIN, DOWN, buff=0).shift(i * RIGHT * bar_width)
+                bars.add(bar)
+                # Implementation: Create x-axis labels
+                x_label_tex = Text(x_labels[i], color=WHITE).scale(0.5)
+                x_label_tex.next_to(bar, DOWN, buff=0.2)
+                x_labels_group.add(x_label_tex)
+
+            # Implementation: Create x and y axis labels
+            x_axis_label = Text(x_label, color=WHITE).scale(0.6).next_to(bars, DOWN, buff=1.2)
+            y_axis_label = Text(y_label, color=WHITE).scale(0.6).rotate(90 * DEGREES)
+            y_axis_label.next_to(bars, LEFT, buff=1.2)
+
+            return VGroup(bars, x_labels_group, x_axis_label, y_axis_label)
+
+        # Implementation: Create the first die and its distribution
+        die1 = create_die(dots=1, scale=0.4)
+        # Implementation: Calculate position for first die
+        die1.move_to(4 * LEFT + 2 * DOWN)
+        # Implementation: Create uniform distribution data
+        uniform_data = [1/6] * 6
+        # Implementation: Create uniform distribution bar graph
+        uniform_graph = create_bar_graph(uniform_data, ["1", "2", "3", "4", "5", "6"], x_label="Outcome", y_label="Probability", bar_width=0.5, max_height=2)
+        # Implementation: Calculate position for uniform distribution bar graph
+        uniform_graph.next_to(die1, RIGHT, buff=1)
+
+        with self.voiceover(
+            text="The Central Limit Theorem explains why the Gaussian distribution is so common."
+        ) as tracker:
+            self.play(
+                Create(die1),
+                Create(uniform_graph),
+                run_time=tracker.duration,
+            )
+
+        # Implementation: Create the second die and its distribution
+        die2 = create_die(dots=2, scale=0.4)
+        # Implementation: Calculate position for second die
+        die2.next_to(die1, RIGHT, buff=0.5)
+        # Implementation: Create two dice distribution data
+        two_dice_data = [1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]
+        # Implementation: Create two dice distribution bar graph
+        two_dice_graph = create_bar_graph(two_dice_data, [str(i) for i in range(2, 13)], x_label="Sum", y_label="Probability", bar_width=0.3, max_height=2)
+        # Implementation: Calculate position for two dice distribution bar graph
+        two_dice_graph.next_to(die2, RIGHT, buff=1)
+
+        with self.voiceover(
+            text="It states that the sum of many independent random variables,"
+        ) as tracker:
+            self.play(
+                die1.animate.shift(2 * LEFT),
+                uniform_graph.animate.shift(2 * LEFT),
+                Create(die2),
+                Create(two_dice_graph),
+                run_time=tracker.duration,
+            )
+
+        # Implementation: Create the third die and its distribution
+        die3 = create_die(dots=3, scale=0.4)
+        # Implementation: Calculate position for third die
+        die3.next_to(die2, RIGHT, buff=0.5)
+        # Implementation: Create three dice distribution data
+        three_dice_data = [1, 3, 6, 10, 15, 21, 25, 27, 27, 25, 21, 15, 10, 6, 3, 1]
+        # Implementation: Create three dice distribution bar graph
+        three_dice_graph = create_bar_graph(three_dice_data, [str(i) for i in range(3, 19)], x_label="Sum", y_label="Probability", bar_width=0.2, max_height=2)
+        # Implementation: Calculate position for three dice distribution bar graph
+        three_dice_graph.next_to(die3, RIGHT, buff=1)
+
+        with self.voiceover(
+            text="like rolling multiple dice,"
+        ) as tracker:
+            self.play(
+                die1.animate.shift(2 * LEFT),
+                uniform_graph.animate.shift(2 * LEFT),
+                die2.animate.shift(2 * LEFT),
+                two_dice_graph.animate.shift(2 * LEFT),
+                Create(die3),
+                Create(three_dice_graph),
+                run_time=tracker.duration,
+            )
+
+        # Implementation: Create multiple dice and their distribution
+        # Implementation: Create multiple dice
+        dice_group = VGroup(*[create_die(dots=i, scale=0.3) for i in range(1, 7)])
+        # Implementation: Arrange multiple dice in a row
+        dice_group.arrange(RIGHT, buff=0.3)
+        # Implementation: Calculate position for multiple dice
+        dice_group.move_to(3 * DOWN)
+        # Implementation: Create multiple dice distribution data (approximating Gaussian)
+        many_dice_data = [0.1, 0.5, 1, 1.5, 2, 2.5, 3, 2.5, 2, 1.5, 1, 0.5, 0.1]
+        # Implementation: Create multiple dice distribution bar graph
+        many_dice_graph = create_bar_graph(many_dice_data, [str(i) for i in range(6, 19)], x_label="Sum", y_label="Probability", bar_width=0.4, max_height=3)
+        # Implementation: Calculate position for multiple dice distribution bar graph
+        many_dice_graph.move_to(1 * UP)
+
+        with self.voiceover(
+            text="tends towards a normal distribution as the number of variables increases."
+        ) as tracker:
+            self.play(
+                *[FadeOut(mob) for mob in self.mobjects if mob not in [dice_group, many_dice_graph]],
+                Create(dice_group),
+                Create(many_dice_graph),
+                run_time=tracker.duration,
+            )
+
+        with self.voiceover(
+            text=""
+        ) as tracker:
+            self.play(
+                *[FadeOut(mob) for mob in self.mobjects if mob not in [many_dice_graph]],
+                run_time=tracker.duration,
+            )
+
+        # Cleaning: Clear all objects for next scene
+        self.clear()
+
+    def play_scene_7(self):
+        # Implementation: Set the scene style
+        self.set_speech_service(GTTSService(lang="en", tld="com"))
+        self.camera.background_color = "#000000"  # Dark background
+
+        # Implementation: Define the Gaussian curve
+        def gaussian(x, mu=0, sigma=1):
+            return np.exp(-((x - mu) ** 2) / (2 * sigma**2))
+
+        # Implementation: Create the Gaussian curve
+        graph = FunctionGraph(
+            gaussian,
+            x_range=[-3, 3, 0.01],
+            color=BLUE_B,
+        )
+        # Implementation: Scale the curve to fit the frame
+        graph.scale(1.3)
+
+        # Implementation: Create the axes
+        axes = Axes(
+            x_range=[-3, 3],
+            y_range=[0, 1],
+            axis_config={"color": WHITE},
+            x_length=6,
+            y_length=4,
+        )
+        # Implementation: Scale the axes to fit the frame
+        axes.scale(1.3)
+
+        with self.voiceover(
+            text="The Gaussian distribution appears in many real-world scenarios,"
+        ) as tracker:
+            self.play(Create(axes), Create(graph), run_time=tracker.duration)
+
+        # Implementation: Create the "Heights of People" example
+        # Implementation: Create stick figure icon
+        heights_icon = SVGMobject("human.svg", color=WHITE).scale(0.3)
+        # Implementation: Create heights text
+        heights_text = Text("Heights of People", color=WHITE).scale(0.6)
+        # Implementation: Group heights icon and text
+        heights_example = VGroup(heights_text, heights_icon)
+        # Implementation: Arrange heights icon and text
+        heights_example.arrange(RIGHT, buff=0.3)
+        # Implementation: Calculate position for heights example
+        heights_example.move_to(graph.get_left() + 2 * UP + 1 * LEFT)
+
+        with self.voiceover(
+            text="such as the distribution of people's heights,"
+        ) as tracker:
+            self.play(Write(heights_example), run_time=tracker.duration)
+
+        # Implementation: Create the "IQ Scores" example
+        # Implementation: Create brain icon
+        iq_icon = SVGMobject("brain.svg", color=WHITE).scale(0.3)
+        # Implementation: Create IQ scores text
+        iq_text = Text("IQ Scores", color=WHITE).scale(0.6)
+        # Implementation: Group IQ icon and text
+        iq_example = VGroup(iq_text, iq_icon)
+        # Implementation: Arrange IQ icon and text
+        iq_example.arrange(RIGHT, buff=0.3)
+        # Implementation: Calculate position for IQ scores example
+        iq_example.move_to(graph.get_top() + 1 * UP)
+
+        with self.voiceover(
+            text="IQ scores,"
+        ) as tracker:
+            self.play(Write(iq_example), run_time=tracker.duration)
+
+        # Implementation: Create the "Measurement Errors" example
+        # Implementation: Create error icon
+        error_icon = SVGMobject("error.svg", color=WHITE).scale(0.3)
+        # Implementation: Create measurement errors text
+        error_text = Text("Measurement Errors", color=WHITE).scale(0.6)
+        # Implementation: Group error icon and text
+        error_example = VGroup(error_text, error_icon)
+        # Implementation: Arrange error icon and text
+        error_example.arrange(RIGHT, buff=0.3)
+        # Implementation: Calculate position for measurement errors example
+        error_example.move_to(graph.get_right() + 2 * UP + 1 * RIGHT)
+
+        with self.voiceover(
+            text="and even errors in measurements. It's truly a fundamental concept with wide-reaching applications."
+        ) as tracker:
+            self.play(Write(error_example), run_time=tracker.duration)
+
+        # Cleaning: Clear all objects for next scene
+        self.clear()
+```

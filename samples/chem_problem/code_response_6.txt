@@ -1,0 +1,73 @@
+```
+class AnimationVideo(VoiceoverScene):
+    def play_scene_6(self):
+        # Implementation: Show "Multiply by 2 to get whole numbers" in white text on a dark background, centered.
+        multiply_text = Text("Multiply by 2 to get whole numbers", font_size=36)
+        multiply_text.to_edge(UP)
+
+        # Implementation: Then display the conversion: "C1 * 2 = C2", "H2 * 2 = H4", "O1.5 * 2 = O3".
+        c_conversion = MathTex("C_1 * 2 = C_2", font_size=36)
+        # Calculating: Position c_conversion below multiply_text.
+        c_conversion.next_to(multiply_text, DOWN, buff=0.5)
+        h_conversion = MathTex("H_2 * 2 = H_4", font_size=36)
+        # Calculating: Position h_conversion below c_conversion.
+        h_conversion.next_to(c_conversion, DOWN, buff=0.5)
+        o_conversion = MathTex("O_{1.5} * 2 = O_3", font_size=36)
+        # Calculating: Position o_conversion below h_conversion.
+        o_conversion.next_to(h_conversion, DOWN, buff=0.5)
+
+        # Implementation: Finally, show "Empirical Formula: C2H4O3".
+        empirical_formula = Text("Empirical Formula: C2H4O3", font_size=48)
+        # Calculating: Position empirical_formula below o_conversion.
+        empirical_formula.next_to(o_conversion, DOWN, buff=1)
+
+        with self.voiceover(text="To get the empirical formula, we need whole number subscripts. We multiply each subscript by 2. This gives us C2, H4, and O3. Thus, the empirical formula of the compound is C2H4O3.") as tracker:
+            # Implementation: Animate the display of the multiply instruction.
+            self.play(Write(multiply_text))
+            # Implementation: Animate the display of the conversions.
+            self.play(Write(c_conversion))
+            self.play(Write(h_conversion))
+            self.play(Write(o_conversion))
+            # Implementation: Animate the display of the empirical formula.
+            self.play(Write(empirical_formula))
+        # Cleaning: Remove all objects except empirical_formula.
+        self.clear()
+        self.add(empirical_formula)
+
+    def play_scene_7(self):
+        # Implementation: Display "Summary:" in white text on a dark background, centered at the top.
+        summary_title = Text("Summary:", font_size=48)
+        summary_title.to_edge(UP)
+
+        # Implementation: List the main steps below it: "1. Mass Ratio to Mole Ratio", "2. Combustion Reaction", "3. Oxygen Content", "4. Empirical Formula".
+        step1 = Text("1. Mass Ratio to Mole Ratio", font_size=36)
+        # Calculating: Position step1 below summary_title.
+        step1.next_to(summary_title, DOWN, buff=0.5)
+        step2 = Text("2. Combustion Reaction", font_size=36)
+        # Calculating: Position step2 below step1.
+        step2.next_to(step1, DOWN, buff=0.5)
+        step3 = Text("3. Oxygen Content", font_size=36)
+        # Calculating: Position step3 below step2.
+        step3.next_to(step2, DOWN, buff=0.5)
+        step4 = Text("4. Empirical Formula", font_size=36)
+        # Calculating: Position step4 below step3.
+        step4.next_to(step3, DOWN, buff=0.5)
+
+        # Implementation: Then show "Final Answer: C2H4O3".
+        final_answer = Text("Final Answer: C2H4O3", font_size=48)
+        # Calculating: Position final_answer below step4.
+        final_answer.next_to(step4, DOWN, buff=1)
+
+        with self.voiceover(text="Let's summarize what we did. We converted the mass ratio to a mole ratio, analyzed the combustion reaction, determined the oxygen content, and finally arrived at the empirical formula. So, the empirical formula of the organic compound is C2H4O3. Understanding empirical formulas is crucial in chemistry as it helps us identify unknown compounds and predict their behavior.") as tracker:
+            # Implementation: Animate the display of the summary title.
+            self.play(Write(summary_title))
+            # Implementation: Animate the display of the summary steps.
+            self.play(Write(step1))
+            self.play(Write(step2))
+            self.play(Write(step3))
+            self.play(Write(step4))
+            # Implementation: Animate the display of the final answer.
+            self.play(Write(final_answer))
+        # Cleaning: Remove all objects.
+        self.clear()
+```

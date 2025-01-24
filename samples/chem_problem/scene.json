@@ -1,0 +1,100 @@
+{
+  "scenes": [
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Start from the top and display the problem statement title in center. Then display problem statement starting from the top-center of the frame and scale the text to fit the frame.",
+          "animation_details": "Display \"Problem:\" in white text on a dark background, centered at the top of the screen. Below the title, display the problem statement: \"The ratio of mass percent of C and H of an organic compound (CxHyOz) is 6 : 1. If one molecule of the above compound ( CxHyOZ ) contains half as much oxygen as required to burn one molecule of compound CXHY completely to CO2 and H2O. The empirical formula of compound CxHyOz is :\". Center the text and scale down to ensure it fits within the frame.",
+          "audio_text": "Let's tackle this chemistry problem. We're given an organic compound with the general formula CxHyOz. The mass ratio of carbon to hydrogen is 6 to 1. And, the oxygen in this molecule is half of what would be needed to completely burn CxHy into carbon dioxide and water. Our task is to find the empirical formula of this compound.",
+          "estimated_audio_duration_s": 24
+        }
+      ],
+      "scene_style": "Dark background with white text. Font size should be large enough to be readable but small enough to fit the entire problem statement within the frame. Use a standard, easily readable font like Arial or Times New Roman.",
+      "id": 1
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Start from the top of the frame and move down to introduce each part of animation. Title \"Mass Ratio to Mole Ratio\". State the assumption \"Assume 100g of the compound\". Calculate mass of C and H from ratio. Calculate moles of C and H by dividing their mass by atomic mass. Calculate mole ratio.",
+          "animation_details": "Display the title \"Mass Ratio to Mole Ratio\" in white text on a dark background, centered at the top. Below, display \"Assume 100g of the compound.\" Then show calculations in a list format: \"Mass of C = 60g, Moles of C = 60g / 12 g/mol = 5 mol\". Below that, display \"Mass of H = 10g, Moles of H = 10g / 1 g/mol = 10 mol\". Finally, display \"Mole Ratio C:H = 5:10 = 1:2\". Represent this as \"CxH2x\". Each calculation step should be added sequentially below the previous one, centered on the screen.",
+          "audio_text": "First, let's convert the mass ratio of carbon and hydrogen to a mole ratio. If we assume we have 100 grams of the compound, then according to the mass ratio, we have 60 grams of carbon and 10 grams of hydrogen.",
+          "estimated_audio_duration_s": 16
+        },
+        {
+          "animation_planning": "Continue from the previous animation and show calculation for moles of C and H.",
+          "animation_details": "Continue from the previous step. Display the calculations: \"Moles of C = 60g / 12 g/mol = 5 mol\". Below that, display \"Moles of H = 10g / 1 g/mol = 10 mol\".",
+          "audio_text": "To find the moles, we divide the mass by the atomic mass. For carbon, 60 grams divided by 12 grams per mole gives us 5 moles. For hydrogen, 10 grams divided by 1 gram per mole gives us 10 moles.",
+          "estimated_audio_duration_s": 16
+        },
+        {
+          "animation_planning": "Continue from previous animation, simplify the mole ratio.",
+          "animation_details": "Continue from the previous step. Display \"Mole Ratio C:H = 5:10 = 1:2\". Represent this as \"CxH2x\".",
+          "audio_text": "So, the mole ratio of carbon to hydrogen is 5 to 10, which simplifies to 1 to 2. This means we can represent the compound as CxH2x.",
+          "estimated_audio_duration_s": 11
+        }
+      ],
+      "scene_style": "Dark background with white text. Use a consistent font size throughout the calculations, large enough for readability. Use a standard font like Arial or Times New Roman.",
+      "id": 2
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Introduce combustion reaction on top-center and show example by substituting value of x and y for CH2 and simplifying it to get oxygen needed for complete combustion.",
+          "animation_details": "Display the general combustion reaction: \"CxHy + (x + y/4)O2 --> xCO2 + (y/2)H2O\" in white text on a dark background, centered on the top-half of the screen. Below this, substitute x=1 and y=2 to get \"CH2 + (1+2/4)O2 --> 1CO2 + 1H2O\", simplifying to \"CH2 + (3/2)O2 --> CO2 + H2O\". Each equation should be centered.",
+          "audio_text": "Now, let's look at the combustion reaction. The general equation for burning CxHy is CxHy plus (x plus y over 4) O2 yields xCO2 plus (y over 2) H2O. Using our C to H ratio of 1 to 2, let's use CH2 as an example. Substituting into the equation, we get CH2 plus (1 plus 2 over 4) O2, which simplifies to CH2 plus 3 over 2 O2, yielding CO2 and H2O. This tells us that one molecule of CH2 needs 1.5 molecules of O2 for complete combustion.",
+          "estimated_audio_duration_s": 35
+        }
+      ],
+      "scene_style": "Dark background with white text. Use a consistent font size throughout the equations, large enough for readability. Use a standard font like Arial or Times New Roman.",
+      "id": 3
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Explain and calculate the oxygen content using the information from the previous scene and problem statement.",
+          "animation_details": "Display \"Oxygen in CxHyOz = 1/2 * Oxygen needed for CxHy\" in white text on a dark background, centered. Below this, show \"Oxygen needed for CH2 = 1.5 O2\". Then calculate \"Oxygen in CxHyOz = 1/2 * 1.5 O2 = 0.75 O2\". Finally, show \"0.75 O2 = 1.5 O atoms\". Each step should be centered and displayed sequentially.",
+          "audio_text": "The problem states that our compound, CxHyOz, contains half the oxygen needed for the complete combustion of CxHy. We found that CH2 needs 1.5 molecules of O2. Therefore, CxHyOz contains half of this, which is 0.75 molecules of O2. Since O2 is diatomic, this corresponds to 1.5 atoms of oxygen.",
+          "estimated_audio_duration_s": 20
+        }
+      ],
+      "scene_style": "Dark background with white text. Use a consistent font size throughout the calculations, large enough for readability. Use a standard font like Arial or Times New Roman.",
+      "id": 4
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Show initial formula based on calculated values.",
+          "animation_details": "Display \"Initial Formula: C1H2O1.5\" in white text on a dark background, centered on the screen.",
+          "audio_text": "Based on our findings, we can now write the initial formula of the compound as C1H2O1.5.",
+          "estimated_audio_duration_s": 6
+        }
+      ],
+      "scene_style": "Dark background with white text. Use a consistent font size, large enough for readability. Use a standard font like Arial or Times New Roman.",
+      "id": 5
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Multiply each subscript by 2 to get whole numbers.",
+          "animation_details": "Show \"Multiply by 2 to get whole numbers\" in white text on a dark background, centered. Then display the conversion: \"C1 * 2 = C2\", \"H2 * 2 = H4\", \"O1.5 * 2 = O3\". Finally, show \"Empirical Formula: C2H4O3\". Each step should be centered and displayed sequentially. Highlight the final empirical formula.",
+          "audio_text": "To get the empirical formula, we need whole number subscripts. We multiply each subscript by 2. This gives us C2, H4, and O3. Thus, the empirical formula of the compound is C2H4O3.",
+          "estimated_audio_duration_s": 13
+        }
+      ],
+      "scene_style": "Dark background with white text. Use a consistent font size throughout the calculations, large enough for readability. Use a standard font like Arial or Times New Roman. Highlight the final answer using a slightly larger font or bold text.",
+      "id": 6
+    },
+    {
+      "scene_parts": [
+        {
+          "animation_planning": "Summarize the main steps in bullet points and display the final answer.",
+          "animation_details": "Display \"Summary:\" in white text on a dark background, centered at the top. List the main steps below it: \"1. Mass Ratio to Mole Ratio\", \"2. Combustion Reaction\", \"3. Oxygen Content\", \"4. Empirical Formula\". Then show \"Final Answer: C2H4O3\". Each point should be centered and displayed sequentially. The final answer should be prominently displayed.",
+          "audio_text": "Let's summarize what we did. We converted the mass ratio to a mole ratio, analyzed the combustion reaction, determined the oxygen content, and finally arrived at the empirical formula. So, the empirical formula of the organic compound is C2H4O3. Understanding empirical formulas is crucial in chemistry as it helps us identify unknown compounds and predict their behavior.",
+          "estimated_audio_duration_s": 23
+        }
+      ],
+      "scene_style": "Dark background with white text. Use a consistent font size throughout the summary points, large enough for readability. Use a standard font like Arial or Times New Roman. Display the final answer in a larger font or bold text to emphasize it.",
+      "id": 7
+    }
+  ]
+}

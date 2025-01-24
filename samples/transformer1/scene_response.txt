@@ -1,0 +1,180 @@
+```json
+{
+  "scenes": [
+    {
+      "planning": "Part 1: Introduce Transformers in ML. Part 2: Introduce RNN and show its basic working.",
+      "scene_parts": [
+        {
+          "animation_planning": "Show \"Transformers in ML\" text at top and in center. Then move text to left. After that, in center of screen, show a simple RNN block with an input arrow and an output arrow. Show sequential flow of information from input to output.",
+          "animation_details": "Show the text \"Transformers in ML\" at the top and center of the screen in large, bold, white font. Gradually move the text towards the left side. Then, display a simple rectangular block representing an RNN in the center. Add an arrow entering the block from the left, labeled \"Input\", and another arrow exiting the block to the right, labeled \"Output\". Animate a small circle moving along the input arrow, through the RNN block, and out along the output arrow to depict sequential processing.",
+          "audio_text": "Let's explore the fascinating world of Transformers in machine learning."
+        },
+        {
+          "animation_planning": "Keep RNN block. Label RNN block as Recurrent Neural Network.",
+          "animation_details": "Maintain the RNN block from the previous part in the center. Add a label below the RNN block, \"Recurrent Neural Network\".",
+          "audio_text": "Before Transformers, models like Recurrent Neural Networks or RNNs processed data sequentially, one element at a time."
+        }
+      ],
+      "scene_style": "Dark background. White text, arrows, and RNN block. Use a simple, clean font like Arial or Helvetica. Text size should be large enough to read comfortably (e.g., 36pt for titles, 24pt for body text). Maintain consistent spacing between elements."
+    },
+    {
+      "planning": "Part 1: Show a sentence as input to RNN. Part 2: Show vanishing gradients problem.",
+      "scene_parts": [
+        {
+          "animation_planning": "Show a sentence \"This is a long sentence\" at top left of screen and move it towards RNN block in center. Animate each word entering RNN one by one. Show output of RNN after each word is processed. Keep output of previous words but make them smaller and lighter.",
+          "animation_details": "Display the sentence \"This is a long sentence\" at the top left of the screen, with each word spaced apart. Move the sentence towards the RNN block positioned in the center. Animate each word entering the RNN block sequentially, one after the other. As each word is processed, show a corresponding output on the right side of the RNN block. For each new word processed, reduce the size and lighten the color of the outputs from the previously processed words, making them less prominent.",
+          "audio_text": "This sequential nature made RNNs slow, especially for long sequences."
+        },
+        {
+          "animation_planning": "Shift sentence and RNN diagram towards right side of screen to make space for showing vanishing gradient problem. Display text \"Vanishing Gradient Problem\" at top and center. Show a chain of 5 blocks representing backpropagation steps. Use a color gradient (e.g. from dark red to light pink) to show gradient strength decreasing through each block.",
+          "animation_details": "Move the sentence and RNN diagram towards the right side of the screen. Display the text \"Vanishing Gradient Problem\" at the top and center in large, bold font. Below this text, draw a horizontal chain of five connected rectangular blocks, representing the steps in backpropagation. Apply a color gradient to these blocks, starting with dark red for the first block on the right and transitioning to light pink for the last block on the left, illustrating the diminishing strength of the gradient signal during backpropagation.",
+          "audio_text": "They also suffered from issues like vanishing or exploding gradients, making it hard to learn long-range dependencies in the data."
+        }
+      ],
+      "scene_style": "Maintain the same dark background, white text and arrows. Use a color gradient from dark red to light pink for the vanishing gradient visualization. Keep the font and text sizes consistent with the previous scene."
+    },
+    {
+      "planning": "Part 1: Introduce Attention concept. Part 2: Contrast Attention with RNN using the same sentence.",
+      "scene_parts": [
+        {
+          "animation_planning": "Clear the previous scene. Show text \"Attention\" at the top center of the screen. Briefly explain what attention is.",
+          "animation_details": "Clear the screen of all previous elements. Display the text \"Attention\" prominently at the top center of the screen in a large, bold font. Below this, add a brief explanation: \"Attention allows a model to focus on relevant parts of the input sequence.\"",
+          "audio_text": "The game-changer was the concept of 'Attention'."
+        },
+        {
+          "animation_planning": "Move \"Attention\" text to top left of screen. Show sentence \"This is a long sentence\" again at top of screen. Show all words being processed simultaneously by a new block labeled \"Attention\". For each word, highlight other words with lines connecting them, representing attention weights. Use brighter lines for stronger connections. For example, for the word \"sentence\", highlight \"long\" with a bright line.",
+          "animation_details": "Move the \"Attention\" text to the top left corner of the screen. Reintroduce the sentence \"This is a long sentence\" near the top of the screen. Draw a new block labeled \"Attention\" below the sentence. Connect all words of the sentence to this block simultaneously, indicating parallel processing. For each word in the sentence, draw lines connecting it to other words, representing attention weights. Use brighter lines for stronger connections. For instance, when focusing on the word \"sentence\", use a bright line to connect it to \"long\", indicating a strong relationship.",
+          "audio_text": "Instead of processing word by word, attention allows the model to look at all words at once and determine their relationships, avoiding the bottlenecks of RNNs."
+        }
+      ],
+      "scene_style": "Continue with the dark background. Use white text for general text and bright, distinct lines for attention connections. Maintain the same font style and size for consistency."
+    },
+    {
+      "planning": "Part 1: Introduce Transformer architecture. Part 2: Highlight Encoder and its layers.",
+      "scene_parts": [
+        {
+          "animation_planning": "Display a high-level diagram of the Transformer with two main blocks: \"Encoder\" and \"Decoder\". Label them clearly. Briefly explain each block's role.",
+          "animation_details": "Draw two large rectangular blocks side-by-side in the center of the screen. Label the left block \"Encoder\" and the right block \"Decoder\". Add a brief text description below each block: \"Encoder: Processes the input sequence.\" and \"Decoder: Generates the output sequence.\"",
+          "audio_text": "A Transformer has two main parts: an Encoder and a Decoder."
+        },
+        {
+          "animation_planning": "Highlight the \"Encoder\" block. Zoom into the \"Encoder\" block to show its internal layers: \"Multi-Head Attention\" and \"Feed-Forward Network\". Label each layer clearly. Briefly explain the function of each layer.",
+          "animation_details": "Emphasize the \"Encoder\" block by increasing its size or highlighting its border. Divide the \"Encoder\" block into two distinct layers. Label the top layer \"Multi-Head Attention\" and the bottom layer \"Feed-Forward Network\". Use different colors or shades to distinguish the layers. Add a brief text description below each layer: \"Multi-Head Attention: Computes attention scores between words.\" and \"Feed-Forward Network: Processes each word's representation.\"",
+          "audio_text": "The Encoder processes the input sequence. Each Encoder layer has two sub-layers: Multi-Head Self-Attention and a Feed-Forward Network."
+        }
+      ],
+      "scene_style": "Dark background. Use distinct colors for the \"Encoder\" and \"Decoder\" blocks. Within the \"Encoder\", use different colors for the \"Multi-Head Attention\" and \"Feed-Forward Network\" layers. Use white text for labels and descriptions. Maintain a consistent font style and size."
+    },
+    {
+      "planning": "Part 1: Explain word embeddings. Part 2: Explain Q, K, V vectors. Part 3: Show Scaled Dot-Product Attention. Part 4: Show multiple attention heads.",
+      "scene_parts": [
+        {
+          "animation_planning": "Show a simple sentence like \"I love learning\". Represent each word with a vector (a column of numbers). Label this as \"Word Embeddings\".",
+          "animation_details": "Display the sentence \"I love learning\" at the top left of the screen. Below each word, draw a vertical array of numbers enclosed in brackets to represent its word embedding. For example: \n[0.2, 0.8, -0.1]\n[0.5, -0.3, 0.7]\n[-0.2, 0.6, 0.4]. Label this group of vectors as \"Word Embeddings\" on the right.",
+          "audio_text": "In Multi-Head Attention, words are first converted into embeddings."
+        },
+        {
+          "animation_planning": "For each word embedding, show three separate linear transformations (matrix multiplications) to generate Query (Q), Key (K), and Value (V) vectors. Use different colors for Q, K, and V vectors. Show Q, K, V labels and linear transformation weights as Wq, Wk, Wv matrices.",
+          "animation_details": "For each word embedding, draw three arrows pointing to three new sets of vectors. Label these new vectors as \"Query (Q)\", \"Key (K)\", and \"Value (V)\". Use different colors (e.g., red for Q, blue for K, green for V) for these vectors. Represent the linear transformations as matrix multiplications. Show a matrix labeled Wq multiplying the word embedding to get Q, Wk to get K, and Wv to get V. Show these labels clearly beside each transformation.",
+          "audio_text": "Then, for each word, we create Query, Key, and Value vectors using different learned weight matrices."
+        },
+        {
+          "animation_planning": "Show the Scaled Dot-Product Attention calculation using the Q, K, and V vectors. Show the matrix multiplication of Q and transpose of K, division by the square root of the dimension of K, and finally, the softmax function applied to get attention scores. Then, multiply these scores with V. Use clear labels and arrows to explain each step.",
+          "animation_details": "Illustrate the Scaled Dot-Product Attention process step-by-step. First, show the matrix multiplication of Q (red) and the transpose of K (blue) for a given word, resulting in a matrix of attention scores. Next, show this matrix being divided by the square root of the dimension of K. Then, apply the softmax function to this result, normalizing the scores. Finally, show the multiplication of these normalized scores with the V (green) vectors to get the weighted Value vectors. Use clear labels and arrows to indicate each operation and the flow of calculations.",
+          "audio_text": "We calculate the attention scores using scaled dot product of Q and K, normalize them using softmax, and then weight the Value vectors by these scores."
+        },
+        {
+          "animation_planning": "Show multiple sets of Q, K, V vectors (e.g., 3 sets) being calculated in parallel, each set representing an attention head. Show that the outputs of each head are concatenated and then passed through a linear layer.",
+          "animation_details": "Illustrate the concept of multiple attention heads by showing three parallel sets of Q, K, and V vectors being generated from the initial word embeddings. Each set should follow the Scaled Dot-Product Attention process outlined in the previous step. Label each set as \"Attention Head 1\", \"Attention Head 2\", and \"Attention Head 3\". After obtaining the weighted Value vectors from each head, show these outputs being concatenated into a single vector. Finally, show this concatenated vector passing through a linear layer (matrix multiplication) to produce the final output of the Multi-Head Attention.",
+          "audio_text": ""
+        }
+      ],
+      "scene_style": "Maintain the dark background. Use distinct colors for Q, K, and V vectors (e.g., red, blue, green). Use white text for labels and explanations. Use a clear and consistent font. For matrix multiplications, use a standard notation with clear brackets and labels."
+    },
+    {
+      "planning": "Part 1: Show output of Multi-Head Attention going into Feed-Forward Network. Part 2: Explain Feed-Forward Network. Part 3: Illustrate residual connection and layer normalization.",
+      "scene_parts": [
+        {
+          "animation_planning": "Show a block representing the output of the Multi-Head Attention layer. Draw an arrow from this block to another block labeled \"Feed-Forward Network\".",
+          "animation_details": "Draw a rectangular block to represent the output of the Multi-Head Attention layer. Label this block as \"Multi-Head Attention Output\". Draw an arrow from this block to another rectangular block labeled \"Feed-Forward Network\".",
+          "audio_text": "After attention, a Feed-Forward Network processes each word's output."
+        },
+        {
+          "animation_planning": "Expand the \"Feed-Forward Network\" block. Show two linear layers inside, with a ReLU activation function in between. Label the layers and activation function.",
+          "animation_details": "Divide the \"Feed-Forward Network\" block into three sections. Label the first section \"Linear Layer 1\", the second section \"ReLU Activation\", and the third section \"Linear Layer 2\". Use arrows to show the flow of information through these layers.",
+          "audio_text": "We also add the input of each layer to its output, which is called a residual connection, and then apply layer normalization to stabilize training."
+        },
+        {
+          "animation_planning": "Illustrate a residual connection by drawing an arrow from the input of the \"Feed-Forward Network\" to its output, adding the input to the output. Show a plus sign to represent addition. After the addition, show a block labeled \"Layer Normalization\".",
+          "animation_details": "Draw an arrow originating from the input of the \"Feed-Forward Network\" block and merging with the output of \"Linear Layer 2\". Place a plus sign (+) where these two arrows meet to indicate the addition operation in the residual connection. Draw a new block labeled \"Layer Normalization\" after this addition point, with an arrow flowing from the plus sign to this block, indicating that the combined output is then normalized.",
+          "audio_text": ""
+        }
+      ],
+      "scene_style": "Maintain the dark background. Use white text for labels and a consistent font. Use arrows to clearly indicate the flow of information. Use distinct blocks for different operations (e.g., addition, layer normalization)."
+    },
+    {
+      "planning": "Part 1: Introduce Decoder and highlight Masked Multi-Head Attention. Part 2: Explain Masking.",
+      "scene_parts": [
+        {
+          "animation_planning": "Show the Transformer diagram again with both Encoder and Decoder blocks. Now highlight the Decoder block. Show the layers within the Decoder, similar to the Encoder, but add a \"Masked Multi-Head Attention\" layer at the beginning.",
+          "animation_details": "Display the Transformer diagram with both \"Encoder\" and \"Decoder\" blocks. Highlight or enlarge the \"Decoder\" block. Inside the \"Decoder\", show three layers: \"Masked Multi-Head Attention\", \"Multi-Head Attention\" (this one takes input from both the previous layer and the Encoder's output), and \"Feed-Forward Network\". Use distinct colors for each layer.",
+          "audio_text": "The Decoder is similar to the Encoder but has an extra Masked Multi-Head Attention layer."
+        },
+        {
+          "animation_planning": "Focus on the \"Masked Multi-Head Attention\" layer. Show how masking is applied to the attention scores before the softmax function. For a given word, set the attention scores of all future words to negative infinity.",
+          "animation_details": "Zoom into the \"Masked Multi-Head Attention\" layer. Show the attention score matrix calculation (similar to the Encoder's explanation but with masking). Illustrate a mask being applied to this matrix, where for each word, the scores corresponding to future words are set to negative infinity. Show this visually by covering those cells with a dark shade or a specific \"-inf\" symbol. Then, show the softmax being applied to this masked matrix.",
+          "audio_text": "Here, we prevent the model from looking at future words by setting their attention scores to negative infinity before applying softmax."
+        }
+      ],
+      "scene_style": "Continue with the dark background and white text. Use a distinct color or pattern for the mask in the \"Masked Multi-Head Attention\" layer. Maintain consistency in font and block representation."
+    },
+    {
+      "planning": "Part 1: Explain the need for Positional Encoding. Part 2: Show generation of Positional Encodings. Part 3: Show addition of Positional Encodings to word embeddings.",
+      "scene_parts": [
+        {
+          "animation_planning": "Explain that Transformers don't have an inherent sense of word order. Show a sequence of word embeddings without any positional information.",
+          "animation_details": "Display a sequence of word embeddings (vertical arrays of numbers) for a simple sentence, similar to previous explanations. Emphasize that these embeddings do not contain any information about the position of the words in the original sentence.",
+          "audio_text": "Unlike RNNs, Transformers don't inherently understand word order."
+        },
+        {
+          "animation_planning": "Show how positional encodings are generated using sine and cosine functions with different frequencies. Show these encodings as wave patterns. Explain that these encodings will be added to the word embeddings.",
+          "animation_details": "Introduce the concept of positional encodings. Show separate wave patterns representing sine and cosine functions with varying frequencies. Display these as visual waveforms. Explain that these waveforms represent the positional encodings that will be added to the word embeddings.",
+          "audio_text": "To fix this, we add Positional Encodings to the embeddings."
+        },
+        {
+          "animation_planning": "Show the addition of positional encodings to the word embeddings, element by element. Show the resulting combined embeddings.",
+          "animation_details": "For each word embedding, show the corresponding positional encoding vector (also a vertical array of numbers, derived from the sine/cosine waves) below it. Illustrate the element-wise addition of the word embedding and the positional encoding vectors. Show the resulting vector, which is the combined embedding that now contains both word meaning and positional information.",
+          "audio_text": "These encodings, generated using sine and cosine functions, provide information about each word's position in the sequence."
+        }
+      ],
+      "scene_style": "Maintain the dark background and white text. Use visual waveforms for sine and cosine functions. Clearly show the addition operation between word embeddings and positional encodings. Use a consistent font and style for representing vectors."
+    },
+    {
+      "planning": "Part 1: Show \"Transformers: Key Takeaways\" text. Part 2: List advantages of Transformers. Part 3: Show applications of Transformers. Part 4: List limitations of Transformers.",
+      "scene_parts": [
+        {
+          "animation_planning": "Display the text \"Transformers: Key Takeaways\" at the top of the screen.",
+          "animation_details": "Show the text \"Transformers: Key Takeaways\" in a large, bold font at the top center of the screen.",
+          "audio_text": "In conclusion, Transformers revolutionized machine learning with their attention mechanism, enabling parallel processing and effectively capturing long-range dependencies."
+        },
+        {
+          "animation_planning": "List the advantages of Transformers as bullet points: \"Parallelization\" and \"Long-Range Dependencies\". Briefly explain each point.",
+          "animation_details": "Below the \"Key Takeaways\" text, display two bullet points: \n- Parallelization: Allows faster training by processing all words simultaneously.\n- Long-Range Dependencies: Effectively captures relationships between distant words.",
+          "audio_text": "They power numerous applications today."
+        },
+        {
+          "animation_planning": "Show icons representing different applications of Transformers, such as machine translation (e.g., a globe with translation arrows), text summarization (e.g., a document with a condensed version), and others. Briefly explain each application.",
+          "animation_details": "Display icons representing various applications powered by Transformers. For example: \n- Machine Translation: A globe icon with arrows indicating translation between languages.\n- Text Summarization: A document icon with a smaller, condensed version next to it.\n- Question Answering: A question mark icon with a lightbulb or answer icon beside it.\n- Text Generation: A text icon with a creative spark or star symbol.",
+          "audio_text": "However, they do require significant computational resources and have limitations in their context window."
+        },
+        {
+          "animation_planning": "Show the text \"Limitations\" and list the limitations as bullet points: \"Computational Resources\" and \"Context Window\". Briefly explain each point.",
+          "animation_details": "Display the text \"Limitations\" below the application icons. List the limitations as bullet points: \n- Computational Resources: Requires significant memory and processing power.\n- Context Window: Limited by the maximum sequence length it can process.",
+          "audio_text": ""
+        }
+      ],
+      "scene_style": "Maintain the dark background and white text. Use a clear and readable font. Use simple and recognizable icons for applications. Use bullet points for listing advantages and limitations. Keep the style consistent with previous scenes."
+    }
+  ]
+}
+```

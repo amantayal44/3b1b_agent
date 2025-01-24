@@ -1,0 +1,40 @@
+{
+  "scenes": [
+    {
+      "scene_plot": "Introduce the concept of probability. Explain the basic formula for probability with a visual representation.",
+      "animation_details": "Show the text \"Probability\" in large font. Below it, display the formula: Probability (Event) = (Number of favorable outcomes) / (Total number of possible outcomes). Animate a simple fraction with \"Number of favorable outcomes\" on top and \"Total number of possible outcomes\" at the bottom.",
+      "animation_style": "Dark background with white text. Use a large, bold font for \"Probability\" and a slightly smaller font for the formula. The fraction is animated with the numerator and denominator appearing one by one, separated by a horizontal line.",
+      "audio_text": "Probability is a measure of the likelihood of an event occurring. It's expressed as a number between 0 and 1, where 0 means the event is impossible, and 1 means the event is certain. The basic formula for probability is: Probability of an Event equals the Number of favorable outcomes divided by the Total number of possible outcomes."
+    },
+    {
+      "scene_plot": "Introduce the problem statement. Show a bag and cards numbered 1 to 30 to visually represent the problem.",
+      "animation_details": "Display the text: \"Cards numbered 1 to 30 are put in a bag. A card is drawn at random from this bag.\" Animate a bag appearing on the screen. Then, show cards numbered 1 to 30, one by one, moving into the bag.",
+      "animation_style": "Dark background with white text. The bag is represented as a simple, opaque shape. Cards are small rectangles with numbers written on them in a clear, readable font. The animation of cards moving into the bag is smooth and sequential.",
+      "audio_text": "Let's consider a scenario where cards numbered 1 to 30 are put in a bag. A card is drawn at random from this bag. Now, we need to find the probability that the number on the drawn card satisfies certain conditions."
+    },
+    {
+      "scene_plot": "Calculate the probability of drawing a card not divisible by 3. List numbers divisible by 3, calculate numbers not divisible by 3, and then calculate the probability.",
+      "animation_details": "Display the text: \"(i) not divisible by 3\". List numbers divisible by 3: 3, 6, 9, 12, 15, 18, 21, 24, 27, 30. Show the calculation: 30 - 10 = 20. Display the probability calculation: 20/30 = 2/3.",
+      "animation_style": "Dark background with white text. Each number in the list is highlighted as it appears. Calculations are shown step-by-step with smooth transitions. The final probability is displayed prominently.",
+      "audio_text": "First, let's find the probability that the drawn card is not divisible by 3. There are 10 numbers between 1 and 30 that are divisible by 3. These are 3, 6, 9, 12, 15, 18, 21, 24, 27, and 30. So, there are 30 minus 10, which is 20 numbers not divisible by 3. Therefore, the probability of drawing a card not divisible by 3 is 20 divided by 30, which simplifies to 2 over 3."
+    },
+    {
+      "scene_plot": "Calculate the probability of drawing a prime number greater than 7. Define prime numbers, list prime numbers between 1 and 30, highlight those greater than 7, and calculate the probability.",
+      "animation_details": "Display the text: \"(ii) a prime number greater than 7\". Define prime numbers: \"A prime number is a whole number greater than 1 that has only two divisors: 1 and itself.\" List prime numbers: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29. Highlight: 11, 13, 17, 19, 23, 29. Show the calculation: 6/30 = 1/5.",
+      "animation_style": "Dark background with white text. Highlight the prime numbers greater than 7 with a different color, such as yellow. The calculation is displayed clearly with smooth transitions.",
+      "audio_text": "Next, let's find the probability of drawing a prime number greater than 7. A prime number is a whole number greater than 1 that has only two divisors: 1 and itself. The prime numbers between 1 and 30 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, and 29. Among these, the prime numbers greater than 7 are: 11, 13, 17, 19, 23, and 29. There are 6 such numbers. So, the probability is 6 divided by 30, which simplifies to 1 over 5."
+    },
+    {
+      "scene_plot": "Calculate the probability of drawing a card that is not a perfect square number. Define perfect square numbers, list perfect squares between 1 and 30, calculate numbers not perfect squares, and calculate the probability.",
+      "animation_details": "Display the text: \"(iii) not a perfect square number\". Define perfect square numbers: \"A perfect square number is a number that can be obtained by squaring a whole number.\" List perfect squares: 1, 4, 9, 16, 25. Show the calculation: 30 - 5 = 25. Display the probability calculation: 25/30 = 5/6.",
+      "animation_style": "Dark background with white text. Each perfect square number is highlighted as it appears. Calculations are shown step-by-step with smooth transitions. The final probability is displayed prominently.",
+      "audio_text": "Finally, let's find the probability that the drawn card is not a perfect square number. A perfect square number is a number that can be obtained by squaring a whole number. The perfect square numbers between 1 and 30 are: 1, 4, 9, 16, and 25. There are 5 such numbers. So, there are 30 minus 5, which is 25 numbers that are not perfect squares. Therefore, the probability of drawing a card that is not a perfect square is 25 divided by 30, which simplifies to 5 over 6."
+    },
+    {
+      "scene_plot": "Present real-life scenarios based on the calculated probabilities. Explain the average win rate for each scenario in a game.",
+      "animation_details": "Show text: \"Real-life scenario\". Show a game scenario with a bag and cards. Explain win rates: \"If you win when the number is not divisible by 3, you win 2/3 of the time. If you win when the number is a prime number greater than 7, you win 1/5 of the time. If you win when the number is not a perfect square, you win 5/6 of the time.\"",
+      "animation_style": "Dark background with white text. Use simple graphics to represent the game scenario. Text explaining the win rates is clear and concise, with smooth transitions between each scenario.",
+      "audio_text": "Let's put this into a real-life scenario. Imagine you are playing a game where you draw a card from this bag. If you win whenever the number you draw is not divisible by 3, then on average, you will win 2 out of 3 times. If you only win when a prime number greater than 7 is drawn, you will win 1 out of 5 times. And if you win when the card drawn is not a perfect square, you will win 5 out of 6 times. This shows how probability can be applied to everyday situations."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+```python
+class AnimationVideo(VoiceoverScene):
+    def play_scene_6(self):
+        # Implementation: Setting up the voiceover service to GTTSService.
+        self.set_speech_service(GTTSService())
+        # Implementation: Displaying the limit expression with the series expansion.
+        limit_expression = MathTex(
+            r"\lim_{x \to 0} \frac{x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots}{x}",
+            font_size=36
+        )
+        limit_expression.to_edge(UP)
+        # Implementation: Dividing each term by x.
+        divided_terms = MathTex(
+            r"\lim_{x \to 0} \left(1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \cdots\right)",
+            font_size=36
+        )
+        divided_terms.next_to(limit_expression, DOWN, buff=1)
+        # Implementation: Adding voiceover for dividing each term by x.
+        with self.voiceover(text="We can divide each term in the series by x. This simplifies our limit to 1 minus x squared over 3 factorial plus x to the fourth over 5 factorial minus x to the sixth over 7 factorial, and so on.") as tracker:
+            # Implementation: Displaying the limit expression.
+            self.play(Write(limit_expression))
+            self.wait(2)  # Wait for a moment while showing the limit expression.
+            # Implementation: Transforming the limit expression to show the division by x.
+            self.play(
+                Transform(limit_expression, divided_terms)
+            )
+        # Implementation: Waiting for a brief moment.
+        self.wait(0.5)
+        # Cleaning: Clearing all objects from the scene.
+        self.clear()
+
+    def play_scene_7(self):
+        # Implementation: Setting up the voiceover service to GTTSService.
+        self.set_speech_service(GTTSService())
+        # Implementation: Displaying the simplified limit expression.
+        simplified_limit = MathTex(
+            r"\lim_{x \to 0} \left(1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \cdots\right)",
+            font_size=36
+        )
+        simplified_limit.to_edge(UP)
+        # Implementation: Showing the limit as x approaches 0.
+        final_result = MathTex(r"1", font_size=48, color=CYAN)
+        final_result.move_to(simplified_limit)
+        # Implementation: Adding voiceover for the limit approaching 0.
+        with self.voiceover(text="As x approaches 0, all terms with x in them will approach 0 as well. This leaves us with just 1. Therefore, the limit of sin(x) over x as x approaches 0 is 1.") as tracker:
+            # Implementation: Displaying the simplified limit.
+            self.play(Write(simplified_limit))
+            self.wait(2)  # Wait for a moment while showing the simplified limit.
+            # Implementation: Transforming the limit expression to show the final result.
+            self.play(
+                Transform(simplified_limit, final_result)
+            )
+        # Implementation: Waiting for a brief moment.
+        self.wait(0.5)
+        # Cleaning: Clearing all objects from the scene.
+        self.clear()
+
+    def play_scene_8(self):
+        # Implementation: Setting up the voiceover service to GTTSService.
+        self.set_speech_service(GTTSService())
+        # Implementation: Displaying the final result of the limit.
+        final_result_text = MathTex(r"\lim_{x \to 0} \frac{\sin(x)}{x} = 1", font_size=48)
+        final_result_text.to_edge(UP)
+        # Implementation: Displaying text about the applications of this result.
+        applications_text = Text(
+            "This result is fundamental in calculus, physics (small-angle approximations),\nand engineering (control systems, signal processing)",
+            font_size=24
+        )
+        applications_text.next_to(final_result_text, DOWN, buff=1)
+        # Implementation: Adding voiceover for the final result and its applications.
+        with self.voiceover(text="So, we've shown that the limit of sin(x) over x as x approaches 0 is 1. This isn't just a neat mathematical trick; it's a fundamental result used in various fields, including calculus, physics, and many branches of engineering. Understanding this limit helps us in many theoretical and practical applications.") as tracker:
+            # Implementation: Displaying the final result.
+            self.play(Write(final_result_text))
+            self.wait(2)  # Wait for a moment while showing the final result.
+            # Implementation: Displaying the applications text.
+            self.play(Write(applications_text))
+        # Implementation: Waiting for a brief moment.
+        self.wait(0.5)
+        # Cleaning: Clearing all objects from the scene.
+        self.clear()
+```

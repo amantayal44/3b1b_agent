@@ -1,0 +1,81 @@
+Okay, let's break down this probability problem step-by-step. We'll cover the concepts, do the calculations, and make sure everything is clear.
+
+**Understanding Probability**
+
+Probability is the measure of how likely an event is to occur. It's calculated as:
+
+```
+Probability of an event = (Number of favorable outcomes) / (Total number of possible outcomes)
+```
+
+In our case, the total number of possible outcomes is the total number of cards in the bag, which is 30.
+
+**Problem Breakdown**
+
+We have a bag with cards numbered 1 to 30. We need to find the probabilities for these three scenarios:
+
+**(i) Not divisible by 3**
+**(ii) A prime number greater than 7**
+**(iii) Not a perfect square number**
+
+Let's tackle each one individually.
+
+**(i) Probability of Not Divisible by 3**
+
+*   **Step 1: Find the numbers divisible by 3.**
+    These are: 3, 6, 9, 12, 15, 18, 21, 24, 27, and 30.
+    There are 10 numbers divisible by 3.
+*   **Step 2: Find the numbers NOT divisible by 3.**
+    Since there are 30 cards total, the number of cards NOT divisible by 3 is 30 - 10 = 20
+*   **Step 3: Calculate the probability.**
+    Probability (not divisible by 3) = (Number of cards not divisible by 3) / (Total number of cards)
+    Probability (not divisible by 3) = 20 / 30 = 2/3
+
+**Therefore, the probability of drawing a card with a number not divisible by 3 is 2/3.**
+
+**(ii) Probability of a Prime Number Greater Than 7**
+
+*   **Step 1: Identify Prime Numbers.**
+    A prime number is a whole number greater than 1 that has only two divisors: 1 and itself. Let's list prime numbers between 1 and 30:
+    2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+*   **Step 2: Identify prime numbers greater than 7**
+    From the above list, prime number greater than 7 are:
+    11, 13, 17, 19, 23, 29
+    There are 6 prime numbers greater than 7.
+*   **Step 3: Calculate the probability**
+    Probability (prime > 7) = (Number of prime numbers > 7) / (Total number of cards)
+    Probability (prime > 7) = 6 / 30 = 1/5
+
+**Therefore, the probability of drawing a card with a prime number greater than 7 is 1/5.**
+
+**(iii) Probability of Not a Perfect Square Number**
+
+*   **Step 1: Identify Perfect Square Numbers.**
+    A perfect square is a number that is the result of squaring a whole number (e.g., 1 = 1², 4 = 2², 9 = 3²).
+    The perfect squares between 1 and 30 are:
+    1 (1²), 4 (2²), 9 (3²), 16 (4²), 25 (5²)
+    There are 5 perfect squares between 1 and 30.
+*   **Step 2: Find the numbers that are NOT perfect squares.**
+    The number of cards that are not a perfect square is 30 - 5 = 25.
+*   **Step 3: Calculate the probability.**
+    Probability (not a perfect square) = (Number of cards not a perfect square) / (Total number of cards)
+    Probability (not a perfect square) = 25 / 30 = 5/6
+
+**Therefore, the probability of drawing a card with a number that is not a perfect square is 5/6.**
+
+**Summary of Results**
+
+*   **(i) Probability of not divisible by 3:** 2/3
+*   **(ii) Probability of a prime number greater than 7:** 1/5
+*   **(iii) Probability of not a perfect square:** 5/6
+
+**Key Concepts Used**
+
+*   **Probability:** The basic concept of calculating the likelihood of an event.
+*   **Favorable Outcomes:** The number of outcomes that satisfy the conditions of the event.
+*   **Total Possible Outcomes:** The total number of possible outcomes in the sample space.
+*   **Divisibility:**  Understanding which numbers are multiples of 3.
+*   **Prime Numbers:**  Recognizing prime numbers and their properties.
+*   **Perfect Squares:** Identifying numbers that are the squares of whole numbers.
+
+Let me know if you would like any of these concepts explained in more detail or want to work through additional examples!

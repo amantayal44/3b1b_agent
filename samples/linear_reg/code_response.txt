@@ -1,0 +1,667 @@
+```python
+from manim import *
+from manim_voiceover import VoiceoverScene
+from manim_voiceover.services.gtts import GTTSService
+import numpy as np
+import scipy as sp
+
+class AnimationVideo(VoiceoverScene):
+  def construct(self):
+    self.set_speech_service(GTTSService())
+
+    # Calling all scene methods
+    scene_methods = [
+	    attr_name for attr_name in dir(self)
+	    if attr_name.startswith("play_scene_") and callable(getattr(self, attr_name))
+    ]
+	  # Sorting all scene methods by id
+    scene_methods.sort(key=lambda name: int(name.split('_')[-1]))
+
+    # Executing methods for all scenes in order.
+    for method_name in scene_methods:
+	    method = getattr(self, method_name)
+	    method()
+
+  def play_scene_1(self):
+    """
+    Introduce the concept of linear regression with a simple scatter plot.
+    - Part 1: Display the title and introduce the axes.
+    - Part 2: Set up the scatter plot.
+    - Part 3: Plot the data points.
+    """
+    # Implementation: Part 1
+    title = Text("Linear Regression", color=DARK_BLUE).scale(1.5)
+    self.play(Write(title))
+    self.wait(0.5)
+    # Implementation: Add voiceover for Part 1
+    with self.voiceover(text="Let's start with a simple problem.") as tracker:
+      self.play(FadeOut(title))
+      # Implementation: Create axes
+      axes = Axes(
+          x_range=[0, 6],
+          y_range=[0, 6],
+          x_length=6,
+          y_length=6,
+          axis_config={"color": LIGHT_GRAY},
+          x_axis_config={"include_tip": True},
+          y_axis_config={"include_tip": True},
+          tips=False
+      ).shift(DOWN * 0.5)
+
+      x_label = Text("House Size (sq ft)", color=WHITE).next_to(axes.x_axis, DOWN)
+      y_label = Text("House Price ($)", color=WHITE).next_to(axes.y_axis, LEFT).rotate(90 * DEGREES)
+      
+      grid_x = VGroup(*[axes.get_vertical_line(axes.c2p(i, 0)).set_stroke(LIGHT_GRAY, opacity=0.5) for i in range(1, 6)])
+      grid_y = VGroup(*[axes.get_horizontal_line(axes.c2p(0, i)).set_stroke(LIGHT_GRAY, opacity=0.5) for i in range(1, 6)])
+
+      # Implementation: Display axes and labels
+      self.play(
+          Create(axes),
+          Write(x_label),
+          Write(y_label),
+          Create(grid_x),
+          Create(grid_y)
+      )
+
+    # Implementation: Part 2
+    # Implementation: Add voiceover for Part 2
+    with self.voiceover(text="Imagine you want to predict the price of a house based on its size. You collect some data, and it looks like this.") as tracker:
+      # Implementation: Wait for the voiceover to finish
+      self.wait(tracker.duration)
+
+    # Implementation: Part 3
+    # Implementation: Create data points
+    data_points = [
+        (1, 2),
+        (2, 2.8),
+        (2.5, 3),
+        (3.5, 4.2),
+        (4, 4.5),
+        (5, 5.3)
+    ]
+    dots = VGroup(*[
+        Dot(axes.c2p(x, y), color=BLUE)
+        for x, y in data_points
+    ])
+
+    # Implementation: Add voiceover for Part 3
+    with self.voiceover(text="Each dot here represents a house, with its size on the horizontal axis and price on the vertical axis. We need a way to model this relationship.") as tracker:
+      # Implementation: Animate the dots
+      self.play(Create(dots))
+      self.wait(tracker.duration)
+      self.clear()
+
+  def play_scene_2(self):
+    """
+    Introduce the equation of a line and explain slope and y-intercept.
+    - Part 1: Display the equation and set up the graph.
+    - Part 2: Animate the slope.
+    - Part 3: Animate the y-intercept.
+    """
+    # Implementation: Part 1
+    # Implementation: Display the equation
+    equation = MathTex("y = mx + b", color=WHITE).scale(1.5).to_edge(UP)
+    self.play(Write(equation))
+
+    # Implementation: Create axes
+    axes = Axes(
+        x_range=[0, 6],
+        y_range=[0, 6],
+        x_length=6,
+        y_length=6,
+        axis_config={"color": LIGHT_GRAY},
+        tips=False
+    ).shift(DOWN * 0.5)
+    self.play(Create(axes))
+
+    # Implementation: Add voiceover for Part 1
+    with self.voiceover(text="To model this, we can use a simple line. You might remember the equation of a line from school: y = mx + b.") as tracker:
+      self.wait(tracker.duration)
+
+    # Implementation: Part 2
+    # Implementation: Create a line
+    line = always_redraw(lambda: axes.get_graph(lambda x: 1 * x + 1, color=BLUE))
+    m_value = ValueTracker(1)
+    m_label = MathTex("m = ", str(m_value.get_value()), color=WHITE).to_edge(UR)
+    m_label.add_updater(lambda d: d.become(MathTex("m = ", str(round(m_value.get_value(), 1)), color=WHITE).to_edge(UR)))
+    self.play(
+      Create(line),
+      Write(m_label)
+    )
+    # Implementation: Add voiceover for Part 2
+    with self.voiceover(text="Here, 'm' is the slope, which determines how steep the line is") as tracker:
+      
+      self.play(
+        m_value.animate.set_value(2),
+        line.animate.become(axes.get_graph(lambda x: m_value.get_value() * x + 1, color=BLUE)),
+        run_time=tracker.duration / 2
+      )
+      self.play(
+        m_value.animate.set_value(0.5),
+        line.animate.become(axes.get_graph(lambda x: m_value.get_value() * x + 1, color=BLUE)),
+        run_time=tracker.duration / 2
+      )
+      self.remove(m_label)
+
+    # Implementation: Part 3
+    # Implementation: Reset the slope to 1
+    m_value.set_value(1)
+    line.become(axes.get_graph(lambda x: m_value.get_value() * x + 1, color=BLUE))
+
+    # Implementation: Create a y-intercept tracker
+    b_value = ValueTracker(1)
+    b_label = MathTex("b = ", str(b_value.get_value()), color=WHITE).to_edge(UR).shift(LEFT * 0.5)
+    b_label.add_updater(lambda d: d.become(MathTex("b = ", str(round(b_value.get_value(), 1)), color=WHITE).to_edge(UR).shift(LEFT * 0.5)))
+    self.play(Write(b_label))
+    # Implementation: Add voiceover for Part 3
+    with self.voiceover(text="and 'b' is the y-intercept, which is where the line crosses the y-axis.") as tracker:
+      
+      self.play(
+        b_value.animate.set_value(3),
+        line.animate.become(axes.get_graph(lambda x: m_value.get_value() * x + b_value.get_value(), color=BLUE)),
+        run_time=tracker.duration / 2
+      )
+      self.play(
+        b_value.animate.set_value(0),
+        line.animate.become(axes.get_graph(lambda x: m_value.get_value() * x + b_value.get_value(), color=BLUE)),
+        run_time=tracker.duration / 2
+      )
+      self.clear()
+
+  def play_scene_3(self):
+    """
+    Illustrate the concept of "best fit" line and introduce errors/residuals.
+    - Part 1: Display the scatter plot and state the goal.
+    - Part 2: Show different lines.
+    - Part 3: Highlight the best fit line.
+    - Part 4: Introduce errors/residuals.
+    """
+    # Implementation: Part 1
+    # Implementation: Create axes and data points as in Scene 1
+    axes = Axes(
+        x_range=[0, 6],
+        y_range=[0, 6],
+        x_length=6,
+        y_length=6,
+        axis_config={"color": LIGHT_GRAY},
+        x_axis_config={"include_tip": True},
+        y_axis_config={"include_tip": True},
+        tips=False
+    ).shift(DOWN * 0.5)
+
+    x_label = Text("House Size (sq ft)", color=WHITE).next_to(axes.x_axis, DOWN)
+    y_label = Text("House Price ($)", color=WHITE).next_to(axes.y_axis, LEFT).rotate(90 * DEGREES)
+    
+    data_points = [
+        (1, 2),
+        (2, 2.8),
+        (2.5, 3),
+        (3.5, 4.2),
+        (4, 4.5),
+        (5, 5.3)
+    ]
+    dots = VGroup(*[
+        Dot(axes.c2p(x, y), color=BLUE)
+        for x, y in data_points
+    ])
+
+    self.play(
+        Create(axes),
+        Write(x_label),
+        Write(y_label),
+        Create(dots)
+    )
+
+    # Implementation: Add voiceover for Part 1
+    with self.voiceover(text="Our goal is to find the line that best fits this data.") as tracker:
+      self.wait(tracker.duration)
+
+    # Implementation: Part 2
+    # Implementation: Create different lines
+    line1 = axes.get_graph(lambda x: 0.5 * x + 1, color=RED)
+    line2 = axes.get_graph(lambda x: 1.2 * x + 0, color=GREEN)
+    line3 = axes.get_graph(lambda x: 0.8 * x + 1.5, color=YELLOW)
+    lines = VGroup(line1, line2, line3)
+
+    # Implementation: Add voiceover for Part 2
+    with self.voiceover(text="You can see that some lines do a better job than others.") as tracker:
+      self.play(Create(lines))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 3
+    # Implementation: Highlight the best fit line
+    best_fit_line = axes.get_graph(lambda x: 0.8 * x + 1.5, color=BLUE)
+    self.remove(lines)
+    self.play(Create(best_fit_line))
+
+    # Implementation: Add voiceover for Part 3
+    with self.voiceover(text="But how do we define 'best fit'?") as tracker:
+      self.wait(tracker.duration)
+
+    # Implementation: Part 4
+    # Implementation: Draw error lines
+    error_lines = VGroup()
+    for x, y in data_points:
+        # Implementation: Calculate the y-coordinate of the point on the best-fit line
+        y_pred = 0.8 * x + 1.5  
+        # Implementation: Create a vertical line from the data point to the best-fit line
+        error_line = Line(axes.c2p(x, y), axes.c2p(x, y_pred), color=RED)
+        error_lines.add(error_line)
+
+    # Implementation: Add voiceover for Part 4
+    with self.voiceover(text="We can measure the distance between each point and the line. These distances are called errors or residuals.") as tracker:
+      self.play(Create(error_lines))
+      self.wait(tracker.duration)
+      self.clear()
+
+  def play_scene_4(self):
+    """
+    Explain positive and negative errors and their significance.
+    - Part 1: Display error lines.
+    - Part 2: Highlight positive errors.
+    - Part 3: Highlight negative errors.
+    """
+    # Implementation: Part 1
+    # Implementation: Create axes, data points, best fit line, and error lines as in Scene 3
+    axes = Axes(
+        x_range=[0, 6],
+        y_range=[0, 6],
+        x_length=6,
+        y_length=6,
+        axis_config={"color": LIGHT_GRAY},
+        x_axis_config={"include_tip": True},
+        y_axis_config={"include_tip": True},
+        tips=False
+    ).shift(DOWN * 0.5)
+
+    x_label = Text("House Size (sq ft)", color=WHITE).next_to(axes.x_axis, DOWN)
+    y_label = Text("House Price ($)", color=WHITE).next_to(axes.y_axis, LEFT).rotate(90 * DEGREES)
+    
+    data_points = [
+        (1, 2),
+        (2, 2.8),
+        (2.5, 3),
+        (3.5, 4.2),
+        (4, 4.5),
+        (5, 5.3)
+    ]
+    dots = VGroup(*[
+        Dot(axes.c2p(x, y), color=BLUE)
+        for x, y in data_points
+    ])
+    best_fit_line = axes.get_graph(lambda x: 0.8 * x + 1.5, color=BLUE)
+    error_lines = VGroup()
+    for x, y in data_points:
+        y_pred = 0.8 * x + 1.5
+        error_line = Line(axes.c2p(x, y), axes.c2p(x, y_pred), color=RED)
+        error_lines.add(error_line)
+
+    self.play(
+        Create(axes),
+        Write(x_label),
+        Write(y_label),
+        Create(dots),
+        Create(best_fit_line),
+        Create(error_lines)
+    )
+
+    # Implementation: Add voiceover for Part 1
+    with self.voiceover(text="Each of these red lines represents an error.") as tracker:
+      self.wait(tracker.duration)
+
+    # Implementation: Part 2
+    # Implementation: Highlight positive errors
+    positive_error_lines = VGroup()
+    for x, y in data_points:
+        y_pred = 0.8 * x + 1.5
+        if y > y_pred:
+            error_line = Line(axes.c2p(x, y), axes.c2p(x, y_pred), color=RED)
+            positive_error_lines.add(error_line)
+
+    # Implementation: Add voiceover for Part 2
+    with self.voiceover(text="If a point is above the line, the error is positive.") as tracker:
+      self.play(positive_error_lines.animate.set_color(ORANGE))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 3
+    # Implementation: Highlight negative errors
+    negative_error_lines = VGroup()
+    for x, y in data_points:
+        y_pred = 0.8 * x + 1.5
+        if y < y_pred:
+            error_line = Line(axes.c2p(x, y), axes.c2p(x, y_pred), color=RED)
+            negative_error_lines.add(error_line)
+
+    # Implementation: Add voiceover for Part 3
+    with self.voiceover(text="If it's below, the error is negative. Intuitively, we want to minimize these errors to get the best fit.") as tracker:
+      self.play(
+          negative_error_lines.animate.set_color(PURPLE),
+          positive_error_lines.animate.set_color(RED) # Resetting positive error lines to original color
+      )
+      self.wait(tracker.duration)
+      self.clear()
+
+  def play_scene_5(self):
+    """
+    Introduce the concept of Ordinary Least Squares and Sum of Squared Errors (SSE).
+    - Part 1: Introduce Ordinary Least Squares.
+    - Part 2: Introduce the error formula.
+    - Part 3: Visually represent squaring of errors.
+    - Part 4: Introduce the SSE formula.
+    - Part 5: Explain the goal of minimizing SSE.
+    """
+    # Implementation: Part 1
+    # Implementation: Create axes, data points, best fit line, and error lines as in Scene 3
+    axes = Axes(
+        x_range=[0, 6],
+        y_range=[0, 6],
+        x_length=6,
+        y_length=6,
+        axis_config={"color": LIGHT_GRAY},
+        x_axis_config={"include_tip": True},
+        y_axis_config={"include_tip": True},
+        tips=False
+    ).shift(DOWN * 0.5)
+
+    x_label = Text("House Size (sq ft)", color=WHITE).next_to(axes.x_axis, DOWN)
+    y_label = Text("House Price ($)", color=WHITE).next_to(axes.y_axis, LEFT).rotate(90 * DEGREES)
+    
+    data_points = [
+        (1, 2),
+        (2, 2.8),
+        (2.5, 3),
+        (3.5, 4.2),
+        (4, 4.5),
+        (5, 5.3)
+    ]
+    dots = VGroup(*[
+        Dot(axes.c2p(x, y), color=BLUE)
+        for x, y in data_points
+    ])
+    best_fit_line = axes.get_graph(lambda x: 0.8 * x + 1.5, color=BLUE)
+    error_lines = VGroup()
+    for x, y in data_points:
+        y_pred = 0.8 * x + 1.5
+        error_line = Line(axes.c2p(x, y), axes.c2p(x, y_pred), color=RED)
+        error_lines.add(error_line)
+
+    self.add(
+        axes,
+        x_label,
+        y_label,
+        dots,
+        best_fit_line,
+        error_lines
+    )
+
+    # Implementation: Add voiceover for Part 1
+    with self.voiceover(text="To do this systematically, we use a method called Ordinary Least Squares.") as tracker:
+      self.wait(tracker.duration)
+
+    # Implementation: Part 2
+    # Implementation: Introduce the error formula
+    error_formula = MathTex("e = y - \hat{y}", color=WHITE).scale(1.2).to_edge(UP)
+
+    # Implementation: Add voiceover for Part 2
+    with self.voiceover(text="We square each error, which makes them all positive and emphasizes larger errors.") as tracker:
+      self.play(Write(error_formula))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 3
+    # Implementation: Visually represent squaring of errors
+    squared_error_visuals = VGroup()
+    for error_line in error_lines:
+        # Implementation: Calculate the length of the error line
+        error_length = error_line.get_length()
+        # Implementation: Create a square with side length proportional to the error
+        square = Square(side_length=error_length, color=RED, fill_opacity=0.5).move_to(error_line.get_center())
+        squared_error_visuals.add(square)
+
+    # Implementation: Add voiceover for Part 3
+    with self.voiceover(text="Then we add them up.") as tracker:
+      self.play(Create(squared_error_visuals))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 4
+    # Implementation: Introduce the SSE formula
+    sse_formula = MathTex(r"SSE = \sum_{i=1}^{n}(y_i - \hat{y}_i)^2", color=WHITE).scale(1.2).to_edge(UP)
+    self.remove(error_formula)
+    self.play(Write(sse_formula))
+
+    # Implementation: Add voiceover for Part 4
+    with self.voiceover(text="This is called the Sum of Squared Errors, or SSE.") as tracker:
+      self.wait(tracker.duration)
+
+    # Implementation: Part 5
+    # Implementation: Explain the goal of minimizing SSE
+    
+    # Implementation: Add voiceover for Part 5
+    with self.voiceover(text="Our goal is to find the values of 'm' and 'b' that minimize this sum.") as tracker:
+      self.remove(axes,x_label, y_label, dots, best_fit_line, error_lines, squared_error_visuals)
+      self.wait(0.5)
+      self.add(axes, x_label, y_label, dots, best_fit_line, error_lines, squared_error_visuals)
+      self.wait(tracker.duration)
+      self.clear()
+
+  def play_scene_6(self):
+    """
+    Derive the formulas for b0 and b1 using calculus.
+    - Part 1: State the goal of using calculus.
+    - Part 2: Show partial derivative with respect to b0.
+    - Part 3: Show partial derivative with respect to b1.
+    - Part 4: Set derivatives to zero.
+    - Part 5: Show the two resulting equations.
+    - Part 6: Solve for b0.
+    - Part 7: Solve for b1.
+    - Part 8: Display the final formulas.
+    """
+    # Implementation: Part 1
+    # Implementation: Display the SSE formula
+    sse_formula = MathTex(r"SSE = \sum_{i=1}^{n}(y_i - \hat{y}_i)^2", color=WHITE).scale(1.2).to_edge(UP)
+    self.play(Write(sse_formula))
+
+    # Implementation: Add voiceover for Part 1
+    with self.voiceover(text="To find these values, we use a bit of calculus.") as tracker:
+      self.wait(tracker.duration)
+
+    # Implementation: Part 2
+    # Implementation: Show partial derivative with respect to b0
+    partial_derivative_b0 = MathTex(r"\frac{\partial SSE}{\partial b_0}", color=YELLOW).scale(1).next_to(sse_formula, DOWN, buff=0.5)
+
+    # Implementation: Add voiceover for Part 2
+    with self.voiceover(text="We take the partial derivatives of SSE with respect to b₀") as tracker:
+      self.play(Write(partial_derivative_b0))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 3
+    # Implementation: Show partial derivative with respect to b1
+    partial_derivative_b1 = MathTex(r"\frac{\partial SSE}{\partial b_1}", color=GREEN).scale(1).next_to(partial_derivative_b0, RIGHT, buff=0.5)
+
+    # Implementation: Add voiceover for Part 3
+    with self.voiceover(text="and b₁") as tracker:
+      self.play(Write(partial_derivative_b1))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 4
+    # Implementation: Set derivatives to zero
+    set_to_zero_b0 = MathTex(r"\frac{\partial SSE}{\partial b_0} = 0", color=YELLOW).scale(1).move_to(partial_derivative_b0)
+    set_to_zero_b1 = MathTex(r"\frac{\partial SSE}{\partial b_1} = 0", color=GREEN).scale(1).move_to(partial_derivative_b1)
+
+    # Implementation: Add voiceover for Part 4
+    with self.voiceover(text="and set them to zero.") as tracker:
+      self.play(
+          Transform(partial_derivative_b0, set_to_zero_b0),
+          Transform(partial_derivative_b1, set_to_zero_b1)
+      )
+      self.wait(tracker.duration)
+
+    # Implementation: Part 5
+    # Implementation: Show the two resulting equations
+    equation_1 = MathTex(r"\sum_{i=1}^{n} y_i = n b_0 + b_1 \sum_{i=1}^{n} x_i", color=WHITE).scale(0.8).next_to(set_to_zero_b0, DOWN, buff=0.5)
+    equation_2 = MathTex(r"\sum_{i=1}^{n} x_i y_i = b_0 \sum_{i=1}^{n} x_i + b_1 \sum_{i=1}^{n} x_i^2", color=WHITE).scale(0.8).next_to(equation_1, DOWN, buff=0.5)
+
+    # Implementation: Add voiceover for Part 5
+    with self.voiceover(text="This gives us two equations.") as tracker:
+      self.play(
+          Write(equation_1),
+          Write(equation_2)
+      )
+      self.wait(tracker.duration)
+
+    # Implementation: Part 6
+    # Implementation: Solve for b0
+    solve_b0 = MathTex(r"b_0 = \bar{y} - b_1 \bar{x}", color=LIGHT_BLUE).scale(1).next_to(equation_2, DOWN, buff=0.5)
+
+    # Implementation: Add voiceover for Part 6
+    with self.voiceover(text="Solving these,") as tracker:
+      self.play(Write(solve_b0))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 7
+    # Implementation: Solve for b1
+    solve_b1 = MathTex(r"b_1 = \frac{n \sum x_i y_i - \sum x_i \sum y_i}{n \sum x_i^2 - (\sum x_i)^2}", color=ORANGE).scale(0.9).next_to(solve_b0, DOWN, buff=0.5)
+
+    # Implementation: Add voiceover for Part 7
+    with self.voiceover(text="we get the formulas for b₁ and b₀.") as tracker:
+      self.play(Write(solve_b1))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 8
+    # Implementation: Display the final formulas
+    final_b1 = MathTex(r"b_1 = \frac{n \sum x_i y_i - \sum x_i \sum y_i}{n \sum x_i^2 - (\sum x_i)^2}", color=ORANGE).scale(1.1).shift(UP)
+    final_b0 = MathTex(r"b_0 = \bar{y} - b_1 \bar{x}", color=LIGHT_BLUE).scale(1.1).next_to(final_b1, DOWN, buff=0.5)
+
+    # Implementation: Add voiceover for Part 8
+    with self.voiceover(text="Here they are. Don't worry too much about the calculus; what's important is that these formulas give us the slope and y-intercept of the best fit line.") as tracker:
+      self.play(
+          Transform(solve_b1, final_b1),
+          Transform(solve_b0, final_b0)
+      )
+      self.wait(tracker.duration)
+      self.clear()
+
+  def play_scene_7(self):
+    """
+    Introduce multiple linear regression with a 3D scatter plot and a plane.
+    - Part 1: Introduce the concept of multiple factors.
+    - Part 2: Introduce multiple linear regression.
+    - Part 3: Visualize with a 3D plot and plane.
+    """
+    # Implementation: Part 1
+    # Implementation: Display the equation for multiple linear regression
+    multiple_regression_eq = MathTex(r"\hat{y} = b_0 + b_1 x_1 + b_2 x_2", color=WHITE).scale(1.2).to_edge(UP)
+
+    # Implementation: Add voiceover for Part 1
+    with self.voiceover(text="What if we have more than one factor affecting the house price, like size and number of bedrooms?") as tracker:
+      self.play(Write(multiple_regression_eq))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 2
+    # Implementation: Introduce a 3D scatter plot
+    axes = ThreeDAxes(
+        x_range=[0, 6],
+        y_range=[0, 6],
+        z_range=[0, 6],
+        x_length=6,
+        y_length=6,
+        z_length=6,
+        axis_config={"color": LIGHT_GRAY},
+    ).shift(DOWN * 0.5)
+
+    # Implementation: Label the axes
+    x_label = Text("x₁", color=WHITE).next_to(axes.x_axis, RIGHT)
+    y_label = Text("x₂", color=WHITE).next_to(axes.y_axis, UP)
+    z_label = Text("y", color=WHITE).next_to(axes.z_axis, OUT)
+
+    # Implementation: Create data points for the 3D scatter plot
+    data_points = [
+        (1, 1, 2),
+        (2, 2, 2.8),
+        (2.5, 3, 3),
+        (3.5, 4, 4.2),
+        (4, 4.5, 4.5),
+        (5, 5, 5.3)
+    ]
+    dots = VGroup(*[
+        Dot3D(axes.c2p(x, y, z), color=BLUE)
+        for x, y, z in data_points
+    ])
+
+    # Implementation: Add voiceover for Part 2
+    with self.voiceover(text="This is called multiple linear regression. The equation now looks like this, with multiple 'x' values and their corresponding coefficients.") as tracker:
+      self.play(
+          Create(axes),
+          Write(x_label),
+          Write(y_label),
+          Write(z_label),
+          Create(dots)
+      )
+      self.wait(tracker.duration)
+
+    # Implementation: Part 3
+    # Implementation: Display a semi-transparent plane
+    plane = Surface(
+        lambda u, v: axes.c2p(u, v, 0.5 * u + 0.5 * v + 1),
+        u_range=[0, 6],
+        v_range=[0, 6],
+        fill_opacity=0.5,
+        checkerboard_colors=[BLUE_D, BLUE_E]
+    )
+
+    # Implementation: Add voiceover for Part 3
+    with self.voiceover(text="Instead of a line, we now have a plane that best fits the data in multiple dimensions.") as tracker:
+      self.play(Create(plane))
+      self.wait(tracker.duration)
+      self.clear()
+
+  def play_scene_8(self):
+    """
+    Introduce the concept of R-squared as a measure of model fit.
+    - Part 1: Introduce R-squared.
+    - Part 2: Explain R-squared.
+    - Part 3: Display R-squared range.
+    - Part 4: Explain the meaning of different R-squared values.
+    """
+    # Implementation: Part 1
+    # Implementation: Display the R-squared formula
+    r_squared_formula = MathTex(r"R^2 = \frac{\text{Explained Variance}}{\text{Total Variance}}", color=WHITE).scale(1.2).to_edge(UP)
+
+    # Implementation: Add voiceover for Part 1
+    with self.voiceover(text="Finally, how do we know if our model is any good?") as tracker:
+      self.play(Write(r_squared_formula))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 2
+    # Implementation: Explain R-squared using a pie chart
+    pie_chart = PieChart(
+        [0.7, 0.3],
+        ["Explained", "Unexplained"],
+        [GREEN, RED],
+        radius=1.5
+    ).next_to(r_squared_formula, DOWN, buff=0.5)
+
+    # Implementation: Add voiceover for Part 2
+    with self.voiceover(text="One common metric is R-squared. It tells us how much of the variation in house prices our model can explain.") as tracker:
+      self.play(Create(pie_chart))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 3
+    # Implementation: Display a horizontal bar for R-squared range
+    r_squared_bar = BarChart(
+        values=[1, 0],
+        bar_names=["1", "0"],
+        y_range=[0, 1],
+        y_length=1,
+        x_length=6,
+        x_axis_config={"font_size": 36},
+        bar_colors=[GREEN, RED]
+    ).next_to(pie_chart, DOWN, buff=0.5)
+
+    # Implementation: Add voiceover for Part 3
+    with self.voiceover(text="R-squared ranges from 0 to 1.") as tracker:
+      self.play(Create(r_squared_bar))
+      self.wait(tracker.duration)
+
+    # Implementation: Part 4
+    # Implementation: Highlight different segments on the bar and explain their meaning
+    good_
