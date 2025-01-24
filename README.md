@@ -16,13 +16,32 @@ Given a complete description of video (divided into multiple animation and audio
 
 ### Sample Videos
 **Help me Understand Linear Regression**  
-<video src="assets/LinearReg.mp4" controls width="600"></video>
+
+
+https://github.com/user-attachments/assets/51932b37-cb0d-4021-98a6-e57539a3c979
+
+
 
 **What is the difference b/w SQL and NoSQL databases**  
-<video src="assets/sqlvsnosql.mp4" controls width="600"></video>
+
+
+https://github.com/user-attachments/assets/b8be8718-ae46-4e07-ab7b-fbcdaf0318df
+
+
 
 **Explain all the three laws of motion**  
-<video src="assets/laws_of_motion.mp4" controls width="600"></video>
+
+
+https://github.com/user-attachments/assets/049737ee-4bfa-4581-bc04-302a6b2101af
+
+
+
+
 
 **What is Gaussian distribution**  
-<video src="assets/gaussian.mp4" controls width="600"></video>
+
+
+https://github.com/user-attachments/assets/12fc62e1-e505-4125-830f-f5fef96ce65a
+
+
+
